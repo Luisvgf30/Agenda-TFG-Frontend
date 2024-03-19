@@ -1,5 +1,8 @@
+import jdk.javadoc.internal.tool.Main.main
+
 plugins {
     alias(libs.plugins.androidApplication)
+
 }
 
 android {
@@ -26,6 +29,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+
 }
 
 dependencies {
