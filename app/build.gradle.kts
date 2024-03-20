@@ -1,4 +1,3 @@
-import jdk.javadoc.internal.tool.Main.main
 
 plugins {
     alias(libs.plugins.androidApplication)
