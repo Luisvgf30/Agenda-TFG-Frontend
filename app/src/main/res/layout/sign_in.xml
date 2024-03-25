@@ -8,12 +8,28 @@
     android:background="@drawable/fondo"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="141dp"
+        android:text="¿Has olvidado la contraseña?"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:drawableTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/redondear"
         android:backgroundTint="#FFFFFF"
@@ -23,7 +39,6 @@
         app:circularflow_angles="10dp"
         app:circularflow_radiusInDP="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -37,14 +52,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="TODO" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/redondear"
         android:backgroundTint="#FFFFFF"
@@ -54,34 +70,38 @@
         app:circularflow_angles="10dp"
         app:circularflow_radiusInDP="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="DuplicateIds" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="141dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="90dp"
         android:layout_marginEnd="141dp"
+        android:layout_marginBottom="18dp"
         android:text="Tu Agenda Personal "
-        android:textColor="#9E9B9B"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:drawableTint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText"
+        tools:ignore="DuplicateIds" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="22dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="#FFFFFF"
         android:text="Sign in"
         android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -91,13 +111,33 @@
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="11dp"
         android:backgroundTint="#FFFFFF"
         android:text="Sing up"
         android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/switch1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        tools:ignore="MissingConstraints" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="30dp"
+        android:minHeight="20dp"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp"
+        android:text="Recuerdame"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
