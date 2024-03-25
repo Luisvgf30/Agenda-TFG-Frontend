@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_app"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="10dp"
+    tools:layout_editor_absoluteY="-68dp">
 
     <Button
         android:id="@+id/editarPerfil"
@@ -29,10 +31,11 @@
         android:id="@+id/nombreUsuario"
         android:layout_width="143dp"
         android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="72dp"
         android:text="Username:"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -40,10 +43,11 @@
         android:id="@+id/nombreUsuarioDesc"
         android:layout_width="193dp"
         android:layout_height="35dp"
-        android:layout_marginTop="143dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="28dp"
         android:text="rubeen_06_"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -51,10 +55,11 @@
         android:id="@+id/emailDesc"
         android:layout_width="193dp"
         android:layout_height="35dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="28dp"
         android:text="ruben@gmail.com"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreUsuarioDesc" />
 
@@ -62,8 +67,8 @@
         android:id="@+id/passwordDesc"
         android:layout_width="193dp"
         android:layout_height="35dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="28dp"
         android:text="*******"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,10 +78,11 @@
         android:id="@+id/email"
         android:layout_width="143dp"
         android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:text="Email:"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreUsuario" />
 
@@ -84,10 +90,11 @@
         android:id="@+id/password"
         android:layout_width="143dp"
         android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
         android:text="Password:"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
