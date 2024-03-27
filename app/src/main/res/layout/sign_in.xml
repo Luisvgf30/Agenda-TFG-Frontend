@@ -8,6 +8,11 @@
     android:background="@drawable/fondo"
     tools:context=".MainActivity">
 
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -86,14 +91,14 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:drawableTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/signin_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputEditText"
         tools:ignore="DuplicateIds" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signin_login"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
@@ -101,13 +106,13 @@
         android:backgroundTint="#FFFFFF"
         android:text="Sign in"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/signup_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signup_login"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
@@ -120,7 +125,7 @@
         app:layout_constraintBottom_toTopOf="@+id/switch1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/signin_login"
         tools:ignore="MissingConstraints" />
 
     <Switch
@@ -138,6 +143,6 @@
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
