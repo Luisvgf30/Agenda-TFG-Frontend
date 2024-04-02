@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="aqua">#00957A</color>
     <color name="darkaqua">#003027</color>
+    <color name="weekday">#00FF7F</color>
 </resources>

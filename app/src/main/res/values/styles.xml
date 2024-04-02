@@ -4,4 +4,12 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="colorMonthDay" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="colorWeekDay" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/weekday</item>
+    </style>
 </resources>
