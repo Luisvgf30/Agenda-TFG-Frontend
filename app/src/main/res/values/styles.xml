@@ -12,4 +12,6 @@
     <style name="colorWeekDay" parent="TextAppearance.AppCompat.Large">
         <item name="android:textColor">@color/weekday</item>
     </style>
+
+    
 </resources>
