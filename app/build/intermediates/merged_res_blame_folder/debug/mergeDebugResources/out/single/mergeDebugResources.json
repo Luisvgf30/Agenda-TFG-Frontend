@@ -1,0 +1,470 @@
+[
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_baseline_account_circle_24.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\baseline_account_circle_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_baseline_calendar_month_24.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\baseline_calendar_month_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_outline_show_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\outline_show_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_outline_show_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\outline_show_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_outline_show_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\outline_show_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\baseline_account_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_ic_notifications_black_24dp.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\ic_notifications_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_eventos.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\eventos.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_ic_notifications_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\baseline_account_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_baseline_calendar_month_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\baseline_calendar_month_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_ic_dashboard_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_baseline_calendar_month_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\baseline_calendar_month_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_outline_show_eye_24.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\outline_show_eye_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_ic_dashboard_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_add.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\add.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_ic_home_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\ic_home_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_baseline_chat_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\baseline_chat_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable_redondear.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\drawable\\redondear.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_outline_hide_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\outline_hide_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_ic_notifications_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_outline_hide_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\outline_hide_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\baseline_account_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_add.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\add.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_baseline_calendar_month_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\baseline_calendar_month_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_ic_home_black_24dp.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\ic_home_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_add.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\add.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_ic_home_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\ic_home_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_add.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\add.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_ic_dashboard_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\navigation\\mobile_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_baseline_chat_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\baseline_chat_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_baseline_assignment_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\baseline_assignment_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_outline_show_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\outline_show_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_ic_dashboard_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable_round_back_primary_15.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\drawable\\round_back_primary_15.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_outline_hide_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\outline_hide_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout-v21_activity_main.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout-v21\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_tareas.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\tareas.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_ic_dashboard_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_baseline_assignment_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\baseline_assignment_24.png"
+    },
+    {
+        "merged": "com.example.miagenda.app-debug-44:/layout_fragment_notes.xml.flat",
+        "source": "com.example.miagenda.app-main-46:/layout/fragment_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_sign_up.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\sign_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_ic_notifications_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_ic_home_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\ic_home_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_outline_show_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\outline_show_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_profile.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_addeventos.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\addeventos.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_add.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\add.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\baseline_account_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_sign_in.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\sign_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_baseline_assignment_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\baseline_assignment_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_editprofile.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\editprofile.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_ic_home_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\ic_home_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-ldpi_baseline_calendar_month_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-ldpi\\baseline_calendar_month_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_fragment_calendar.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\fragment_calendar.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_outline_hide_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\outline_hide_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_ic_notifications_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_ic_dashboard_black_24dp.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\ic_dashboard_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_outline_hide_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\outline_hide_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable_round_back_dark_blue5_15.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\drawable\\round_back_dark_blue5_15.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_baseline_chat_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\baseline_chat_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_baseline_chat_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\baseline_chat_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable_perfil.jpg.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\drawable\\perfil.jpg"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_ic_dashboard_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_ic_home_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\ic_home_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_baseline_assignment_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\baseline_assignment_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_fragment_profile.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_fragment_notes.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\fragment_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_add.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\add.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-mdpi_ic_home_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-mdpi\\ic_home_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable_bottom_nav_background.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\drawable\\bottom_nav_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable_fondo_app.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\drawable\\fondo_app.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_baseline_assignment_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\baseline_assignment_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_outline_hide_eye_24.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\outline_hide_eye_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_add.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\add.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_ic_notifications_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_baseline_assignment_24.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\baseline_assignment_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_ic_notifications_black_24dp.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\baseline_account_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_baseline_calendar_month_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\baseline_calendar_month_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_outline_show_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\outline_show_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_fragment_tasks.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\fragment_tasks.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_outline_hide_eye_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\outline_hide_eye_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xhdpi_baseline_assignment_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xhdpi\\baseline_assignment_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-hdpi_baseline_chat_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-hdpi\\baseline_chat_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-anydpi-v21_baseline_chat_24.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-anydpi-v21\\baseline_chat_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\layout_notas.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\notas.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\baseline_account_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_baseline_chat_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\baseline_chat_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_baseline_calendar_month_24.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\baseline_calendar_month_24.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-debug-44:\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-pngs-40:\\drawable-xxhdpi\\ic_launcher_background.png"
+    }
+]

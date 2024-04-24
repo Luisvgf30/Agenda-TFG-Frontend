@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\sign_up.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\sign_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\notas.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\notas.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\fragment_profile.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\profile.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\editprofile.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\editprofile.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\sign_in.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\sign_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\eventos.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\eventos.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\fragment_notes.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\fragment_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\fragment_calendar.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\fragment_calendar.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\addeventos.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\addeventos.xml"
+    },
+    {
+        "merged": "com.example.miagenda.app-mergeDebugResources-43:/layout/fragment_notes.xml",
+        "source": "com.example.miagenda.app-main-46:/layout/fragment_notes.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\tareas.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\tareas.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-mergeDebugResources-43:\\layout\\fragment_tasks.xml",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.4\\com.example.miagenda.app-main-46:\\layout\\fragment_tasks.xml"
+    }
+]

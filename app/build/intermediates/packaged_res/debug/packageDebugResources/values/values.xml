@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="aqua">#00957A</color>
+    <color name="black">#FF000000</color>
+    <color name="calendar">#1194AA</color>
+    <color name="calendar_20">#331194AA</color>
+    <color name="darkaqua">#003027</color>
+    <color name="notes">#C9379D</color>
+    <color name="notes_20">#33C9379D</color>
+    <color name="primary">#01AED8</color>
+    <color name="profile">#5B37B7</color>
+    <color name="profile_20">#335B37B7</color>
+    <color name="tasks">#AE7E0F</color>
+    <color name="tasks_20">#33AE7E0F</color>
+    <color name="weekday">#00FF7F</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <string name="app_name">MiAgenda</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_calendar">Calendario</string>
+    <string name="title_notes">Notas</string>
+    <string name="title_profile">Perfil</string>
+    <string name="title_tasks">Tareas</string>
+    <style name="Base.Theme.MiAgenda" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.MiAgenda" parent="Base.Theme.MiAgenda"/>
+    <style name="colorMonthDay" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="colorWeekDay" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/weekday</item>
+    </style>
+    <style name="imagenCircular">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
