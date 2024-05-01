@@ -1,4 +1,8 @@
-package com.example.miagenda.API;
+package com.example.miagenda.api.retrofit;
+
+
+
+import com.example.miagenda.api.Usuario;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -7,7 +11,7 @@ import retrofit2.http.POST;
 
 public interface PerfilAPI {
     @FormUrlEncoded
-    @POST("") // dentro de las comillas la ruta en la api"registrase"
+    @POST("/singUpUsu") // dentro de las comillas la ruta en la api"registrase"
     Call<Usuario> RegistrarUsuario(
             @Field("email") String email,
             @Field("usuario") String usuario,
@@ -17,7 +21,7 @@ public interface PerfilAPI {
 
 
     @FormUrlEncoded
-    @POST("") // dentro de las comillas la ruta en la api"lohgearse"
+    @POST("/login") // dentro de las comillas la ruta en la api"lohgearse"
     Call<Usuario> LogearUsuario(
             @Field("usuario") String usuario,
             @Field("password") String password
