@@ -27,6 +27,7 @@
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         android:background="#00AAAAAA"
+        app:itemActiveIndicatorStyle="@null"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,8 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.notes.NotesFragment"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/fondo_app">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:gravity="center"
+        android:text="Mis Notas"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -22,21 +41,12 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <TextView
-                android:id="@+id/tvTaskNameLabel"
-                android:layout_width="158dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="4dp"
-                android:text="Tarea"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/white" />
+
 
             <TextView
                 android:id="@+id/tvTaskName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvTaskNameLabel"
                 android:text="Nivel: Alto"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/white"
@@ -53,63 +63,44 @@
                 android:textColor="@color/white"
                 android:layout_marginBottom="4dp" />
 
-            <TextView
-                android:id="@+id/tvTimeRemaining"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvTimeRemainingLabel"
-                android:layout_alignParentEnd="true"
-                android:text="1:35h"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/white"
-                android:layout_marginBottom="8dp" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvTaskName"
-                android:layout_centerInParent="true"
-                android:backgroundTint="@color/white"
-                app:cornerRadius="20dp"
-                android:text="Estado"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp"
-                android:layout_marginHorizontal="50dp"/>
+
+
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
-
-    <RelativeLayout
+</LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp"
+        android:layout_marginTop="580dp"
+        android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText"
             android:layout_width="312dp"
             android:layout_height="45dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="23dp"
+            android:layout_marginEnd="13dp"
             android:layout_marginBottom="94dp"
-            android:layout_toStartOf="@+id/button"
             android:background="@drawable/redondear"
             android:backgroundTint="@color/white"
             android:hint="Añadir nota..."
             android:inputType="text"
             android:paddingLeft="17dp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/button"
-            android:layout_width="52dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="27dp"
-            android:layout_marginEnd="31dp"
-            android:layout_marginBottom="96dp"
-            android:text="=" />
+            android:layout_marginTop="24dp"
+
+            android:background="@drawable/redondear"
+            android:padding="10dp"
+            android:scaleType="center"
+            android:src="@drawable/baseline_arrow_forward_24"
+            app:itemIconTint="#00AAAAAA" />
 
 
-    </RelativeLayout>
-
+    </LinearLayout>
 </RelativeLayout>
