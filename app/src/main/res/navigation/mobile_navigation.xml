@@ -28,4 +28,19 @@
         android:name="com.example.miagenda.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/addCalendarFragment"
+        android:name="com.example.miagenda.ui.calendar.AddCalendarFragment"
+        android:label="fragment_add_calendar"
+        tools:layout="@layout/fragment_add_calendar" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/editCalendarFragment"
+        android:name="com.example.miagenda.ui.calendar.EditCalendarFragment"
+        android:label="fragment_edit_calendar"
+        tools:layout="@layout/fragment_edit_calendar" >
+    </fragment>
+
 </navigation>

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.calendar.EditCalendarFragment"
     android:background="@drawable/fondo_app"
+    android:id="@+id/editCalendarFragment"
     android:orientation="vertical">
 
     <TextView

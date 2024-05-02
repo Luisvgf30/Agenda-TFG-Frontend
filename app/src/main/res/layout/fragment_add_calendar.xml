@@ -7,7 +7,7 @@
     tools:context=".ui.calendar.AddCalendarFragment"
     android:background="@drawable/fondo_app"
     android:orientation="vertical"
-    android:id="@+id/addCalendar"
+    android:id="@+id/addCalendarFragment"
     >
     <TextView
         android:layout_width="match_parent"
@@ -82,7 +82,7 @@
         android:layout_marginTop="40dp"/>
 
     <Button
-        android:id="@+id/editarPerfil"
+        android:id="@+id/editarEvento"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:paddingStart="20dp"
