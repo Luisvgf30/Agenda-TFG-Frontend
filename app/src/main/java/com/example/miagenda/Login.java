@@ -6,15 +6,12 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.miagenda.api.Usuario;
 import com.example.miagenda.api.retrofit.PerfilAPI;
@@ -28,7 +25,7 @@ public class Login extends AppCompatActivity {
 
     private boolean passwordShowing = false;
     private PerfilAPI perfilAPI;
-    private RetrofitCliente retrofitCliente;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +38,7 @@ public class Login extends AppCompatActivity {
         final AppCompatButton signIn = findViewById(R.id.signIn);
         final AppCompatButton signUp = findViewById(R.id.signUp);
 
-        perfilAPI = retrofitCliente.getInstance().create(PerfilAPI.class);
+        perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
 
 
         passwordIcon.setOnClickListener(new View.OnClickListener(){
@@ -81,7 +78,7 @@ public class Login extends AppCompatActivity {
         Call<Usuario> call = perfilAPI.LogearUsuario(username, password);
         call.enqueue(new Callback<Usuario>() {
             @Override
-            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+            public void onResponse(@NonNull Call<Usuario> call, @NonNull Response<Usuario> response) {
                 if (response.isSuccessful()) {
                     startActivity(new Intent(Login.this, MainActivity.class));
                     finish();
@@ -91,7 +88,7 @@ public class Login extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Usuario> call, Throwable t) {
+            public void onFailure(@NonNull Call<Usuario> call, @NonNull Throwable t) {
                 Toast.makeText(Login.this, "Error en la red. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
             }
         });
