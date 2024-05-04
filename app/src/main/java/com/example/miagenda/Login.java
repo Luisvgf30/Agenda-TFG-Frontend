@@ -80,45 +80,31 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    // Método para realizar la verificación del usuario utilizando Retrofit
-    // Método para realizar la verificación del usuario utilizando Retrofit
+
     private void login(String username, String password) {
+        PerfilAPI perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
         Call<Usuario> call = perfilAPI.logearUsuario(username, password);
         call.enqueue(new Callback<Usuario>() {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    // Login exitoso, abrir la actividad principal
+                    // Login exitoso, redirigir a la actividad principal
                     startActivity(new Intent(Login.this, MainActivity.class));
                     finish();
                 } else {
                     // Error en las credenciales, mostrar mensaje de error
                     Toast.makeText(Login.this, "Error en el inicio de sesión. Verifique las credenciales.", Toast.LENGTH_SHORT).show();
-
-                    // Imprimir el error en el logcat
-                    if (response.errorBody() != null) {
-                        try {
-                            String errorResponse = response.errorBody().string();
-                            Log.e("LoginActivity", "Error en el inicio de sesión: " + errorResponse);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        Log.e("LoginActivity", "Error en el inicio de sesión: respuesta sin cuerpo");
-                    }
                 }
             }
 
-
             @Override
             public void onFailure(Call<Usuario> call, Throwable t) {
-                // Mostrar mensaje de error en Toast
-                Toast.makeText(Login.this, "Error en la red. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
-
-                // Imprimir el mensaje de error en el Logcat
-                Log.e("Retrofit", "Error de red: " + t.getMessage(), t);
+                // Error en la red, mostrar mensaje de error
+                Toast.makeText(Login.this, "Error de red. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
+                Log.e("LoginActivity", "Error de red: " + t.getMessage(), t);
             }
         });
     }
+
 
 }
