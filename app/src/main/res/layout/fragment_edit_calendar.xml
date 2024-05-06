@@ -36,7 +36,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="60dp"/>
     <EditText
-        android:id="@+id/apellidoET"
+        android:id="@+id/descripcionET"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Descripción"
@@ -66,7 +66,7 @@
         android:layout_marginTop="40dp"/>
 
     <EditText
-        android:id="@+id/emailET"
+        android:id="@+id/estadoET"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Aviso anterior al evento"

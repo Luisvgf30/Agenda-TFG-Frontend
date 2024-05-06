@@ -109,4 +109,10 @@ public class Usuario {
         this.notas = notas;
         this.eventos = eventos;
     }
+
+    public Usuario(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
 }

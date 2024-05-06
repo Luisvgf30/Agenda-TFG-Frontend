@@ -8,6 +8,7 @@ import com.example.miagenda.api.Usuario;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -17,16 +18,16 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface PerfilAPI {
-    @FormUrlEncoded
+/*    @FormUrlEncoded
     @POST("/singUpUsu") // dentro de las comillas la ruta en la api"registrase"
     Call<Usuario> RegistrarUsuario(
-            @Field("nombre") String nombre,
-            @Field("apellido") String apellido,
             @Field("email") String email,
             @Field("username") String username,
-            @Field("password") String password,
-            @Field("confirm_password") String confirm_password
-    );
+            @Field("password") String password
+                );*/
+
+    @POST("/singUpUsu") // Ruta para el registro
+    Call<Void> registrarUsuario(@Body Usuario usuario);
 
 
     @GET("/login")
@@ -43,10 +44,12 @@ public interface PerfilAPI {
 
     @POST("/createTask")
     Call<Void> createTask(
-            @Query("username") String username,
-            @Query("task_name") String taskName,
-            @Query("task_desc") String taskDesc,
-            @Query("limit_date") String limitDate
+            @Query("task_name") String task_name,
+            @Query("task_desc") String task_desc,
+            @Query("state") String state,
+            @Query("document") String document,
+            @Query("limit_date") String limit_date,
+            @Query("initial_date") String initial_date
     );
 
     @DELETE("/deleteTask")

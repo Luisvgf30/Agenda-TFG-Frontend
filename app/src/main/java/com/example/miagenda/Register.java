@@ -19,7 +19,7 @@ import retrofit2.Response;
 
 public class Register extends AppCompatActivity {
 
-    private EditText nombreET, apellidoET, emailET, usuarioET, passwordET, confirmarPasswordET;
+    private EditText emailET, usuarioET, passwordET, confirmarPasswordET;
     private ImageView passwordIcon, confirmarPasswordIcon;
     private boolean passwordShowing = false;
 
@@ -31,9 +31,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         // Inicialización de vistas
-        nombreET = findViewById(R.id.nombreET);
-        apellidoET = findViewById(R.id.apellidoET);
-        emailET = findViewById(R.id.emailET);
+        emailET = findViewById(R.id.estadoET);
         usuarioET = findViewById(R.id.usernameET);
         passwordET = findViewById(R.id.passwordET);
         confirmarPasswordET = findViewById(R.id.confirmPasswordET);
@@ -47,16 +45,14 @@ public class Register extends AppCompatActivity {
         findViewById(R.id.signUp).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nombre = nombreET.getText().toString().trim();
-                String apellido = apellidoET.getText().toString().trim();
                 String email = emailET.getText().toString().trim();
                 String usuario = usuarioET.getText().toString().trim();
                 String password = passwordET.getText().toString().trim();
                 String confirmarPassword = confirmarPasswordET.getText().toString().trim();
 
-                if (!nombre.isEmpty() && !apellido.isEmpty() && !email.isEmpty() && !usuario.isEmpty() && !password.isEmpty() && !confirmarPassword.isEmpty()) {
+                if (!email.isEmpty() && !usuario.isEmpty() && !password.isEmpty() && !confirmarPassword.isEmpty()) {
                     if (password.equals(confirmarPassword)) {
-                        registrarUsuario(nombre, apellido, email, usuario, password, confirmarPassword);
+                        registrarUsuario(email, usuario, password);
                     } else {
                         Toast.makeText(Register.this, "Las contraseñas no coinciden.", Toast.LENGTH_SHORT).show();
                     }
@@ -67,11 +63,13 @@ public class Register extends AppCompatActivity {
         });
     }
 
-    private void registrarUsuario(String nombre, String apellido, String email, String usuario, String password, String confirmarPassword) {
-        Call<Usuario> call = perfilAPI.RegistrarUsuario(nombre, apellido, email, usuario, password, confirmarPassword);
-        call.enqueue(new Callback<Usuario>() {
+    private void registrarUsuario(String email, String username, String password) {
+        Usuario usuario = new Usuario(email, username, password); // Crear un objeto Usuario
+        Call<Void> call = perfilAPI.registrarUsuario(usuario); // Llamar al método de registro con el objeto Usuario
+
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
                     // Registro exitoso, navegar a la actividad principal o mostrar mensaje
                     startActivity(new Intent(Register.this, MainActivity.class));
@@ -83,10 +81,11 @@ public class Register extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Usuario> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 // Manejar errores de red
                 Toast.makeText(Register.this, "Error de red. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 }

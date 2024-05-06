@@ -16,7 +16,7 @@ import com.example.miagenda.api.Usuario;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
 
-import java.io.IOException;
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -80,20 +80,39 @@ public class Login extends AppCompatActivity {
         });
     }
 
-
     private void login(String username, String password) {
-        PerfilAPI perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
+        // Crear la llamada para realizar la solicitud de inicio de sesión
         Call<Usuario> call = perfilAPI.logearUsuario(username, password);
+
+        // Enqueue para realizar la llamada asíncrona
         call.enqueue(new Callback<Usuario>() {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                if (response.isSuccessful() && response.body() != null) {
+                if (response.isSuccessful() && response.body() != null && response.code() == 200) {
                     // Login exitoso, redirigir a la actividad principal
                     startActivity(new Intent(Login.this, MainActivity.class));
                     finish();
                 } else {
-                    // Error en las credenciales, mostrar mensaje de error
-                    Toast.makeText(Login.this, "Error en el inicio de sesión. Verifique las credenciales.", Toast.LENGTH_SHORT).show();
+                    // Error en el inicio de sesión
+                    if (response.code() == 201) {
+                        // Usuario no encontrado o credenciales inválidas
+                        Toast.makeText(Login.this, "Credenciales incorrectas. Verifique nuevamente.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Otro error (código de respuesta inesperado)
+                        String errorMessage = "Error en el inicio de sesión. Inténtalo de nuevo.";
+                        if (response.errorBody() != null) {
+                            try {
+                                JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                                String message = jsonObject.optString("message", null);
+                                if (message != null && !message.isEmpty()) {
+                                    errorMessage = message;
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        Toast.makeText(Login.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -105,6 +124,4 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
-
 }
