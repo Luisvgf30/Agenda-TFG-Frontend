@@ -43,4 +43,31 @@
         tools:layout="@layout/fragment_edit_calendar" >
     </fragment>
 
+    <fragment
+        android:id="@+id/editarPerfil"
+        android:name="com.example.miagenda.ui.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/myTask"
+        android:name="com.example.miagenda.ui.tasks.MyTaskFragment"
+        android:label="fragment_my_task"
+        tools:layout="@layout/fragment_my_task" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/editTasks"
+        android:name="com.example.miagenda.ui.tasks.EditTasksFragment"
+        android:label="fragment_edit_tasks"
+        tools:layout="@layout/fragment_edit_tasks" >
+    </fragment>
+    <fragment
+        android:id="@+id/addTasks"
+        android:name="com.example.miagenda.ui.tasks.AddTasksFragment"
+        android:label="fragment_add_tasks"
+        tools:layout="@layout/fragment_add_tasks" >
+    </fragment>
+
 </navigation>
