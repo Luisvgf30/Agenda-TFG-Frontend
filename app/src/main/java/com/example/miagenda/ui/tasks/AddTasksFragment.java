@@ -2,22 +2,16 @@ package com.example.miagenda.ui.tasks;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.miagenda.R;
-import com.example.miagenda.api.retrofit.TareasManager;
-
-import java.util.Objects;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +29,6 @@ public class AddTasksFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private TareasManager taskManager;
     public AddTasksFragment() {
         // Required empty public constructor
     }
@@ -61,66 +54,32 @@ public class AddTasksFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        taskManager = TareasManager.getInstance();
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
-    /*@Override
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_add_tasks, container, false);
+        return inflater.inflate(R.layout.fragment_add_tasks, container, false);
+    }
 
-        final EditText etTaskName = rootView.findViewById(R.id.nombreET);
-        final EditText etTaskDescription = rootView.findViewById(R.id.descripcionET);
-        final EditText etInitialDate = rootView.findViewById(R.id.fechaInicial);
-        final EditText etLimitDate = rootView.findViewById(R.id.fechaLimite);
-        final EditText etEstado = rootView.findViewById(R.id.estadoET);
-        final EditText etPrioridad = rootView.findViewById(R.id.prioridadET);
-        final Button btnCreateTask = rootView.findViewById(R.id.editarPerfil);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        btnCreateTask.setOnClickListener(new View.OnClickListener() {
+        ImageButton botonAtras = view.findViewById(R.id.boton_atras);
+
+        botonAtras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String taskName = etTaskName.getText().toString();
-                String taskDesc = etTaskDescription.getText().toString();
-                String initialDate = etInitialDate.getText().toString();
-                String limitDate = etLimitDate.getText().toString();
-                String taskEstado = etEstado.getText().toString();
-                String taskPrioridad = etPrioridad.getText().toString();
-
-                crearTarea(taskName, taskDesc, initialDate, limitDate, taskEstado, taskPrioridad);
-
-        }
-    });
-
-        return rootView;
-    }*/
-
-
-    /*private void crearTarea(String taskName, String taskDesc, String initialDate, String limitDate, String taskEstado, String taskPrioridad) {
-        taskManager.crearTarea(taskName, taskDesc, initialDate, limitDate, taskEstado, taskPrioridad, new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    // Tarea creada exitosamente
-                    // Puedes mostrar un mensaje de éxito o realizar otras acciones aquí
-                    Objects.requireNonNull(getActivity()).finish(); // Finalizar la actividad actual
-                } else {
-                    // Error al crear la tarea
-                    // Puedes mostrar un mensaje de error o realizar acciones de manejo de errores aquí
-                }
-            }*/
-
-      /*      @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                // Error de red
-                // Puedes mostrar un mensaje de error o realizar acciones de manejo de errores aquí
+                // Vuelve al Fragment anterior
+                getParentFragmentManager().popBackStack();
             }
-        });
-    }*/
 
+        });
+    }
 }

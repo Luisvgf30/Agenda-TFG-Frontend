@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,31 +66,21 @@ public class CalendarFragment extends Fragment {
 
 
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar, container, false);
 
-        // Encuentra el Floating Action Button en tu diseño
-        FloatingActionButton fab = view.findViewById(R.id.fabAgregarEvento);
-
-        // Agrega un OnClickListener al FAB
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fabAgregarEvento = view.findViewById(R.id.fabAgregarEvento);
+        fabAgregarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Aquí defines la acción que quieres realizar al pulsar el FAB
-                // Por ejemplo, iniciar una nueva actividad
-
-                // Crea un Intent para iniciar la nueva actividad
-                Intent intent = new Intent(getActivity(), AddCalendarFragment.class);
-
-                // Inicia la actividad utilizando el contexto del fragmento
-                getActivity().startActivity(intent);
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.addCalendarFragment);
             }
         });
 
         return view;
     }
+
+
 }

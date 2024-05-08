@@ -103,14 +103,26 @@
         android:gravity="center"
         android:layout_width="325dp"
         android:layout_height="57dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:layout_marginStart="43dp"
         android:layout_marginEnd="43dp"
-        android:layout_marginBottom="76dp"
         android:text="Editar Perfil"
         app:backgroundTint="#00AAAAAA"
         app:cornerRadius="20dp"
         app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
+    <Button
+        android:id="@+id/cerrarSesion"
+        android:gravity="center"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="76dp"
+        android:text="Cerrar Sesión"
+        app:backgroundTint="@color/rojo"
+        app:cornerRadius="20dp"
         app:strokeWidth="1dp" />
 
 </LinearLayout>

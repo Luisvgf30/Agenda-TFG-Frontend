@@ -7,15 +7,35 @@
     tools:context=".ui.calendar.AddCalendarFragment"
     android:background="@drawable/fondo_app"
     android:orientation="vertical"
-    android:id="@+id/addCalendar"
+    android:id="@+id/addCalendarFragment"
     >
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="66dp"
-        android:gravity="center"
-        android:text="Añadir Evento"
-        android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/boton_atras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:background="#00AAAAAA"
+            android:layout_marginStart="10dp"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Añadir Evento"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginEnd="30dp"/>
+
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -82,7 +102,7 @@
         android:layout_marginTop="40dp"/>
 
     <Button
-        android:id="@+id/editarPerfil"
+        android:id="@+id/editarEvento"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:paddingStart="20dp"

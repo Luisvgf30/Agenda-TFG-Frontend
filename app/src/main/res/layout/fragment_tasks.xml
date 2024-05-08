@@ -86,6 +86,7 @@
                     android:layout_marginBottom="8dp" />
 
                 <Button
+                    android:id="@+id/estadoTask"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvTaskName"
@@ -104,7 +105,7 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAgregarEvento"
+        android:id="@+id/fabAgregarTarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
