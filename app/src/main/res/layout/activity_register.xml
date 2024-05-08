@@ -146,6 +146,7 @@
             android:textColor="@color/primary"
             android:textStyle="bold"/>
 
+
     </LinearLayout>
 
 </LinearLayout>

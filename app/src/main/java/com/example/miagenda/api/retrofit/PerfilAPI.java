@@ -18,16 +18,14 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface PerfilAPI {
-/*    @FormUrlEncoded
+    @FormUrlEncoded
     @POST("/singUpUsu") // dentro de las comillas la ruta en la api"registrase"
-    Call<Usuario> RegistrarUsuario(
+    Call<Usuario> registrarUsuario(
             @Field("email") String email,
             @Field("username") String username,
             @Field("password") String password
-                );*/
+                );
 
-    @POST("/singUpUsu") // Ruta para el registro
-    Call<Void> registrarUsuario(@Body Usuario usuario);
 
 
     @GET("/login")

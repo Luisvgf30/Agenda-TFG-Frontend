@@ -19,73 +19,82 @@ import retrofit2.Response;
 
 public class Register extends AppCompatActivity {
 
-    private EditText emailET, usuarioET, passwordET, confirmarPasswordET;
-    private ImageView passwordIcon, confirmarPasswordIcon;
-    private boolean passwordShowing = false;
 
-    private PerfilAPI perfilAPI;
+        private EditText emailET, usuarioET, passwordET, confirmarPasswordET;
+        private ImageView passwordIcon, confirmarPasswordIcon;
+        private boolean passwordShowing = false;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        private PerfilAPI perfilAPI;
 
-        // Inicialización de vistas
-        emailET = findViewById(R.id.estadoET);
-        usuarioET = findViewById(R.id.usernameET);
-        passwordET = findViewById(R.id.passwordET);
-        confirmarPasswordET = findViewById(R.id.confirmPasswordET);
-        passwordIcon = findViewById(R.id.password_icon1);
-        confirmarPasswordIcon = findViewById(R.id.password_icon2);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_register);
 
-        // Inicialización de Retrofit y PerfilAPI
-        perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
+            // Inicialización de vistas
+            emailET = findViewById(R.id.estadoET);
+            usuarioET = findViewById(R.id.usernameET);
+            passwordET = findViewById(R.id.passwordET);
+            confirmarPasswordET = findViewById(R.id.confirmPasswordET);
+            passwordIcon = findViewById(R.id.password_icon1);
+            confirmarPasswordIcon = findViewById(R.id.password_icon2);
 
-        // Configuración del botón de registro
-        findViewById(R.id.signUp).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = emailET.getText().toString().trim();
-                String usuario = usuarioET.getText().toString().trim();
-                String password = passwordET.getText().toString().trim();
-                String confirmarPassword = confirmarPasswordET.getText().toString().trim();
+            // Inicialización de Retrofit y PerfilAPI
+            perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
 
-                if (!email.isEmpty() && !usuario.isEmpty() && !password.isEmpty() && !confirmarPassword.isEmpty()) {
-                    if (password.equals(confirmarPassword)) {
-                        registrarUsuario(email, usuario, password);
+            // Configuración del botón de registro
+            findViewById(R.id.signUp).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String email = emailET.getText().toString().trim();
+                    String usuario = usuarioET.getText().toString().trim();
+                    String password = passwordET.getText().toString().trim();
+                    String confirmarPassword = confirmarPasswordET.getText().toString().trim();
+
+                    if (!email.isEmpty() && !usuario.isEmpty() && !password.isEmpty() && !confirmarPassword.isEmpty()) {
+                        if (password.equals(confirmarPassword)) {
+                            registrarUsuario(email, usuario, password);
+                        } else {
+                            Toast.makeText(Register.this, "Las contraseñas no coinciden.", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
-                        Toast.makeText(Register.this, "Las contraseñas no coinciden.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Register.this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(Register.this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
-    }
+            });
+        }
 
-    private void registrarUsuario(String email, String username, String password) {
-        Usuario usuario = new Usuario(email, username, password); // Crear un objeto Usuario
-        Call<Void> call = perfilAPI.registrarUsuario(usuario); // Llamar al método de registro con el objeto Usuario
+        private void registrarUsuario(String email, String username, String password) {
+            Usuario usuario = new Usuario(email, username, password);
+            Call<Usuario> call = perfilAPI.registrarUsuario(email, username, password);
 
-        call.enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    // Registro exitoso, navegar a la actividad principal o mostrar mensaje
-                    startActivity(new Intent(Register.this, MainActivity.class));
-                    finish();
-                } else {
-                    // Manejar errores de registro (por ejemplo, usuario ya registrado)
-                    Toast.makeText(Register.this, "Error en el registro. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
+            call.enqueue(new Callback<Usuario>() {
+                @Override
+                public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                        if (response.isSuccessful()) {
+                            // Registro exitoso
+                            Usuario usuario = response.body();
+
+                            // Redirigir a la pantalla de inicio de sesión (LoginActivity)
+                            Intent intent = new Intent(Register.this, Login.class);
+                            startActivity(intent);
+                            finish(); // Esto termina la actividad actual (Register) para que no pueda volver atrás con el botón "Atrás"
+                        } else {
+                            // Manejar errores de registro
+                            if (response.code() == 400) {
+                                // Error de datos duplicados (nombre de usuario o email existen)
+                                Toast.makeText(Register.this, "Nombre de usuario o email ya existe", Toast.LENGTH_SHORT).show();
+                            } else {
+                                // Otro tipo de error
+                                Toast.makeText(Register.this, "Error en el registro. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                 }
-            }
-
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                // Manejar errores de red
-                Toast.makeText(Register.this, "Error de red. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
-            }
-        });
+                    @Override
+                public void onFailure(Call<Usuario> call, Throwable t) {
+                    // Manejar errores de red
+                    Toast.makeText(Register.this, "Error de red. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
-
-}

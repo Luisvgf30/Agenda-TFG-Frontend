@@ -115,4 +115,9 @@ public class Usuario {
         this.password = password;
         this.email = email;
     }
+
+    public Usuario(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }

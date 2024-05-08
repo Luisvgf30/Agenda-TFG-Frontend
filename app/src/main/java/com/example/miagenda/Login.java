@@ -15,6 +15,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.example.miagenda.api.Usuario;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
+import com.example.miagenda.ui.profile.ProfileFragment;
 
 import org.json.JSONObject;
 
@@ -26,6 +27,7 @@ public class Login extends AppCompatActivity {
 
     private boolean passwordShowing = false;
     private PerfilAPI perfilAPI;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class Login extends AppCompatActivity {
         final AppCompatButton signIn = findViewById(R.id.signIn);
         final AppCompatButton signUp = findViewById(R.id.signUp);
 
+        sessionManager = new SessionManager(this);
         // Inicializar la instancia de PerfilAPI utilizando RetrofitCliente
         perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
 
@@ -84,14 +87,17 @@ public class Login extends AppCompatActivity {
         // Crear la llamada para realizar la solicitud de inicio de sesión
         Call<Usuario> call = perfilAPI.logearUsuario(username, password);
 
+
         // Enqueue para realizar la llamada asíncrona
         call.enqueue(new Callback<Usuario>() {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if (response.isSuccessful() && response.body() != null && response.code() == 200) {
                     // Login exitoso, redirigir a la actividad principal
+                    sessionManager.saveUser(response.body());
                     startActivity(new Intent(Login.this, MainActivity.class));
                     finish();
+
                 } else {
                     // Error en el inicio de sesión
                     if (response.code() == 201) {
@@ -124,4 +130,5 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
 }
