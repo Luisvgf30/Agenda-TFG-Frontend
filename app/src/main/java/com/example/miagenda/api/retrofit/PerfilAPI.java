@@ -4,6 +4,7 @@ package com.example.miagenda.api.retrofit;
 
 import com.example.miagenda.api.Tarea;
 import com.example.miagenda.api.Usuario;
+import com.example.miagenda.api.UsuarioActualizarRequest;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -32,6 +34,12 @@ public interface PerfilAPI {
     Call<Usuario> logearUsuario(
             @Query("username") String usuario,
             @Query("password") String password
+    );
+
+    @PUT("/editUsu")
+    Call<Void> updateUser(
+            @Query("username") String username,
+            @Body UsuarioActualizarRequest request
     );
 
     @FormUrlEncoded

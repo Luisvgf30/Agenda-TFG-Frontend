@@ -33,7 +33,7 @@ public class Register extends AppCompatActivity {
 
             // Inicialización de vistas
             emailET = findViewById(R.id.estadoET);
-            usuarioET = findViewById(R.id.usernameET);
+            usuarioET = findViewById(R.id.editPassword);
             passwordET = findViewById(R.id.passwordET);
             confirmarPasswordET = findViewById(R.id.confirmPasswordET);
             passwordIcon = findViewById(R.id.password_icon1);

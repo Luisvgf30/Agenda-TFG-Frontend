@@ -1,85 +1,88 @@
 package com.example.miagenda.ui.profile;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.miagenda.R;
+import com.example.miagenda.api.UsuarioActualizarRequest;
+import com.example.miagenda.api.retrofit.UsuarioApiCliente;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link EditProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class EditProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private UsuarioApiCliente usuarioApiClient;
+    private EditText usernameEditText, emailEditText, passwordEditText;
 
     public EditProfileFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment EditProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static EditProfileFragment newInstance(String param1, String param2) {
-        EditProfileFragment fragment = new EditProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        // Constructor vacío requerido por Fragment
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_profile, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        usernameEditText = view.findViewById(R.id.editUserName);
+        emailEditText = view.findViewById(R.id.EditEmail);
+        passwordEditText = view.findViewById(R.id.editPassword);
 
-        ImageButton botonAtras = view.findViewById(R.id.boton_atras);
-
-        botonAtras.setOnClickListener(new View.OnClickListener() {
+        Button updateButton = view.findViewById(R.id.editarPerfil);
+        updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Vuelve al Fragment anterior
-                getParentFragmentManager().popBackStack();
+                updateUserProfile();
+            }
+        });
+
+        usuarioApiClient = new UsuarioApiCliente(); // Inicializa el cliente de la API
+
+        return view;
+    }
+
+    private void updateUserProfile() {
+        String newUsername = usernameEditText.getText().toString().trim();
+        String newEmail = emailEditText.getText().toString().trim();
+        String newPassword = passwordEditText.getText().toString().trim();
+
+        // Verificar que el nombre de usuario no esté vacío
+        if (newUsername.isEmpty()) {
+            Toast.makeText(getContext(), "El nombre de usuario no puede estar vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Crear la solicitud de actualización del usuario
+        UsuarioActualizarRequest updateRequest = new UsuarioActualizarRequest(newUsername, newEmail, newPassword);
+
+        // Llamar al método de actualización del usuario en el cliente de la API
+        usuarioApiClient.updateUser(newUsername, updateRequest, new UsuarioApiCliente.UserUpdateCallback() {
+            @Override
+            public void onSuccess() {
+                // Actualización exitosa
+                Toast.makeText(getContext(), "Perfil actualizado correctamente", Toast.LENGTH_SHORT).show();
+
+                // Refrescar los datos en el fragmento de perfil
+                if (getActivity() != null) {
+                    ProfileFragment profileFragment = (ProfileFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.nav_hostfragment);
+                    if (profileFragment != null) {
+                        profileFragment.refreshProfileData(); // Actualizar datos del perfil
+                    }
+                }
+
+                // Volver al fragmento anterior
+                requireActivity().getSupportFragmentManager().popBackStack();
             }
 
+            @Override
+            public void onError(String errorMessage) {
+                // Manejar error
+                Toast.makeText(getContext(), "Error al actualizar perfil: " + errorMessage, Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

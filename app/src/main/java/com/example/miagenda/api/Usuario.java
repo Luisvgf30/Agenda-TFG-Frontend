@@ -1,9 +1,10 @@
 package com.example.miagenda.api;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.text.DateFormat;
 
-public class Usuario {
+public class Usuario implements Serializable {
     public int id;
     public  String username;
     public String password;

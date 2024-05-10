@@ -15,7 +15,6 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.example.miagenda.api.Usuario;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
-import com.example.miagenda.ui.profile.ProfileFragment;
 
 import org.json.JSONObject;
 
@@ -35,7 +34,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Obtener referencias a los elementos de la interfaz de usuario
-        final EditText usernameET = findViewById(R.id.usernameET);
+        final EditText usernameET = findViewById(R.id.editPassword);
         final EditText passwordET = findViewById(R.id.passwordET);
         final ImageView passwordIcon = findViewById(R.id.password_icon);
         final AppCompatButton signIn = findViewById(R.id.signIn);
