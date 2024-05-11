@@ -62,7 +62,7 @@
                 android:layout_margin="8dp"
                 app:cardCornerRadius="4dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="#03514A"
                 app:cardPreventCornerOverlap="false"
                 app:cardUseCompatPadding="true"
                 app:strokeColor="@color/white"
