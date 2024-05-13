@@ -20,6 +20,12 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface PerfilAPI {
+    @POST("/createTask")
+    Call<Void> createTask(
+            @Body Tarea tarea
+    );
+
+
     @FormUrlEncoded
     @POST("/singUpUsu") // dentro de las comillas la ruta en la api"registrase"
     Call<Usuario> registrarUsuario(
