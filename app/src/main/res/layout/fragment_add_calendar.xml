@@ -43,7 +43,7 @@
         android:background="@color/white" />
 
     <EditText
-        android:id="@+id/nombreET"
+        android:id="@+id/editUserName"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Nombre"
@@ -57,7 +57,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="60dp"/>
     <EditText
-        android:id="@+id/apellidoET"
+        android:id="@+id/EditEmail"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Descripción"
@@ -72,7 +72,7 @@
         android:layout_marginTop="40dp"/>
 
     <EditText
-        android:id="@+id/usernameET"
+        android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Fecha"
@@ -87,7 +87,7 @@
         android:layout_marginTop="40dp"/>
 
     <EditText
-        android:id="@+id/emailET"
+        android:id="@+id/estadoET"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Aviso anterior al evento"

@@ -2,89 +2,99 @@ package com.example.miagenda;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.miagenda.api.Usuario;
+import com.example.miagenda.api.retrofit.PerfilAPI;
+import com.example.miagenda.api.retrofit.RetrofitCliente;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Register extends AppCompatActivity {
 
-    private boolean passwordShowing = false;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_register);
 
-        final EditText email = findViewById(R.id.emailET);
-        final EditText username = findViewById(R.id.usernameET);
-        final EditText password = findViewById(R.id.passwordET);
-        final EditText conPassword = findViewById(R.id.confirmPasswordET);
-        final ImageView passwordIcon = findViewById(R.id.password_icon1);
-        final ImageView conPasswordIcon = findViewById(R.id.password_icon2);
-        final AppCompatButton signUpBtn = findViewById(R.id.signUp);
-        final TextView signInBtn = findViewById(R.id.signIn);
+        private EditText emailET, usuarioET, passwordET, confirmarPasswordET;
+        private ImageView passwordIcon, confirmarPasswordIcon;
+        private boolean passwordShowing = false;
 
+        private PerfilAPI perfilAPI;
 
-        passwordIcon.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                if(passwordShowing){
-                    passwordShowing = false;
-                    password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    passwordIcon.setImageResource(R.drawable.outline_hide_eye_24);
-                }else{
-                    passwordShowing = true;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_register);
 
-                    password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    passwordIcon.setImageResource(R.drawable.outline_show_eye_24);
+            // Inicialización de vistas
+            emailET = findViewById(R.id.estadoET);
+            usuarioET = findViewById(R.id.editPassword);
+            passwordET = findViewById(R.id.passwordET);
+            confirmarPasswordET = findViewById(R.id.confirmPasswordET);
+            passwordIcon = findViewById(R.id.password_icon1);
+            confirmarPasswordIcon = findViewById(R.id.password_icon2);
 
-                    password.setSelection(password.length());
+            // Inicialización de Retrofit y PerfilAPI
+            perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
+
+            // Configuración del botón de registro
+            findViewById(R.id.signUp).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String email = emailET.getText().toString().trim();
+                    String usuario = usuarioET.getText().toString().trim();
+                    String password = passwordET.getText().toString().trim();
+                    String confirmarPassword = confirmarPasswordET.getText().toString().trim();
+
+                    if (!email.isEmpty() && !usuario.isEmpty() && !password.isEmpty() && !confirmarPassword.isEmpty()) {
+                        if (password.equals(confirmarPassword)) {
+                            registrarUsuario(email, usuario, password);
+                        } else {
+                            Toast.makeText(Register.this, "Las contraseñas no coinciden.", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(Register.this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        }
 
-        conPasswordIcon.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                if(passwordShowing){
-                    passwordShowing = false;
-                    conPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    conPasswordIcon.setImageResource(R.drawable.outline_hide_eye_24);
-                }else{
-                    passwordShowing = true;
+        private void registrarUsuario(String email, String username, String password) {
+            Usuario usuario = new Usuario(email, username, password);
+            Call<Usuario> call = perfilAPI.registrarUsuario(email, username, password);
 
-                    conPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    conPasswordIcon.setImageResource(R.drawable.outline_show_eye_24);
+            call.enqueue(new Callback<Usuario>() {
+                @Override
+                public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                        if (response.isSuccessful()) {
+                            // Registro exitoso
+                            Usuario usuario = response.body();
 
-                    conPassword.setSelection(conPassword.length());
+                            // Redirigir a la pantalla de inicio de sesión (LoginActivity)
+                            Intent intent = new Intent(Register.this, Login.class);
+                            startActivity(intent);
+                            finish(); // Esto termina la actividad actual (Register) para que no pueda volver atrás con el botón "Atrás"
+                        } else {
+                            // Manejar errores de registro
+                            if (response.code() == 400) {
+                                // Error de datos duplicados (nombre de usuario o email existen)
+                                Toast.makeText(Register.this, "Nombre de usuario o email ya existe", Toast.LENGTH_SHORT).show();
+                            } else {
+                                // Otro tipo de error
+                                Toast.makeText(Register.this, "Error en el registro. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                 }
-            }
-        });
-        signUpBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(Register.this, MainActivity.class));
-            }
-        });
-
-        signInBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                finish();
-            }
-        });
+                    @Override
+                public void onFailure(Call<Usuario> call, Throwable t) {
+                    // Manejar errores de red
+                    Toast.makeText(Register.this, "Error de red. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
-
-
-
-
-}

@@ -25,7 +25,7 @@
         android:layout_marginTop="5dp"/>
     
     <EditText
-        android:id="@+id/usernameET"
+        android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Username"
@@ -133,6 +133,5 @@
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         />
-
 
 </LinearLayout>

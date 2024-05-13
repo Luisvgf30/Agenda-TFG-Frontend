@@ -1,9 +1,10 @@
 package com.example.miagenda.api;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.text.DateFormat;
 
-public class Usuario {
+public class Usuario implements Serializable {
     public int id;
     public  String username;
     public String password;
@@ -108,5 +109,16 @@ public class Usuario {
         this.tareas = tareas;
         this.notas = notas;
         this.eventos = eventos;
+    }
+
+    public Usuario(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
+    public Usuario(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 }

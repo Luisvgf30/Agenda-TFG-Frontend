@@ -1,63 +1,35 @@
 package com.example.miagenda.ui.tasks;
 
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
-
+import android.widget.Toast;
 import com.example.miagenda.R;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AddTasksFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AddTasksFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private EditText editUserName, editEmail, fechaInicial, fechaLimite, estadoET, prioridadET, documentoET;
 
     public AddTasksFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddTasksFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static AddTasksFragment newInstance(String param1, String param2) {
         AddTasksFragment fragment = new AddTasksFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -71,15 +43,68 @@ public class AddTasksFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ImageButton botonAtras = view.findViewById(R.id.boton_atras);
-
-        botonAtras.setOnClickListener(new View.OnClickListener() {
+        ImageButton backButton = view.findViewById(R.id.boton_atras);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Vuelve al Fragment anterior
                 getParentFragmentManager().popBackStack();
             }
-
         });
+
+        Button addTaskButton = view.findViewById(R.id.editarPerfil);
+        addTaskButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createTask();
+            }
+        });
+
+        // Find all EditText fields
+        editUserName = view.findViewById(R.id.editUserName);
+        editEmail = view.findViewById(R.id.EditEmail);
+        fechaInicial = view.findViewById(R.id.fechaInicial);
+        fechaLimite = view.findViewById(R.id.fechaLimite);
+        estadoET = view.findViewById(R.id.estadoET);
+        prioridadET = view.findViewById(R.id.prioridadET);
+        documentoET = view.findViewById(R.id.documentoET);
+    }
+
+    private void createTask() {
+        String userName = editUserName.getText().toString();
+        String email = editEmail.getText().toString();
+        String initialDateStr = fechaInicial.getText().toString();
+        String limitDateStr = fechaLimite.getText().toString();
+        String estado = estadoET.getText().toString();
+        String prioridad = prioridadET.getText().toString();
+        String documento = documentoET.getText().toString();
+
+        // Check if dates are in the correct format
+        Date initialDate = parseDate(initialDateStr);
+        Date limitDate = parseDate(limitDateStr);
+
+        // Make sure the date parsing was successful
+        if (initialDate != null && limitDate != null) {
+            // Call your API to create the task with the parsed dates
+            // Note: You'll need to implement your Retrofit call here
+            // For example:
+            // createTask(userName, email, initialDate, limitDate, estado, prioridad, documento);
+            Toast.makeText(requireContext(), "Tarea creada exitosamente", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(requireContext(), "Formato de fecha inválido", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private Date parseDate(String dateString) {
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            java.util.Date parsedDate = dateFormat.parse(dateString);
+            if (parsedDate != null) {
+                return new Date(parsedDate.getTime());
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
+
