@@ -3,6 +3,7 @@ package com.example.miagenda.ui.calendar;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -76,6 +77,15 @@ public class CalendarFragment extends Fragment {
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(v);
                 navController.navigate(R.id.addCalendarFragment);
+            }
+        });
+
+        CardView cardView = view.findViewById(R.id.eventoCV);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.myEvent);
             }
         });
 
