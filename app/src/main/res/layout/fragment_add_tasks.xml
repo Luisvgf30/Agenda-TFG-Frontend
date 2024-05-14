@@ -42,7 +42,7 @@
         android:background="@color/white" />
 
     <EditText
-        android:id="@+id/editUserName"
+        android:id="@+id/addTareaName"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Nombre"
@@ -55,20 +55,21 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="30dp"/>
+
     <EditText
-        android:id="@+id/EditEmail"
+        android:id="@+id/addDescTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:hint="Descripción"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/redondear"
         android:backgroundTint="@color/white"
-        android:maxLines="1"
+        android:hint="Descripción"
         android:inputType="text"
-        android:textSize="16sp"
+        android:maxLines="1"
         android:paddingStart="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"/>
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/fechaInicial"

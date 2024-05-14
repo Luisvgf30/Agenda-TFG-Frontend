@@ -31,6 +31,9 @@ public class SessionManager {
         return null;
     }
 
+    public String getUsername() {
+        return sharedPreferences.getString(KEY_USER, null);
+    }
 
     public void clearSession() {
         sharedPreferences.edit().remove(KEY_USER).apply();

@@ -1,9 +1,15 @@
 package com.example.miagenda.ui.tasks;
 
+import static android.content.ContentValues.TAG;
+
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +18,25 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import com.example.miagenda.R;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import com.example.miagenda.SessionManager;
+import com.example.miagenda.api.Tarea;
+import com.example.miagenda.api.retrofit.PerfilAPI;
+import com.example.miagenda.api.retrofit.RetrofitCliente;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Locale;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class AddTasksFragment extends Fragment {
 
-    private EditText editUserName, editEmail, fechaInicial, fechaLimite, estadoET, prioridadET, documentoET;
+    private EditText editTaskName, editTaskDesc, fechaLimite;
+    private SessionManager sessionManager;
 
     public AddTasksFragment() {
         // Required empty public constructor
@@ -59,52 +76,70 @@ public class AddTasksFragment extends Fragment {
             }
         });
 
+        // Initialize SessionManager
+        sessionManager = new SessionManager(requireContext());
+
         // Find all EditText fields
-        editUserName = view.findViewById(R.id.editUserName);
-        editEmail = view.findViewById(R.id.EditEmail);
-        fechaInicial = view.findViewById(R.id.fechaInicial);
         fechaLimite = view.findViewById(R.id.fechaLimite);
-        estadoET = view.findViewById(R.id.estadoET);
-        prioridadET = view.findViewById(R.id.prioridadET);
-        documentoET = view.findViewById(R.id.documentoET);
+        editTaskName = view.findViewById(R.id.addTareaName);
+        editTaskDesc = view.findViewById(R.id.addDescTarea);
     }
 
     private void createTask() {
-        String userName = editUserName.getText().toString();
-        String email = editEmail.getText().toString();
-        String initialDateStr = fechaInicial.getText().toString();
+        String username = sessionManager.getUser().getUsername(); // Get username from SessionManager
+        if (username == null) {
+            Toast.makeText(requireContext(), "Usuario no logeado", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String taskName = editTaskName.getText().toString();
+        String taskDesc = editTaskDesc.getText().toString();
         String limitDateStr = fechaLimite.getText().toString();
-        String estado = estadoET.getText().toString();
-        String prioridad = prioridadET.getText().toString();
-        String documento = documentoET.getText().toString();
 
-        // Check if dates are in the correct format
-        Date initialDate = parseDate(initialDateStr);
-        Date limitDate = parseDate(limitDateStr);
+        if (taskName.isEmpty() || taskDesc.isEmpty() || limitDateStr.isEmpty()) {
+            Toast.makeText(requireContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        // Make sure the date parsing was successful
-        if (initialDate != null && limitDate != null) {
-            // Call your API to create the task with the parsed dates
-            // Note: You'll need to implement your Retrofit call here
-            // For example:
-            // createTask(userName, email, initialDate, limitDate, estado, prioridad, documento);
-            Toast.makeText(requireContext(), "Tarea creada exitosamente", Toast.LENGTH_SHORT).show();
+        LocalDate limitDate = parseDate(limitDateStr);
+
+        if (limitDate != null) {
+            Tarea nuevaTarea = new Tarea(taskName, taskDesc, limitDate, username); // Pass username to Tarea constructor
+
+            Log.d(TAG, "Nueva tarea creada:--------------------------------------------------------------------------------------------------------------------------------------------------- " + nuevaTarea);
+
+            PerfilAPI apiService = RetrofitCliente.getInstance().create(PerfilAPI.class);
+            Call<Void> call = apiService.createTask(taskName, taskDesc, limitDate, username);
+
+            call.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(requireContext(), "Tarea creada exitosamente", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(requireContext(), "Error al crear la tarea: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    Toast.makeText(requireContext(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         } else {
             Toast.makeText(requireContext(), "Formato de fecha inválido", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private Date parseDate(String dateString) {
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private LocalDate parseDate(String dateString) {
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-            java.util.Date parsedDate = dateFormat.parse(dateString);
-            if (parsedDate != null) {
-                return new Date(parsedDate.getTime());
-            }
-        } catch (ParseException e) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.getDefault());
+            return LocalDate.parse(dateString, formatter);
+        } catch (DateTimeParseException e) {
             e.printStackTrace();
         }
         return null;
     }
 }
-

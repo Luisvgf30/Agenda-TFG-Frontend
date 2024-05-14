@@ -43,7 +43,7 @@
         android:background="@color/white" />
 
     <EditText
-        android:id="@+id/editUserName"
+        android:id="@+id/addTareaName"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Nombre"
@@ -57,7 +57,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="60dp"/>
     <EditText
-        android:id="@+id/EditEmail"
+        android:id="@+id/addDescTarea"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Descripción"

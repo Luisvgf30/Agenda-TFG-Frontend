@@ -6,6 +6,7 @@ import com.example.miagenda.api.Tarea;
 import com.example.miagenda.api.Usuario;
 import com.example.miagenda.api.UsuarioActualizarRequest;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import retrofit2.Call;
@@ -20,9 +21,13 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface PerfilAPI {
+    @FormUrlEncoded
     @POST("/createTask")
     Call<Void> createTask(
-            @Body Tarea tarea
+            @Field("task_name")String task_name,
+            @Field("task_desc")String task_desc,
+            @Field("limit_date")LocalDate limit_date,
+            @Field("username")String username
     );
 
 

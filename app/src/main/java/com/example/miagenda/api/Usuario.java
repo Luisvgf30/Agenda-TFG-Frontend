@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 
 public class Usuario implements Serializable {
-    public int id;
+
     public  String username;
     public String password;
     public  String email;
@@ -16,13 +16,6 @@ public class Usuario implements Serializable {
     public  Nota notas;
     public  Evento eventos;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -96,10 +89,9 @@ public class Usuario implements Serializable {
         this.eventos = eventos;
     }
 
-    public Usuario(int id, String username, String password, String email,
+    public Usuario(String username, String password, String email,
                    String foto, Date diary_time, String token, Tarea tareas,
                    Nota notas, Evento eventos) {
-        this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;

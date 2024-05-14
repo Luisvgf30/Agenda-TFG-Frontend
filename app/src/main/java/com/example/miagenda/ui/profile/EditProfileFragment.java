@@ -28,8 +28,8 @@ public class EditProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
 
-        usernameEditText = view.findViewById(R.id.editUserName);
-        emailEditText = view.findViewById(R.id.EditEmail);
+        usernameEditText = view.findViewById(R.id.addTareaName);
+        emailEditText = view.findViewById(R.id.addDescTarea);
         passwordEditText = view.findViewById(R.id.editPassword);
 
         Button updateButton = view.findViewById(R.id.editarPerfil);

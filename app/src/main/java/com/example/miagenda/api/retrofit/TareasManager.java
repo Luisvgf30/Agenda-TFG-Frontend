@@ -23,19 +23,5 @@ public class TareasManager {
         return instance;
     }
 
-    // Métodos para interactuar con la API
-    /*public void crearTarea(String nombreTarea, String descripcion, String fechaInicial, String fechaLimite, String estado, String prioridad Callback<Void> callback) {
-        Call<Void> call = perfilAPI.createTask(nombreTarea, descripcion, fechaInicial, fechaLimite, estado);
-        call.enqueue(callback);
-    }*/
 
-    public void eliminarTarea(String username, String nombreTarea, Callback<Void> callback) {
-        Call<Void> call = perfilAPI.deleteTask(username, nombreTarea);
-        call.enqueue(callback);
-    }
-
-    public void buscarTareas(String username, Callback<List<Tarea>> callback) {
-        Call<List<Tarea>> call = perfilAPI.buscarTasks(username);
-        call.enqueue(callback);
-    }
 }
