@@ -32,10 +32,10 @@ public class Register extends AppCompatActivity {
             setContentView(R.layout.activity_register);
 
             // Inicialización de vistas
-            emailET = findViewById(R.id.estadoET);
-            usuarioET = findViewById(R.id.editPassword);
-            passwordET = findViewById(R.id.passwordET);
-            confirmarPasswordET = findViewById(R.id.confirmPasswordET);
+            emailET = findViewById(R.id.emailSignUp);
+            usuarioET = findViewById(R.id.usernameSingUp);
+            passwordET = findViewById(R.id.passwordSignUp);
+            confirmarPasswordET = findViewById(R.id.confirmPasswordSignUp);
             passwordIcon = findViewById(R.id.password_icon1);
             confirmarPasswordIcon = findViewById(R.id.password_icon2);
 
@@ -43,7 +43,7 @@ public class Register extends AppCompatActivity {
             perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
 
             // Configuración del botón de registro
-            findViewById(R.id.signUp).setOnClickListener(new View.OnClickListener() {
+            findViewById(R.id.signUpButtonRegister).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String email = emailET.getText().toString().trim();

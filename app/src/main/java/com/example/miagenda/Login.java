@@ -34,11 +34,11 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Obtener referencias a los elementos de la interfaz de usuario
-        final EditText usernameET = findViewById(R.id.editPassword);
-        final EditText passwordET = findViewById(R.id.passwordET);
+        final EditText usernameET = findViewById(R.id.usernameLogin);
+        final EditText passwordET = findViewById(R.id.passwordLogin);
         final ImageView passwordIcon = findViewById(R.id.password_icon);
-        final AppCompatButton signIn = findViewById(R.id.signIn);
-        final AppCompatButton signUp = findViewById(R.id.signUp);
+        final AppCompatButton signIn = findViewById(R.id.signInButtonLogin);
+        final AppCompatButton signUp = findViewById(R.id.signUpButtonLogin);
 
         sessionManager = new SessionManager(this);
         // Inicializar la instancia de PerfilAPI utilizando RetrofitCliente

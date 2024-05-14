@@ -25,7 +25,7 @@
         android:layout_marginTop="5dp"/>
     
     <EditText
-        android:id="@+id/editPassword"
+        android:id="@+id/usernameLogin"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Username"
@@ -46,7 +46,7 @@
     android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp">
         <EditText
-            android:id="@+id/passwordET"
+            android:id="@+id/passwordLogin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
@@ -78,7 +78,7 @@
         android:textColor="@color/primary"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signIn"
+        android:id="@+id/signInButtonLogin"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginEnd="20dp"
@@ -122,7 +122,7 @@
                 android:layout_marginStart="20dp"/>
         </RelativeLayout>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signUp"
+        android:id="@+id/signUpButtonLogin"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/round_back_primary_15"
