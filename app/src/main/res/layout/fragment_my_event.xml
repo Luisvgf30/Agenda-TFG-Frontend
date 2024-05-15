@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_app"
+    android:orientation="vertical"
+    tools:context=".ui.calendar.MyEventFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/boton_atras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:background="#00AAAAAA"
+            android:layout_marginStart="10dp"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Mi Evento"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginEnd="30dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/nombreEvento"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="59dp"
+            android:text="Nombre evento:"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/nombreEventoDesc"
+            android:layout_width="193dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="59dp"
+            android:layout_marginEnd="40dp"
+            android:text="rubeen_06_"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/descripcion"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="Descripción:"
+            android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/descripcionDesc"
+            android:layout_width="193dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="40dp"
+            android:text="ruben@gmail.com"
+            android:textColor="@color/white"/>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/fecha"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="Fecha:"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/fechaDesc"
+            android:layout_width="193dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="40dp"
+            android:text="*******"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/aviso"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="Aviso anterior al evento:"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/avisoDesc"
+            android:layout_width="193dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="40dp"
+            android:text="*******"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/editarEvento"
+        android:gravity="center"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="76dp"
+        android:text="Editar Evento"
+        app:backgroundTint="#00AAAAAA"
+        app:cornerRadius="20dp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
+
+</LinearLayout>

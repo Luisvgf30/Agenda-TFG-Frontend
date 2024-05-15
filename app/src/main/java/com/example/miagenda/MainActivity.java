@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -27,6 +29,61 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+=======
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.example.miagenda.databinding.ActivityMainBinding;
+
+public class MainActivity extends AppCompatActivity {
+
+    private ActivityMainBinding binding;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+       setUpNavigation();
+    }
+
+    private void setUpNavigation() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_hostfragment);
+        assert navHostFragment != null;
+        NavController navController = navHostFragment.getNavController();
+
+        NavigationUI.setupWithNavController(
+                bottomNavigationView,
+                navController
+        );
+
+        // Configura el listener para actualizar el título
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.navigation_calendar) {
+                if(navController.getCurrentDestination().getId() != R.id.navigation_calendar) {
+                    navController.navigate(R.id.navigation_calendar);
+                }
+            } else if (id == R.id.navigation_notes) {
+                if(navController.getCurrentDestination().getId() != R.id.navigation_notes) {
+                    navController.navigate(R.id.navigation_notes);
+                }
+            } else if (id == R.id.navigation_tasks) {
+                if(navController.getCurrentDestination().getId() != R.id.navigation_tasks) {
+                    navController.navigate(R.id.navigation_tasks);
+                }
+            } else if (id == R.id.navigation_profile) {
+                // Si el destino actual no es el perfil, navega al perfil
+                if (navController.getCurrentDestination().getId() != R.id.navigation_profile) {
+                    navController.navigate(R.id.navigation_profile);
+                }
+            }
+            return true;
+>>>>>>> ibra3
         });
         Button signinButton = findViewById(R.id.signin_login);
         Button signupButton = findViewById(R.id.signup_login);
@@ -47,4 +104,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+
+
+
+
 }

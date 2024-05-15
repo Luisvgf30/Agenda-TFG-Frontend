@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_app"
+    android:orientation="vertical"
+    tools:context=".ui.profile.ProfileFragment">
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:gravity="center"
+            android:text="Mi Perfil"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="100dp">
+
+        <TextView
+            android:id="@+id/nombreUsuario"
+            android:layout_width="143dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="59dp"
+            android:text="Username:"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/nombreUsuarioDesc"
+            android:layout_width="193dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="59dp"
+            android:layout_marginEnd="40dp"
+            android:text="rubeen_06_"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="143dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="Email:"
+            android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/emailDesc"
+                android:layout_width="193dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="40dp"
+                android:text="ruben@gmail.com"
+                android:textColor="@color/white"/>
+
+
+
+    </LinearLayout>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="143dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Password:"
+        android:textColor="@color/white"/>
+    <TextView
+        android:id="@+id/passwordDesc"
+        android:layout_width="193dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:text="*******"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
+    <Button
+        android:id="@+id/editarPerfil"
+        android:gravity="center"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="43dp"
+        android:text="Editar Perfil"
+        app:backgroundTint="#00AAAAAA"
+        app:cornerRadius="20dp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
+    <Button
+        android:id="@+id/cerrarSesion"
+        android:gravity="center"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="76dp"
+        android:text="Cerrar Sesión"
+        app:backgroundTint="@color/rojo"
+        app:cornerRadius="20dp"
+        app:strokeWidth="1dp" />
+
+</LinearLayout>
