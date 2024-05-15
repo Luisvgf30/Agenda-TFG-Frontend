@@ -42,19 +42,19 @@
         android:background="@color/white" />
 
     <TextView
-        android:id="@+id/nombreUsuario"
+        android:id="@+id/email"
         android:layout_width="143dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="59dp"
-        android:text="Username:"
+        android:text="Email:"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent" />
     <EditText
-        android:id="@+id/addTareaName"
+        android:id="@+id/emailusuario"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:hint="Username"
+        android:hint="Email"
         android:background="@drawable/redondear"
         android:backgroundTint="@color/white"
         android:maxLines="1"
@@ -66,18 +66,18 @@
         />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/password"
         android:layout_width="143dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
-        android:text="Email:"
+        android:text="Password:"
         android:textColor="@color/white" />
     <EditText
-        android:id="@+id/addDescTarea"
+        android:id="@+id/passwordUsuario"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:hint="Email"
+        android:hint="Password"
         android:background="@drawable/redondear"
         android:backgroundTint="@color/white"
         android:maxLines="1"
@@ -88,18 +88,18 @@
         android:layout_marginEnd="20dp" />
 
     <TextView
-        android:id="@+id/password"
+        android:id="@+id/Verifypassword"
         android:layout_width="143dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
-        android:text="Password:"
+        android:text="Verify Password:"
         android:textColor="@color/white"/>
     <EditText
-        android:id="@+id/editPassword"
+        android:id="@+id/passwordVerify"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:hint="Password"
+        android:hint="Verify Password"
         android:background="@drawable/redondear"
         android:backgroundTint="@color/white"
         android:maxLines="1"

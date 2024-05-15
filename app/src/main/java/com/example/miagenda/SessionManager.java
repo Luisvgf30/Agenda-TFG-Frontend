@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 public class SessionManager {
     private static final String PREF_NAME = "SessionPrefs";
     private static final String KEY_USER = "user";
+    private static final String KEY_EMAIL = "email";
 
     private SharedPreferences sharedPreferences;
     private Gson gson;
@@ -23,6 +24,12 @@ public class SessionManager {
         sharedPreferences.edit().putString(KEY_USER, userJson).apply();
     }
 
+    public void updateUserEmail(String email) {
+        SharedPreferences.Editor editor = sharedPreferences.edit(); // Inicializa el editor
+        editor.putString(KEY_EMAIL, email);
+        editor.apply(); // Usa apply() en lugar de commit() para aplicar los cambios asincrónicamente
+    }
+
     public Usuario getUser() {
         String userJson = sharedPreferences.getString(KEY_USER, null);
         if (userJson != null) {
@@ -32,7 +39,11 @@ public class SessionManager {
     }
 
     public String getUsername() {
-        return sharedPreferences.getString(KEY_USER, null);
+        Usuario user = getUser();
+        if (user != null) {
+            return user.getUsername();
+        }
+        return null;
     }
 
     public void clearSession() {
@@ -43,3 +54,4 @@ public class SessionManager {
         return sharedPreferences.contains(KEY_USER);
     }
 }
+

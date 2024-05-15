@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -18,18 +17,11 @@ import com.example.miagenda.api.Usuario;
 
 public class ProfileFragment extends Fragment {
 
-    private TextView nombreUsuarioTextView;
-    private TextView emailTextView;
+    private TextView nombreUsuarioTextView, emailTextView;
     private SessionManager sessionManager;
 
     public ProfileFragment() {
-        // Constructor vacío requerido por Fragment
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        loadUserData(); // Cargar datos al reanudar el fragmento
+        // Required empty public constructor
     }
 
     @Override
@@ -47,7 +39,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.editarPerfil);
+                navController.navigate(R.id.action_profileFragment_to_editProfileFragment);
             }
         });
 
@@ -56,16 +48,17 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadUserData(); // Carga los datos del usuario actualizados
+    }
+
     private void loadUserData() {
         Usuario user = sessionManager.getUser();
         if (user != null) {
-            // Mostrar datos del usuario en las vistas
             nombreUsuarioTextView.setText(user.getUsername());
             emailTextView.setText(user.getEmail());
         }
-    }
-
-    public void refreshProfileData() {
-        loadUserData();
     }
 }

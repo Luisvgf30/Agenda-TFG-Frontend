@@ -9,18 +9,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.example.miagenda.R;
+import com.example.miagenda.SessionManager;
+import com.example.miagenda.api.Usuario;
 import com.example.miagenda.api.UsuarioActualizarRequest;
 import com.example.miagenda.api.retrofit.UsuarioApiCliente;
 
 public class EditProfileFragment extends Fragment {
 
     private UsuarioApiCliente usuarioApiClient;
-    private EditText usernameEditText, emailEditText, passwordEditText;
+    private EditText emailEditText, passwordEditText, passwordVerifyEditText;
+    private SessionManager sessionManager;
 
     public EditProfileFragment() {
-        // Constructor vacío requerido por Fragment
+        // Required empty public constructor
     }
 
     @Override
@@ -28,59 +33,50 @@ public class EditProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
 
-        usernameEditText = view.findViewById(R.id.addTareaName);
-        emailEditText = view.findViewById(R.id.addDescTarea);
-        passwordEditText = view.findViewById(R.id.editPassword);
+        emailEditText = view.findViewById(R.id.emailusuario);
+        passwordEditText = view.findViewById(R.id.passwordUsuario);
+        passwordVerifyEditText = view.findViewById(R.id.passwordVerify);
 
         Button updateButton = view.findViewById(R.id.editarPerfil);
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateUserProfile();
+                updateUserProfile(v);
             }
         });
 
-        usuarioApiClient = new UsuarioApiCliente(); // Inicializa el cliente de la API
+        sessionManager = new SessionManager(requireContext());
+        usuarioApiClient = new UsuarioApiCliente(); // Initialize your API client here
 
         return view;
     }
 
-    private void updateUserProfile() {
-        String newUsername = usernameEditText.getText().toString().trim();
+    private void updateUserProfile(View v) {
         String newEmail = emailEditText.getText().toString().trim();
         String newPassword = passwordEditText.getText().toString().trim();
+        String newPasswordVerify = passwordVerifyEditText.getText().toString().trim();
 
-        // Verificar que el nombre de usuario no esté vacío
-        if (newUsername.isEmpty()) {
-            Toast.makeText(getContext(), "El nombre de usuario no puede estar vacío", Toast.LENGTH_SHORT).show();
+        if (!newPassword.equals(newPasswordVerify)) {
+            Toast.makeText(getContext(), "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Crear la solicitud de actualización del usuario
-        UsuarioActualizarRequest updateRequest = new UsuarioActualizarRequest(newUsername, newEmail, newPassword);
+        String username = sessionManager.getUser().getUsername();
+        UsuarioActualizarRequest updateRequest = new UsuarioActualizarRequest(username, newEmail, newPassword);
 
-        // Llamar al método de actualización del usuario en el cliente de la API
-        usuarioApiClient.updateUser(newUsername, updateRequest, new UsuarioApiCliente.UserUpdateCallback() {
+        usuarioApiClient.updateUser(username, updateRequest, new UsuarioApiCliente.UserUpdateCallback() {
             @Override
             public void onSuccess() {
-                // Actualización exitosa
                 Toast.makeText(getContext(), "Perfil actualizado correctamente", Toast.LENGTH_SHORT).show();
+                sessionManager.updateUserEmail(newEmail);
 
-                // Refrescar los datos en el fragmento de perfil
-                if (getActivity() != null) {
-                    ProfileFragment profileFragment = (ProfileFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.nav_hostfragment);
-                    if (profileFragment != null) {
-                        profileFragment.refreshProfileData(); // Actualizar datos del perfil
-                    }
-                }
-
-                // Volver al fragmento anterior
-                requireActivity().getSupportFragmentManager().popBackStack();
+                // Navigate back to ProfileFragment
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.action_editProfileFragment_to_profileFragment);
             }
 
             @Override
             public void onError(String errorMessage) {
-                // Manejar error
                 Toast.makeText(getContext(), "Error al actualizar perfil: " + errorMessage, Toast.LENGTH_SHORT).show();
             }
         });
