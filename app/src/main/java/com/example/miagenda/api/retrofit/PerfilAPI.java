@@ -53,6 +53,11 @@ public interface PerfilAPI {
             @Body UsuarioActualizarRequest request
     );
 
+    @GET("/buscarUsu")
+    Call<Usuario> buscarUser(
+            @Query("username") String usuario
+    );
+
     @FormUrlEncoded
     @POST("") // dentro de las comillas la ruta en la api"logout"
     Call<Usuario> Logout(

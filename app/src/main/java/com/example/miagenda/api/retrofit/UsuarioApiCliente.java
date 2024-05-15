@@ -1,5 +1,6 @@
 package com.example.miagenda.api.retrofit;
 
+import com.example.miagenda.api.Usuario;
 import com.example.miagenda.api.UsuarioActualizarRequest;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
@@ -11,6 +12,11 @@ public class UsuarioApiCliente {
 
     public interface UserUpdateCallback {
         void onSuccess();
+        void onError(String errorMessage);
+    }
+
+    public interface UserFetchCallback {
+        void onSuccess(Usuario user);
         void onError(String errorMessage);
     }
 
@@ -34,6 +40,30 @@ public class UsuarioApiCliente {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
+                callback.onError("Error de red: " + t.getMessage());
+            }
+        });
+    }
+
+    public void buscarUsuario(String username, UserFetchCallback callback) {
+        Call<Usuario> call = perfilAPI.buscarUser(username);
+        call.enqueue(new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                if (response.isSuccessful()) {
+                    Usuario user = response.body();
+                    if (user != null) {
+                        callback.onSuccess(user);
+                    } else {
+                        callback.onError("Usuario no encontrado");
+                    }
+                } else {
+                    callback.onError("Código de error: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {
                 callback.onError("Error de red: " + t.getMessage());
             }
         });
