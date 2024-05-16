@@ -3,14 +3,22 @@ package com.example.miagenda.api;
 import android.os.Build;
 
 import java.time.LocalDate;
+import com.google.gson.annotations.SerializedName;
 
 public class Tarea {
+    @SerializedName("task_name")
     private String taskName;
+    @SerializedName("task_desc")
     private String taskDesc;
+    @SerializedName("state")
     private String state;
+    @SerializedName("document")
     private String document;
+    @SerializedName("date_limit")
     private LocalDate dateLimit;
+    @SerializedName("date_initial")
     private LocalDate dateInitial;
+    @SerializedName("username")
     private String username;
 
     public Tarea(String taskName, String taskDesc, LocalDate dateLimit, String username) {

@@ -1,89 +1,80 @@
 package com.example.miagenda.ui.tasks;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.miagenda.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.miagenda.SessionManager;
+import com.example.miagenda.api.Tarea;
+import com.example.miagenda.api.Usuario;
+import com.example.miagenda.api.retrofit.PerfilAPI;
+import com.example.miagenda.api.retrofit.RetrofitCliente;
+import android.util.Log;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TasksFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class TasksFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private RecyclerView recyclerView;
+    private TasksAdapter tasksAdapter;
+    private SessionManager sessionManager;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public TasksFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TasksFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TasksFragment newInstance(String param1, String param2) {
-        TasksFragment fragment = new TasksFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_tasks, container, false);
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        sessionManager = new SessionManager(requireContext());
+
+        recyclerView = view.findViewById(R.id.recyclerViewTasks);
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        tasksAdapter = new TasksAdapter(new ArrayList<>());
+        recyclerView.setAdapter(tasksAdapter);
+
+        loadUserTasks();
+    }
+
+    private void loadUserTasks() {
+        Usuario user = sessionManager.getUser();
+        if (user != null) {
+            String username = user.getUsername();
+            PerfilAPI perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
+            Call<List<Tarea>> call = perfilAPI.buscarTasks(username);
+            call.enqueue(new Callback<List<Tarea>>() {
+                @Override
+                public void onResponse(Call<List<Tarea>> call, Response<List<Tarea>> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        List<Tarea> tareas = response.body();
+                        tasksAdapter.setTareas(tareas); // Actualizar el adaptador con las nuevas tareas
+                    } else {
+                        Log.e("TasksFragment", "Error en la respuesta: " + response.message());
+                    }
+                }
+
+
+                @Override
+                public void onFailure(Call<List<Tarea>> call, Throwable t) {
+                    Log.e("TasksFragment", "Error en la solicitud: " + t.getMessage());
+                }
+            });
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tasks, container, false);
-
-        Button estadoTarea = view.findViewById(R.id.estadoTask);
-        estadoTarea.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.myTask);
-            }
-        });
-
-        FloatingActionButton fabAgregarTarea = view.findViewById(R.id.fabAgregarTarea);
-        fabAgregarTarea.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.addTasks);
-            }
-        });
-
-        return view;
     }
 }

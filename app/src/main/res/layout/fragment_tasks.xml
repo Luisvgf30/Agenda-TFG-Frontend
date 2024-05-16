@@ -28,81 +28,15 @@
             android:layout_height="1dp"
             android:background="@color/white" />
 
-        <androidx.cardview.widget.CardView
+        <!-- RecyclerView para mostrar las tareas -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTasks"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:cardBackgroundColor="#03514A"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-            app:strokeColor="@android:color/white"
-            app:strokeWidth="2dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/tvTaskNameLabel"
-                    android:layout_width="158dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="Tarea"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/white" /> <!-- Margen a la derecha -->
-
-                <TextView
-                    android:id="@+id/tvTaskName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tvTaskNameLabel"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Nivel: Alto"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/white" /> <!-- Margen a la derecha -->
-
-                <TextView
-                    android:id="@+id/tvTimeRemainingLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginBottom="4dp"
-                    android:text="Tiempo restante"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:id="@+id/tvTimeRemaining"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tvTimeRemainingLabel"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginBottom="8dp"
-                    android:text="1:35h"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/white" />
-
-                <Button
-                    android:id="@+id/estadoTask"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tvTaskName"
-                    android:layout_centerInParent="true"
-                    android:layout_marginHorizontal="50dp"
-                    android:layout_marginTop="8dp"
-                    android:backgroundTint="@color/white"
-                    android:text="Estado"
-                    android:textColor="@color/black"
-                    app:cornerRadius="20dp" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+            android:layout_height="match_parent"
+            android:padding="16dp" />
+        <!-- Ajusta este atributo según la disposición de tu diseño -->
 
     </LinearLayout>
-
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAgregarTarea"
@@ -119,6 +53,5 @@
         app:pressedTranslationZ="0dp"
         app:rippleColor="@color/white"
         app:tint="@color/white" />
-
 
 </RelativeLayout>
