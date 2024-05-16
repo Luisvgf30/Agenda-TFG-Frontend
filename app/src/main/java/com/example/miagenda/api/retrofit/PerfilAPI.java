@@ -2,6 +2,7 @@ package com.example.miagenda.api.retrofit;
 
 
 
+import com.example.miagenda.api.Nota;
 import com.example.miagenda.api.Tarea;
 import com.example.miagenda.api.Usuario;
 import com.example.miagenda.api.UsuarioActualizarRequest;
@@ -21,15 +22,6 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface PerfilAPI {
-    @FormUrlEncoded
-    @POST("/createTask")
-    Call<Void> createTask(
-            @Field("task_name")String task_name,
-            @Field("task_desc")String task_desc,
-            @Field("limit_date")LocalDate limit_date,
-            @Field("username")String username
-    );
-
 
     @FormUrlEncoded
     @POST("/singUpUsu") // dentro de las comillas la ruta en la api"registrase"
@@ -64,15 +56,7 @@ public interface PerfilAPI {
             @Field("token") String token
     );
 
-    @POST("/createTask")
-    Call<Void> createTask(
-            @Query("task_name") String task_name,
-            @Query("task_desc") String task_desc,
-            @Query("state") String state,
-            @Query("document") String document,
-            @Query("limit_date") String limit_date,
-            @Query("initial_date") String initial_date
-    );
+
 
     @DELETE("/deleteTask")
     Call<Void> deleteTask(
@@ -84,6 +68,30 @@ public interface PerfilAPI {
     Call<List<Tarea>> buscarTasks(
             @Query("username") String username
     );
+
+    @FormUrlEncoded
+    @POST("/createTask")
+    Call<Void> createTask(
+            @Field("task_name")String task_name,
+            @Field("task_desc")String task_desc,
+            @Field("limit_date")LocalDate limit_date,
+            @Field("username")String username
+    );
+
+    @DELETE("/deleteNote")
+    Call<Void> deleteNote(
+            @Query("username") String username,
+            @Query("id") String id
+    );
+
+    @GET("/buscarNotes")
+    Call<List<Nota>> buscarNotes(@Query("username") String username);
+
+    @FormUrlEncoded
+    @POST("/createNote")
+    Call<Void> createNote(
+            @Field("note_desc") String note_desc,
+            @Field("username") String username);
 
 }
 
