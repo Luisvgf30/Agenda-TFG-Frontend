@@ -4,10 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.calendar.EditCalendarFragment"
-    android:background="@drawable/fondo_app"
-    android:id="@+id/editCalendarFragment"
-    android:orientation="vertical">
+    tools:context=".ui.events.AddEventosFragment"
+    android:background="@color/fondoApp"
+    android:orientation="vertical"
+    android:id="@+id/addCalendarFragment"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Editar Evento"
+            android:text="Añadir Evento"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:layout_marginEnd="30dp"/>
@@ -42,7 +43,7 @@
         android:background="@color/white" />
 
     <EditText
-        android:id="@+id/editUserName"
+        android:id="@+id/addNombreEvento"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Nombre"
@@ -56,7 +57,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="60dp"/>
     <EditText
-        android:id="@+id/EditEmail"
+        android:id="@+id/addDescripcionEvento"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Descripción"
@@ -71,7 +72,7 @@
         android:layout_marginTop="40dp"/>
 
     <EditText
-        android:id="@+id/editPassword"
+        android:id="@+id/addFechaEvento"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Fecha"
@@ -86,7 +87,7 @@
         android:layout_marginTop="40dp"/>
 
     <EditText
-        android:id="@+id/estadoET"
+        android:id="@+id/addAvisoEvento"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Aviso anterior al evento"
@@ -101,7 +102,7 @@
         android:layout_marginTop="40dp"/>
 
     <Button
-        android:id="@+id/editarPerfil"
+        android:id="@+id/addEventoButton"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:paddingStart="20dp"
@@ -109,7 +110,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="40dp"
         android:layout_gravity="center"
-        android:text="Guardar Cambios"
+        android:text="Añadir Evento"
         app:backgroundTint="#00AAAAAA"
         app:cornerRadius="20dp"
         app:strokeColor="@color/white"

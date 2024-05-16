@@ -31,11 +31,11 @@ public class EditProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
 
-        usernameEditText = view.findViewById(R.id.editUserName);
-        emailEditText = view.findViewById(R.id.EditEmail);
-        passwordEditText = view.findViewById(R.id.editPassword);
+        usernameEditText = view.findViewById(R.id.editUsername);
+        emailEditText = view.findViewById(R.id.editEmailUser);
+        passwordEditText = view.findViewById(R.id.editPasswordUser);
 
-        Button updateButton = view.findViewById(R.id.editarPerfil);
+        Button updateButton = view.findViewById(R.id.editarPerfilButton);
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

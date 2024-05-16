@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_app"
+    android:background="@color/fondoApp"
     tools:context=".ui.tasks.TasksFragment">
 
     <LinearLayout
@@ -60,7 +60,7 @@
                     android:layout_below="@id/tvTaskNameLabel"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="8dp"
-                    android:text="Nivel: Alto"
+                    android:text="Prioridad: Alto"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/white" /> <!-- Margen a la derecha -->
 
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginBottom="4dp"
-                    android:text="Tiempo restante"
+                    android:text="Estado"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/white" />
 
@@ -85,24 +85,42 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/white" />
 
-                <Button
-                    android:id="@+id/estadoTask"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tvTaskName"
-                    android:layout_centerInParent="true"
-                    android:layout_marginHorizontal="50dp"
-                    android:layout_marginTop="8dp"
-                    android:backgroundTint="@color/white"
-                    android:text="Estado"
-                    android:textColor="@color/black"
-                    app:cornerRadius="20dp" />
+                    android:layout_below="@id/tvTimeRemaining"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/estadoTask"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@color/white"
+                        android:text="Ver Tarea"
+                        android:textColor="@color/black"
+                        app:cornerRadius="20dp" />
+
+                    <Button
+                        android:id="@+id/deleteTask"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:backgroundTint="@color/rojo"
+                        android:text="Borrar"
+                        android:textColor="@color/white"
+                        app:cornerRadius="20dp" />
+
+                </LinearLayout>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAgregarTarea"
@@ -113,12 +131,11 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="90dp"
         android:src="@drawable/add"
-        app:backgroundTint="@android:color/transparent"
+        app:backgroundTint="@color/white"
         app:borderWidth="2dp"
+        app:rippleColor="@color/fondoApp"
+        app:tint="@color/fondoApp"
         app:elevation="0dp"
-        app:pressedTranslationZ="0dp"
-        app:rippleColor="@color/white"
-        app:tint="@color/white" />
-
+        app:pressedTranslationZ="0dp" />
 
 </RelativeLayout>

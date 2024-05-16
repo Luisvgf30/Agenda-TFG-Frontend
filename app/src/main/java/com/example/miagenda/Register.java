@@ -2,9 +2,11 @@ package com.example.miagenda;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +24,7 @@ public class Register extends AppCompatActivity {
 
         private EditText emailET, usuarioET, passwordET, confirmarPasswordET;
         private ImageView passwordIcon, confirmarPasswordIcon;
+        private TextView signInBtn;
         private boolean passwordShowing = false;
 
         private PerfilAPI perfilAPI;
@@ -38,6 +41,8 @@ public class Register extends AppCompatActivity {
             confirmarPasswordET = findViewById(R.id.confirmPasswordSignUp);
             passwordIcon = findViewById(R.id.password_icon1);
             confirmarPasswordIcon = findViewById(R.id.password_icon2);
+            signInBtn = findViewById(R.id.signInRegister);
+
 
             // Inicialización de Retrofit y PerfilAPI
             perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
@@ -60,6 +65,45 @@ public class Register extends AppCompatActivity {
                     } else {
                         Toast.makeText(Register.this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT).show();
                     }
+                }
+            });
+
+            passwordIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (passwordShowing) {
+                        passwordShowing = false;
+                        passwordET.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                        passwordIcon.setImageResource(R.drawable.outline_hide_eye_24);
+                    } else {
+                        passwordShowing = true;
+                        passwordET.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                        passwordIcon.setImageResource(R.drawable.outline_show_eye_24);
+                        passwordET.setSelection(passwordET.length());
+                    }
+                }
+            });
+
+            confirmarPasswordIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (passwordShowing) {
+                        passwordShowing = false;
+                        confirmarPasswordET.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                        confirmarPasswordIcon.setImageResource(R.drawable.outline_hide_eye_24);
+                    } else {
+                        passwordShowing = true;
+                        confirmarPasswordET.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                        confirmarPasswordIcon.setImageResource(R.drawable.outline_show_eye_24);
+                        confirmarPasswordET.setSelection(confirmarPasswordET.length());
+                    }
+                }
+            });
+
+            signInBtn.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    finish();
                 }
             });
         }

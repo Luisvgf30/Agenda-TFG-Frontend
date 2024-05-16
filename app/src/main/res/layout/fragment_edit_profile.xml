@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_app"
+    android:background="@color/fondoApp"
     android:orientation="vertical"
     tools:context=".ui.profile.EditProfileFragment">
 
@@ -42,7 +42,7 @@
         android:background="@color/white" />
 
     <TextView
-        android:id="@+id/nombreUsuario"
+        android:id="@+id/editNombreUsuarioTextView"
         android:layout_width="143dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
@@ -51,7 +51,7 @@
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent" />
     <EditText
-        android:id="@+id/editUserName"
+        android:id="@+id/editUsername"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Username"
@@ -66,7 +66,7 @@
         />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/editEmailUserTextView"
         android:layout_width="143dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
@@ -74,7 +74,7 @@
         android:text="Email:"
         android:textColor="@color/white" />
     <EditText
-        android:id="@+id/EditEmail"
+        android:id="@+id/editEmailUser"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Email"
@@ -88,7 +88,7 @@
         android:layout_marginEnd="20dp" />
 
     <TextView
-        android:id="@+id/password"
+        android:id="@+id/editPasswordTextView"
         android:layout_width="143dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
@@ -96,7 +96,7 @@
         android:text="Password:"
         android:textColor="@color/white"/>
     <EditText
-        android:id="@+id/editPassword"
+        android:id="@+id/editPasswordUser"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Password"
@@ -110,7 +110,7 @@
         android:layout_marginEnd="20dp" />
 
     <Button
-        android:id="@+id/editarPerfil"
+        android:id="@+id/editarPerfilButton"
         android:gravity="center"
         android:layout_width="325dp"
         android:layout_height="57dp"

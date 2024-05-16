@@ -19,7 +19,7 @@ import java.util.Locale;
 
 public class AddTasksFragment extends Fragment {
 
-    private EditText editUserName, editEmail, fechaInicial, fechaLimite, estadoET, prioridadET, documentoET;
+    private EditText addNombreTarea, addDescripcionTarea, addFechaInicial, addFechaLimite, addEstado, addPrioridad, addDocumento;
 
     public AddTasksFragment() {
         // Required empty public constructor
@@ -51,7 +51,7 @@ public class AddTasksFragment extends Fragment {
             }
         });
 
-        Button addTaskButton = view.findViewById(R.id.editarPerfil);
+        Button addTaskButton = view.findViewById(R.id.addTareaButton);
         addTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,23 +60,23 @@ public class AddTasksFragment extends Fragment {
         });
 
         // Find all EditText fields
-        editUserName = view.findViewById(R.id.editUserName);
-        editEmail = view.findViewById(R.id.EditEmail);
-        fechaInicial = view.findViewById(R.id.fechaInicial);
-        fechaLimite = view.findViewById(R.id.fechaLimite);
-        estadoET = view.findViewById(R.id.estadoET);
-        prioridadET = view.findViewById(R.id.prioridadET);
-        documentoET = view.findViewById(R.id.documentoET);
+        addNombreTarea = view.findViewById(R.id.addNombreTarea);
+        addDescripcionTarea = view.findViewById(R.id.addDescripcionTarea);
+        addFechaInicial = view.findViewById(R.id.addFechaInicialTarea);
+        addFechaLimite = view.findViewById(R.id.addFechaLimiteTarea);
+        addEstado = view.findViewById(R.id.addEstadoTarea);
+        addPrioridad = view.findViewById(R.id.addPrioridadTarea);
+        addDocumento = view.findViewById(R.id.addDocumentoTarea);
     }
 
     private void createTask() {
-        String userName = editUserName.getText().toString();
-        String email = editEmail.getText().toString();
-        String initialDateStr = fechaInicial.getText().toString();
-        String limitDateStr = fechaLimite.getText().toString();
-        String estado = estadoET.getText().toString();
-        String prioridad = prioridadET.getText().toString();
-        String documento = documentoET.getText().toString();
+        String userName = addNombreTarea.getText().toString();
+        String email = addDescripcionTarea.getText().toString();
+        String initialDateStr = addFechaInicial.getText().toString();
+        String limitDateStr = addFechaLimite.getText().toString();
+        String estado = addEstado.getText().toString();
+        String prioridad = addPrioridad.getText().toString();
+        String documento = addDocumento.getText().toString();
 
         // Check if dates are in the correct format
         Date initialDate = parseDate(initialDateStr);

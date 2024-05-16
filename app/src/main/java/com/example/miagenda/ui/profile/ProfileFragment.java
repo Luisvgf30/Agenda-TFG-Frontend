@@ -46,10 +46,10 @@ public class ProfileFragment extends Fragment {
 
         sessionManager = new SessionManager(requireContext());
 
-        nombreUsuarioTextView = view.findViewById(R.id.nombreUsuarioDesc);
-        emailTextView = view.findViewById(R.id.emailDesc);
+        nombreUsuarioTextView = view.findViewById(R.id.nombreUsuarioPerfilTextView);
+        emailTextView = view.findViewById(R.id.emailUsuarioTextView);
 
-        Button editarPerfilButton = view.findViewById(R.id.editarPerfil);
+        Button editarPerfilButton = view.findViewById(R.id.editarPerfilButton);
         editarPerfilButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +81,7 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        cerrarSesion = view.findViewById(R.id.cerrarSesion);
+        cerrarSesion = view.findViewById(R.id.cerrarSesionButton);
 
         cerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override

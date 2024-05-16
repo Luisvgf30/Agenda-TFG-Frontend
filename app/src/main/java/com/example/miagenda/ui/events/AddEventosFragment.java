@@ -1,4 +1,4 @@
-package com.example.miagenda.ui.calendar;
+package com.example.miagenda.ui.events;
 
 import android.os.Bundle;
 
@@ -15,10 +15,10 @@ import com.example.miagenda.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link EditCalendarFragment#newInstance} factory method to
+ * Use the {@link AddEventosFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EditCalendarFragment extends Fragment {
+public class AddEventosFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +29,7 @@ public class EditCalendarFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public EditCalendarFragment() {
+    public AddEventosFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class EditCalendarFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment EditCalendarFragment.
+     * @return A new instance of fragment AddCalendarFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static EditCalendarFragment newInstance(String param1, String param2) {
-        EditCalendarFragment fragment = new EditCalendarFragment();
+    public static AddEventosFragment newInstance(String param1, String param2) {
+        AddEventosFragment fragment = new AddEventosFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,8 +64,9 @@ public class EditCalendarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_calendar, container, false);
+        return inflater.inflate(R.layout.fragment_add_eventos, container, false);
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

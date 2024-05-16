@@ -6,7 +6,7 @@
     tools:context=".ui.notes.NotesFragment"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/fondo_app">
+    android:background="@color/fondoApp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:gravity="center"
             android:text="Mis Notas"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <View
             android:layout_width="match_parent"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:text="NO HAY NOTAS"
             android:textColor="@color/white"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:layout_below="@id/no_notes_image"
             android:layout_centerHorizontal="true" />
@@ -82,7 +82,7 @@
             android:backgroundTint="@color/white"
             android:hint="Añadir nota..."
             android:inputType="text"
-            android:paddingLeft="17dp" />
+            android:paddingStart="17dp" />
 
         <ImageButton
             android:id="@+id/buttonNotes"
@@ -92,7 +92,6 @@
             android:background="@drawable/redondear"
             android:padding="10dp"
             android:scaleType="center"
-            android:src="@drawable/baseline_arrow_forward_24"
-            app:itemIconTint="#00AAAAAA" />
+            android:src="@drawable/baseline_arrow_forward_24" />
     </LinearLayout>
 </RelativeLayout>
