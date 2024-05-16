@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_calendar">
+
+    <fragment
+        android:id="@+id/navigation_calendar"
+        android:name="com.example.miagenda.ui.events.EventosFragment"
+        android:label="@string/title_calendar"
+        tools:layout="@layout/fragment_eventos" />
+
+    <fragment
+        android:id="@+id/navigation_notes"
+        android:name="com.example.miagenda.ui.notes.NotesFragment"
+        android:label="@string/title_notes"
+        tools:layout="@layout/fragment_notes" />
+
+    <fragment
+        android:id="@+id/navigation_tasks"
+        android:name="com.example.miagenda.ui.tasks.TasksFragment"
+        android:label="@string/title_tasks"
+        tools:layout="@layout/fragment_tasks" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.miagenda.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile">
+        <!-- Añadimos la acción para navegar al EditProfileFragment -->
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editarPerfil" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editarPerfil"
+        android:name="com.example.miagenda.ui.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile">
+        <!-- Añadimos la acción para navegar de vuelta al ProfileFragment -->
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCalendarFragment"
+        android:name="com.example.miagenda.ui.events.AddEventosFragment"
+        android:label="fragment_add_calendar"
+        tools:layout="@layout/fragment_add_eventos" >
+    </fragment>
+       <!--tools:layout="@layout/fragment_add_calendar" />-->
+
+    <fragment
+        android:id="@+id/editCalendarFragment"
+        android:name="com.example.miagenda.ui.events.EditEventosFragment"
+        android:label="fragment_edit_calendar"
+        tools:layout="@layout/fragment_edit_eventos" >
+    </fragment>
+
+    <!--<fragment
+        android:id="@+id/editarPerfil"
+        android:name="com.example.miagenda.ui.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+    </fragment>-->
+      <!--  tools:layout="@layout/fragment_edit_calendar" />-->
+
+    <fragment
+        android:id="@+id/myTask"
+        android:name="com.example.miagenda.ui.tasks.MyTaskFragment"
+        android:label="fragment_my_task"
+        tools:layout="@layout/fragment_my_task" />
+
+    <fragment
+        android:id="@+id/editTasks"
+        android:name="com.example.miagenda.ui.tasks.EditTasksFragment"
+        android:label="fragment_edit_tasks"
+        tools:layout="@layout/fragment_edit_tasks" />
+
+    <fragment
+        android:id="@+id/addTasks"
+        android:name="com.example.miagenda.ui.tasks.AddTasksFragment"
+        android:label="fragment_add_tasks"
+        tools:layout="@layout/fragment_add_tasks" />
+
+    <fragment
+        android:id="@+id/myEvent"
+        android:name="com.example.miagenda.ui.events.MyEventFragment"
+        android:label="fragment_my_event"
+        tools:layout="@layout/fragment_my_event" />
+
+    <fragment
+        android:id="@+id/editEvent"
+        android:name="com.example.miagenda.ui.events.EditEventosFragment"
+        android:label="fragment_my_event"
+        tools:layout="@layout/fragment_edit_eventos" >
+    </fragment>
+
+       <!-- tools:layout="@layout/fragment_edit_calendar" />-->
+</navigation>

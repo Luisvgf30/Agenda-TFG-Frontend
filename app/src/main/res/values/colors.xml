@@ -5,4 +5,17 @@
     <color name="aqua">#00957A</color>
     <color name="darkaqua">#003027</color>
     <color name="weekday">#00FF7F</color>
+    <color name="primary">#01AED8</color>
+    <color name="fondoApp">#00957A</color>
+
+    <color name="calendar">#1194AA</color>
+    <color name="notes">#C9379D</color>
+    <color name="tasks">#AE7E0F</color>
+    <color name="profile">#5B37B7</color>
+
+    <color name="calendar_20">#331194AA</color>
+    <color name="notes_20">#33C9379D</color>
+    <color name="tasks_20">#33AE7E0F</color>
+    <color name="profile_20">#335B37B7</color>
+    <color name="rojo">#8A2525</color>
 </resources>
