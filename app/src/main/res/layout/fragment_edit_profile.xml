@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_app"
+    android:background="@color/fondoApp"
     android:orientation="vertical"
     tools:context=".ui.profile.EditProfileFragment">
 
@@ -43,6 +43,7 @@
 
     <TextView
         android:id="@+id/email"
+        android:id="@+id/editNombreUsuarioTextView"
         android:layout_width="143dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
@@ -52,6 +53,7 @@
         app:layout_constraintStart_toStartOf="parent" />
     <EditText
         android:id="@+id/emailusuario"
+        android:id="@+id/editUsername"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Email"
@@ -67,6 +69,7 @@
 
     <TextView
         android:id="@+id/password"
+        android:id="@+id/editEmailUserTextView"
         android:layout_width="143dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
@@ -75,6 +78,7 @@
         android:textColor="@color/white" />
     <EditText
         android:id="@+id/passwordUsuario"
+        android:id="@+id/editEmailUser"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Password"
@@ -88,6 +92,7 @@
         android:layout_marginEnd="20dp" />
 
     <TextView
+        android:id="@+id/editPasswordTextView"
         android:id="@+id/Verifypassword"
         android:layout_width="143dp"
         android:layout_height="35dp"
@@ -96,6 +101,7 @@
         android:text="Verify Password:"
         android:textColor="@color/white"/>
     <EditText
+        android:id="@+id/editPasswordUser"
         android:id="@+id/passwordVerify"
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -110,7 +116,7 @@
         android:layout_marginEnd="20dp" />
 
     <Button
-        android:id="@+id/editarPerfil"
+        android:id="@+id/editarPerfilButton"
         android:gravity="center"
         android:layout_width="325dp"
         android:layout_height="57dp"

@@ -1,8 +1,5 @@
 package com.example.miagenda.ui.tasks;
 
-import static android.content.ContentValues.TAG;
-
-import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,6 +32,7 @@ import retrofit2.Response;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class AddTasksFragment extends Fragment {
 
+    private EditText addNombreTarea, addDescripcionTarea, addFechaInicial, addFechaLimite, addEstado, addPrioridad, addDocumento;
     private EditText editTaskName, editTaskDesc, fechaLimite;
     private SessionManager sessionManager;
 
@@ -68,7 +66,7 @@ public class AddTasksFragment extends Fragment {
             }
         });
 
-        Button addTaskButton = view.findViewById(R.id.editarPerfil);
+        Button addTaskButton = view.findViewById(R.id.addTareaButton);
         addTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +78,13 @@ public class AddTasksFragment extends Fragment {
         sessionManager = new SessionManager(requireContext());
 
         // Find all EditText fields
+        addNombreTarea = view.findViewById(R.id.addNombreTarea);
+        addDescripcionTarea = view.findViewById(R.id.addDescripcionTarea);
+        addFechaInicial = view.findViewById(R.id.addFechaInicialTarea);
+        addFechaLimite = view.findViewById(R.id.addFechaLimiteTarea);
+        addEstado = view.findViewById(R.id.addEstadoTarea);
+        addPrioridad = view.findViewById(R.id.addPrioridadTarea);
+        addDocumento = view.findViewById(R.id.addDocumentoTarea);
         fechaLimite = view.findViewById(R.id.fechaLimite);
         editTaskName = view.findViewById(R.id.addTareaName);
         editTaskDesc = view.findViewById(R.id.addDescTarea);
@@ -105,6 +110,13 @@ public class AddTasksFragment extends Fragment {
 
         if (limitDate != null) {
             Tarea nuevaTarea = new Tarea(taskName, taskDesc, limitDate, username); // Pass username to Tarea constructor
+        String userName = addNombreTarea.getText().toString();
+        String email = addDescripcionTarea.getText().toString();
+        String initialDateStr = addFechaInicial.getText().toString();
+        String limitDateStr = addFechaLimite.getText().toString();
+        String estado = addEstado.getText().toString();
+        String prioridad = addPrioridad.getText().toString();
+        String documento = addDocumento.getText().toString();
 
             Log.d(TAG, "Nueva tarea creada:--------------------------------------------------------------------------------------------------------------------------------------------------- " + nuevaTarea);
 
@@ -143,3 +155,4 @@ public class AddTasksFragment extends Fragment {
         return null;
     }
 }
+

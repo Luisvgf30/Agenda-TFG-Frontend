@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.tasks.AddTasksFragment"
-    android:background="@drawable/fondo_app"
+    android:background="@color/fondoApp"
     android:orientation="vertical"
     android:id="@+id/addTasks">
 
@@ -42,6 +42,7 @@
         android:background="@color/white" />
 
     <EditText
+        android:id="@+id/addNombreTarea"
         android:id="@+id/addTareaName"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -58,6 +59,7 @@
 
     <EditText
         android:id="@+id/addDescTarea"
+        android:id="@+id/addDescripcionTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
@@ -72,7 +74,7 @@
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/fechaInicial"
+        android:id="@+id/addFechaInicialTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Fecha Inicial"
@@ -86,7 +88,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"/>
     <EditText
-        android:id="@+id/fechaLimite"
+        android:id="@+id/addFechaLimiteTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Fecha Limite"
@@ -101,7 +103,7 @@
         android:layout_marginTop="20dp"/>
 
     <EditText
-        android:id="@+id/estadoET"
+        android:id="@+id/addEstadoTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
@@ -116,7 +118,7 @@
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/prioridadET"
+        android:id="@+id/addPrioridadTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Prioridad"
@@ -130,7 +132,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"/>
     <EditText
-        android:id="@+id/documentoET"
+        android:id="@+id/addDocumentoTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Documento (Opcional)"
@@ -145,7 +147,7 @@
         android:layout_marginTop="20dp"/>
 
     <Button
-        android:id="@+id/editarPerfil"
+        android:id="@+id/addTareaButton"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:paddingStart="20dp"

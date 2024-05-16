@@ -42,7 +42,7 @@
         android:background="@color/white" />
 
     <EditText
-        android:id="@+id/addTareaName"
+        android:id="@+id/editNombreTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Nombre"
@@ -54,8 +54,9 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="40dp"/>
     <EditText
+        android:id="@+id/editDescripcionTarea"
         android:id="@+id/addDescTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -68,10 +69,10 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="30dp"/>
 
     <EditText
-        android:id="@+id/fechaInicial"
+        android:id="@+id/editFechaInicialTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Fecha Inicial"
@@ -83,9 +84,9 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="30dp"/>
     <EditText
-        android:id="@+id/fechaLimite"
+        android:id="@+id/editFechaLimiteTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Fecha Limite"
@@ -97,10 +98,10 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="30dp"/>
 
     <EditText
-        android:id="@+id/estadoET"
+        android:id="@+id/editEstadoTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Estado"
@@ -112,10 +113,10 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="30dp"/>
 
     <EditText
-        android:id="@+id/prioridadET"
+        android:id="@+id/editPrioridadTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Prioridad"
@@ -127,30 +128,16 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"/>
-    <EditText
-        android:id="@+id/documentoET"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:hint="Documento (Opcional)"
-        android:background="@drawable/redondear"
-        android:backgroundTint="@color/white"
-        android:maxLines="1"
-        android:inputType="text"
-        android:textSize="16sp"
-        android:paddingStart="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="30dp"/>
 
     <Button
-        android:id="@+id/editarPerfil"
+        android:id="@+id/editarTareaButton"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center"
         android:text="Guardar Cambios"
         app:backgroundTint="#00AAAAAA"

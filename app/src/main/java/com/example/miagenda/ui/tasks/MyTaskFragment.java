@@ -68,7 +68,7 @@ public class MyTaskFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_my_task, container, false);
 
-        Button editarTarea = view.findViewById(R.id.editarTarea);
+        Button editarTarea = view.findViewById(R.id.miTareaButton);
         editarTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

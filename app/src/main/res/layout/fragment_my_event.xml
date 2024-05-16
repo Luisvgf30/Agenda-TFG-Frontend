@@ -5,9 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_app"
+    android:background="@color/fondoApp"
     android:orientation="vertical"
-    tools:context=".ui.calendar.MyEventFragment">
+    tools:context=".ui.events.MyEventFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,7 +48,6 @@
         android:layout_marginTop="50dp">
 
         <TextView
-            android:id="@+id/nombreEvento"
             android:layout_width="160dp"
             android:layout_height="35dp"
             android:layout_marginStart="16dp"
@@ -58,7 +57,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/nombreEventoDesc"
+            android:id="@+id/nombreMiEventoTextView"
             android:layout_width="193dp"
             android:layout_height="35dp"
             android:layout_marginTop="59dp"
@@ -72,7 +71,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/descripcion"
             android:layout_width="160dp"
             android:layout_height="35dp"
             android:layout_marginStart="16dp"
@@ -80,7 +78,7 @@
             android:text="Descripción:"
             android:textColor="@color/white" />
         <TextView
-            android:id="@+id/descripcionDesc"
+            android:id="@+id/descripcionMiEventoTextView"
             android:layout_width="193dp"
             android:layout_height="35dp"
             android:layout_marginTop="32dp"
@@ -98,7 +96,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/fecha"
             android:layout_width="160dp"
             android:layout_height="35dp"
             android:layout_marginStart="16dp"
@@ -106,7 +103,7 @@
             android:text="Fecha:"
             android:textColor="@color/white"/>
         <TextView
-            android:id="@+id/fechaDesc"
+            android:id="@+id/fechaMiEventoTextView"
             android:layout_width="193dp"
             android:layout_height="35dp"
             android:layout_marginTop="32dp"
@@ -120,7 +117,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/aviso"
             android:layout_width="160dp"
             android:layout_height="35dp"
             android:layout_marginStart="16dp"
@@ -128,7 +124,7 @@
             android:text="Aviso anterior al evento:"
             android:textColor="@color/white"/>
         <TextView
-            android:id="@+id/avisoDesc"
+            android:id="@+id/avisoMiEventoTextView"
             android:layout_width="193dp"
             android:layout_height="35dp"
             android:layout_marginTop="32dp"
@@ -138,7 +134,7 @@
 
     </LinearLayout>
     <Button
-        android:id="@+id/editarEvento"
+        android:id="@+id/miEventoButton"
         android:gravity="center"
         android:layout_width="325dp"
         android:layout_height="57dp"

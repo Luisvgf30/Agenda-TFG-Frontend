@@ -6,8 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -36,8 +39,11 @@ public class EditProfileFragment extends Fragment {
         emailEditText = view.findViewById(R.id.emailusuario);
         passwordEditText = view.findViewById(R.id.passwordUsuario);
         passwordVerifyEditText = view.findViewById(R.id.passwordVerify);
+        usernameEditText = view.findViewById(R.id.editUsername);
+        emailEditText = view.findViewById(R.id.editEmailUser);
+        passwordEditText = view.findViewById(R.id.editPasswordUser);
 
-        Button updateButton = view.findViewById(R.id.editarPerfil);
+        Button updateButton = view.findViewById(R.id.editarPerfilButton);
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,8 +83,25 @@ public class EditProfileFragment extends Fragment {
 
             @Override
             public void onError(String errorMessage) {
+                // Manejar error
                 Toast.makeText(getContext(), "Error al actualizar perfil: " + errorMessage, Toast.LENGTH_SHORT).show();
             }
+        });
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        ImageButton botonAtras = view.findViewById(R.id.boton_atras);
+
+        botonAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Vuelve al Fragment anterior
+                getParentFragmentManager().popBackStack();
+            }
+
         });
     }
 }

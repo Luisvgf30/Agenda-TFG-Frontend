@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_calendar"
-        android:name="com.example.miagenda.ui.calendar.CalendarFragment"
+        android:name="com.example.miagenda.ui.events.EventosFragment"
         android:label="@string/title_calendar"
-        tools:layout="@layout/fragment_calendar" />
+        tools:layout="@layout/fragment_eventos" />
 
     <fragment
         android:id="@+id/navigation_notes"
@@ -47,14 +47,25 @@
 
     <fragment
         android:id="@+id/addCalendarFragment"
-        android:name="com.example.miagenda.ui.calendar.AddCalendarFragment"
+        android:name="com.example.miagenda.ui.events.AddEventosFragment"
         android:label="fragment_add_calendar"
+        tools:layout="@layout/fragment_add_eventos" >
+    </fragment>
         tools:layout="@layout/fragment_add_calendar" />
 
     <fragment
         android:id="@+id/editCalendarFragment"
-        android:name="com.example.miagenda.ui.calendar.EditCalendarFragment"
+        android:name="com.example.miagenda.ui.events.EditEventosFragment"
         android:label="fragment_edit_calendar"
+        tools:layout="@layout/fragment_edit_eventos" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/editarPerfil"
+        android:name="com.example.miagenda.ui.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+    </fragment>
         tools:layout="@layout/fragment_edit_calendar" />
 
     <fragment
@@ -77,13 +88,16 @@
 
     <fragment
         android:id="@+id/myEvent"
-        android:name="com.example.miagenda.ui.calendar.MyEventFragment"
+        android:name="com.example.miagenda.ui.events.MyEventFragment"
         android:label="fragment_my_event"
         tools:layout="@layout/fragment_my_event" />
 
     <fragment
         android:id="@+id/editEvent"
-        android:name="com.example.miagenda.ui.calendar.EditCalendarFragment"
+        android:name="com.example.miagenda.ui.events.EditEventosFragment"
         android:label="fragment_my_event"
+        tools:layout="@layout/fragment_edit_eventos" >
+    </fragment>
+
         tools:layout="@layout/fragment_edit_calendar" />
 </navigation>
