@@ -43,7 +43,6 @@
 
     <EditText
         android:id="@+id/addNombreTarea"
-        android:id="@+id/addTareaName"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Nombre"
@@ -58,7 +57,6 @@
         android:layout_marginTop="30dp"/>
 
     <EditText
-        android:id="@+id/addDescTarea"
         android:id="@+id/addDescripcionTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"

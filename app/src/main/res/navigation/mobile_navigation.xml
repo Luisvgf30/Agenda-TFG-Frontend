@@ -51,7 +51,7 @@
         android:label="fragment_add_calendar"
         tools:layout="@layout/fragment_add_eventos" >
     </fragment>
-        tools:layout="@layout/fragment_add_calendar" />
+       <!--tools:layout="@layout/fragment_add_calendar" />-->
 
     <fragment
         android:id="@+id/editCalendarFragment"
@@ -60,13 +60,13 @@
         tools:layout="@layout/fragment_edit_eventos" >
     </fragment>
 
-    <fragment
+    <!--<fragment
         android:id="@+id/editarPerfil"
         android:name="com.example.miagenda.ui.profile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" >
-    </fragment>
-        tools:layout="@layout/fragment_edit_calendar" />
+    </fragment>-->
+      <!--  tools:layout="@layout/fragment_edit_calendar" />-->
 
     <fragment
         android:id="@+id/myTask"
@@ -99,5 +99,5 @@
         tools:layout="@layout/fragment_edit_eventos" >
     </fragment>
 
-        tools:layout="@layout/fragment_edit_calendar" />
+       <!-- tools:layout="@layout/fragment_edit_calendar" />-->
 </navigation>

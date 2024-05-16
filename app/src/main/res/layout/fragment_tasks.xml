@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondoApp"
+    android:background="@drawable/fondo_app"
     tools:context=".ui.tasks.TasksFragment">
 
     <LinearLayout
@@ -35,95 +35,6 @@
             android:layout_height="match_parent"
             android:padding="16dp" />
         <!-- Ajusta este atributo según la disposición de tu diseño -->
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:cardBackgroundColor="#03514A"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-            app:strokeColor="@android:color/white"
-            app:strokeWidth="2dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/tvTaskNameLabel"
-                    android:layout_width="158dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="Tarea"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/white" /> <!-- Margen a la derecha -->
-
-                <TextView
-                    android:id="@+id/tvTaskName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tvTaskNameLabel"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Prioridad: Alto"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/white" /> <!-- Margen a la derecha -->
-
-                <TextView
-                    android:id="@+id/tvTimeRemainingLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginBottom="4dp"
-                    android:text="Estado"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:id="@+id/tvTimeRemaining"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tvTimeRemainingLabel"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginBottom="8dp"
-                    android:text="1:35h"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/white" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tvTimeRemaining"
-                    android:orientation="horizontal"
-                    android:gravity="center_horizontal">
-
-                    <Button
-                        android:id="@+id/estadoTask"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:backgroundTint="@color/white"
-                        android:text="Ver Tarea"
-                        android:textColor="@color/black"
-                        app:cornerRadius="20dp" />
-
-                    <Button
-                        android:id="@+id/deleteTask"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="10dp"
-                        android:backgroundTint="@color/rojo"
-                        android:text="Borrar"
-                        android:textColor="@color/white"
-                        app:cornerRadius="20dp" />
-
-                </LinearLayout>
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
@@ -136,13 +47,9 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="90dp"
         android:src="@drawable/add"
-        app:backgroundTint="@color/white"
+        app:backgroundTint="@android:color/transparent"
         app:borderWidth="2dp"
-        app:rippleColor="@color/fondoApp"
-        app:tint="@color/fondoApp"
         app:elevation="0dp"
-        app:pressedTranslationZ="0dp" />
-
         app:pressedTranslationZ="0dp"
         app:rippleColor="@color/white"
         app:tint="@color/white" />

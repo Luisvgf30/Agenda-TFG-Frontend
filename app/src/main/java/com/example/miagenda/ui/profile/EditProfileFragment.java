@@ -39,9 +39,6 @@ public class EditProfileFragment extends Fragment {
         emailEditText = view.findViewById(R.id.emailusuario);
         passwordEditText = view.findViewById(R.id.passwordUsuario);
         passwordVerifyEditText = view.findViewById(R.id.passwordVerify);
-        usernameEditText = view.findViewById(R.id.editUsername);
-        emailEditText = view.findViewById(R.id.editEmailUser);
-        passwordEditText = view.findViewById(R.id.editPasswordUser);
 
         Button updateButton = view.findViewById(R.id.editarPerfilButton);
         updateButton.setOnClickListener(new View.OnClickListener() {

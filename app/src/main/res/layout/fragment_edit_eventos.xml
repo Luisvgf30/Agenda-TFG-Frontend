@@ -57,7 +57,6 @@
         android:layout_marginTop="60dp"/>
     <EditText
         android:id="@+id/editDescripcionEvento"
-        android:id="@+id/addDescTarea"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="Descripción"
