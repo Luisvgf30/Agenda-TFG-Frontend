@@ -2,6 +2,7 @@ package com.example.miagenda.api.retrofit;
 
 
 
+import com.example.miagenda.api.Evento;
 import com.example.miagenda.api.Nota;
 import com.example.miagenda.api.Tarea;
 import com.example.miagenda.api.Usuario;
@@ -78,6 +79,18 @@ public interface PerfilAPI {
             @Field("username")String username
     );
 
+    @FormUrlEncoded
+    @PUT("/editTask")
+    Call<Void> editTask(
+            @Field("username") String username,
+            @Field("old_task_name") String oldTaskName,
+            @Field("new_task_name") String newTaskName,
+            @Field("new_task_desc") String newTaskDesc,
+            @Field("new_limit_date") String newLimitDate,
+            @Field("new_estado") String newEstado,
+            @Field("new_task_level") String newTaskLevel
+    );
+
     @DELETE("/deleteNote")
     Call<Void> deleteNote(
             @Query("username") String username,
@@ -92,6 +105,36 @@ public interface PerfilAPI {
     Call<Void> createNote(
             @Field("note_desc") String note_desc,
             @Field("username") String username);
+
+    @FormUrlEncoded
+    @POST("/createEvent")
+    Call<Void> createEvent(
+            @Field("username") String username,
+            @Field("event_name") String eventName,
+            @Field("event_desc") String eventDesc,
+            @Field("event_date") LocalDate eventDate
+    );
+
+    @DELETE("/deleteEvent")
+    Call<Void> deleteEvent(
+            @Query("username") String username,
+            @Query("event_name") String eventName
+    );
+
+    @GET("/buscarEvents")
+    Call<List<Evento>> buscarEvents(
+            @Query("username") String username
+    );
+
+    @FormUrlEncoded
+    @PUT("/editEvent")
+    Call<Void> editEvent(
+            @Field("username") String username,
+            @Field("old_event_name") String oldEventName,
+            @Field("new_event_name") String newEventName,
+            @Field("new_event_desc") String newEventDesc,
+            @Field("new_event_date") LocalDate newEventDate
+    );
 
 }
 

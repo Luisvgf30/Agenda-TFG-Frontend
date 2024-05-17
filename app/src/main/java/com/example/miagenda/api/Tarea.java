@@ -1,7 +1,5 @@
 package com.example.miagenda.api;
 
-import android.os.Build;
-
 import java.time.LocalDate;
 import com.google.gson.annotations.SerializedName;
 
@@ -15,13 +13,13 @@ public class Tarea {
     @SerializedName("document")
     private String document;
     @SerializedName("date_limit")
-    private LocalDate dateLimit;
+    private String dateLimit;
     @SerializedName("date_initial")
-    private LocalDate dateInitial;
+    private String dateInitial;
     @SerializedName("username")
     private String username;
 
-    public Tarea(String taskName, String taskDesc, LocalDate dateLimit, String username) {
+    public Tarea(String taskName, String taskDesc, String dateLimit, String username) {
         this.taskName = taskName;
         this.taskDesc = taskDesc;
         this.dateLimit = dateLimit;
@@ -61,19 +59,19 @@ public class Tarea {
         this.document = document;
     }
 
-    public LocalDate getDateLimit() {
+    public String getDateLimit() {
         return dateLimit;
     }
 
-    public void setDateLimit(LocalDate dateLimit) {
+    public void setDateLimit(String dateLimit) {
         this.dateLimit = dateLimit;
     }
 
-    public LocalDate getDateInitial() {
+    public String getDateInitial() {
         return dateInitial;
     }
 
-    public void setDateInitial(LocalDate dateInitial) {
+    public void setDateInitial(String dateInitial) {
         this.dateInitial = dateInitial;
     }
 

@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +19,8 @@ import com.example.miagenda.api.Tarea;
 import com.example.miagenda.api.Usuario;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -32,10 +36,21 @@ public class TasksFragment extends Fragment {
     private TasksAdapter tasksAdapter;
     private SessionManager sessionManager;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_tasks, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_tasks, container, false);
+
+        FloatingActionButton fabAgregarTarea = view.findViewById(R.id.fabAgregarTarea);
+        fabAgregarTarea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.addTasks);
+            }
+        });
+
+        return view;
     }
 
     @Override
@@ -68,7 +83,6 @@ public class TasksFragment extends Fragment {
                         Log.e("TasksFragment", "Error en la respuesta: " + response.message());
                     }
                 }
-
 
                 @Override
                 public void onFailure(Call<List<Tarea>> call, Throwable t) {

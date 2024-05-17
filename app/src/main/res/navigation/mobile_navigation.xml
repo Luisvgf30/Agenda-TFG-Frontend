@@ -99,5 +99,14 @@
         tools:layout="@layout/fragment_edit_eventos" >
     </fragment>
 
-       <!-- tools:layout="@layout/fragment_edit_calendar" />-->
+    <action
+        android:id="@+id/action_myTaskFragment_to_editTasksFragment"
+        app:destination="@id/editTasks" />
+
+    <action
+        android:id="@+id/action_editTasksFragment_to_myTaskFragment"
+        app:destination="@id/myTask" />
+
+
+    <!-- tools:layout="@layout/fragment_edit_calendar" />-->
 </navigation>

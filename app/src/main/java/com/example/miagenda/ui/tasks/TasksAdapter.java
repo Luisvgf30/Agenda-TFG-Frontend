@@ -1,10 +1,14 @@
+// TasksAdapter.java
 package com.example.miagenda.ui.tasks;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.miagenda.R;
 import com.example.miagenda.api.Tarea;
@@ -20,7 +24,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
 
     public void setTareas(List<Tarea> tareas) {
         this.tareas = tareas;
-        notifyDataSetChanged(); // Notificar al RecyclerView que los datos han cambiado
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -35,6 +39,17 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
         Tarea tarea = tareas.get(position);
         holder.tareaTitulo.setText(tarea.getTaskName());
         holder.tareaDescripcion.setText(tarea.getTaskDesc());
+
+        holder.estadoTarea.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("taskName", tarea.getTaskName());
+            bundle.putString("taskDesc", tarea.getTaskDesc());
+            bundle.putString("startDate", tarea.getDateInitial());
+            bundle.putString("dueDate", tarea.getDateLimit());
+            bundle.putString("status", tarea.getState());
+            bundle.putString("priority", tarea.getDocument());
+            Navigation.findNavController(v).navigate(R.id.myTask, bundle);
+        });
     }
 
     @Override
@@ -45,11 +60,13 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
     static class TaskViewHolder extends RecyclerView.ViewHolder {
         TextView tareaTitulo;
         TextView tareaDescripcion;
+        Button estadoTarea;
 
         TaskViewHolder(@NonNull View itemView) {
             super(itemView);
             tareaTitulo = itemView.findViewById(R.id.tvTaskName);
             tareaDescripcion = itemView.findViewById(R.id.tvTaskNameLabel);
+            estadoTarea = itemView.findViewById(R.id.estadoTask);
         }
     }
 }
