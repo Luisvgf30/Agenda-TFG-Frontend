@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +15,12 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import com.example.miagenda.R;
 import com.example.miagenda.SessionManager;
-import com.example.miagenda.api.Tarea;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Locale;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,24 +28,16 @@ import retrofit2.Response;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class AddTasksFragment extends Fragment {
 
-    private EditText editTaskName, editTaskDesc, fechaLimite;
+    private EditText editTaskName, editTaskDesc, fechaLimite, taskLevel;
     private SessionManager sessionManager;
 
     public AddTasksFragment() {
         // Required empty public constructor
     }
 
-    public static AddTasksFragment newInstance(String param1, String param2) {
-        AddTasksFragment fragment = new AddTasksFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_tasks, container, false);
     }
 
@@ -59,32 +46,21 @@ public class AddTasksFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ImageButton backButton = view.findViewById(R.id.boton_atras);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getParentFragmentManager().popBackStack();
-            }
-        });
+        backButton.setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
         Button addTaskButton = view.findViewById(R.id.addTareaButton);
-        addTaskButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createTask();
-            }
-        });
+        addTaskButton.setOnClickListener(v -> createTask());
 
-        // Initialize SessionManager
         sessionManager = new SessionManager(requireContext());
 
-        // Find all EditText fields
         fechaLimite = view.findViewById(R.id.addFechaLimiteTarea);
         editTaskName = view.findViewById(R.id.addNombreTarea);
         editTaskDesc = view.findViewById(R.id.addDescripcionTarea);
+        taskLevel = view.findViewById(R.id.addEstadoTarea);
     }
 
     private void createTask() {
-        String username = sessionManager.getUser().getUsername(); // Get username from SessionManager
+        String username = sessionManager.getUser().getUsername();
         if (username == null) {
             Toast.makeText(requireContext(), "Usuario no logeado", Toast.LENGTH_SHORT).show();
             return;
@@ -93,34 +69,35 @@ public class AddTasksFragment extends Fragment {
         String taskName = editTaskName.getText().toString();
         String taskDesc = editTaskDesc.getText().toString();
         String limitDateStr = fechaLimite.getText().toString();
+        String LevelTask = taskLevel.getText().toString();
 
-        if (taskName.isEmpty() || taskDesc.isEmpty() || limitDateStr.isEmpty()) {
+        if (taskName.isEmpty() || taskDesc.isEmpty() || limitDateStr.isEmpty() || LevelTask.isEmpty()) {
             Toast.makeText(requireContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
             return;
         }
 
         LocalDate limitDate = parseDate(limitDateStr);
 
+        PerfilAPI apiService = RetrofitCliente.getInstance().create(PerfilAPI.class);
+        Call<Void> call = apiService.createTask(taskName, taskDesc, limitDate, LevelTask, username);
 
-            PerfilAPI apiService = RetrofitCliente.getInstance().create(PerfilAPI.class);
-            Call<Void> call = apiService.createTask(taskName, taskDesc, limitDate, username);
-
-            call.enqueue(new Callback<Void>() {
-                @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
-                    if (response.isSuccessful()) {
-                        Toast.makeText(requireContext(), "Tarea creada exitosamente", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(requireContext(), "Error al crear la tarea: " + response.code(), Toast.LENGTH_SHORT).show();
-                    }
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(requireContext(), "Tarea creada exitosamente", Toast.LENGTH_SHORT).show();
+                    getParentFragmentManager().popBackStack();
+                } else {
+                    Toast.makeText(requireContext(), "Error al crear la tarea: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
+            }
 
-                @Override
-                public void onFailure(Call<Void> call, Throwable t) {
-                    Toast.makeText(requireContext(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(requireContext(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private LocalDate parseDate(String dateString) {
@@ -133,4 +110,3 @@ public class AddTasksFragment extends Fragment {
         return null;
     }
 }
-

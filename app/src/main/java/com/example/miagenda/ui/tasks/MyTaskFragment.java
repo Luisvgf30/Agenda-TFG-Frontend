@@ -5,7 +5,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +66,12 @@ public class MyTaskFragment extends Fragment {
         prioridadTarea.setText(priority);
 
         view.findViewById(R.id.boton_atras).setOnClickListener(v -> {
-            getParentFragmentManager().popBackStack();
+            NavOptions navOptions = new NavOptions.Builder()
+                    .setPopUpTo(R.id.myTask, true)  // Limpia la pila de retroceso hasta este fragmento
+                    .build();
+
+            NavHostFragment.findNavController(MyTaskFragment.this)
+                    .navigate(R.id.navigation_tasks, null, navOptions);
         });
 
         view.findViewById(R.id.miTareaButton).setOnClickListener(v -> {

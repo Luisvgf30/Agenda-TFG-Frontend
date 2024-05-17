@@ -76,6 +76,7 @@ public interface PerfilAPI {
             @Field("task_name")String task_name,
             @Field("task_desc")String task_desc,
             @Field("limit_date")LocalDate limit_date,
+            @Field("task_level")String task_level,
             @Field("username")String username
     );
 
