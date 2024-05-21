@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_calendar"
         android:name="com.example.miagenda.ui.events.EventosFragment"
-        android:label="@string/title_calendar"
+        android:label="@string/title_evento"
         tools:layout="@layout/fragment_eventos" />
 
     <fragment
