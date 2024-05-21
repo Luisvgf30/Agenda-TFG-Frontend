@@ -12,12 +12,16 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.miagenda.R;
 import com.example.miagenda.SessionManager;
 import com.example.miagenda.api.Evento;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,6 +29,11 @@ import retrofit2.Response;
 
 public class EventosFragment extends Fragment {
 
+    private List<String> events = new ArrayList<>();
+
+    private LinearLayout noEventsContainer;
+
+    private RecyclerView recyclerView;
     private LinearLayout containerEventos;
     private SessionManager sessionManager;
 
@@ -57,6 +66,7 @@ public class EventosFragment extends Fragment {
         });
 
         loadEvents();
+        updateNoEventsView();
 
         return view;
     }
@@ -135,6 +145,15 @@ public class EventosFragment extends Fragment {
                     Log.e("DeleteEvent", "Error de red: " + t.getMessage());
                 }
             });
+        }
+    }
+    private void updateNoEventsView() {
+        if (events.isEmpty()) {
+            recyclerView.setVisibility(View.GONE);
+            noEventsContainer.setVisibility(View.VISIBLE);
+        } else {
+            recyclerView.setVisibility(View.VISIBLE);
+            noEventsContainer.setVisibility(View.GONE);
         }
     }
 }

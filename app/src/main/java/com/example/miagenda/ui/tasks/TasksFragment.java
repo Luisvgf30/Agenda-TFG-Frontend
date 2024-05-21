@@ -22,6 +22,7 @@ import com.example.miagenda.api.retrofit.RetrofitCliente;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.util.Log;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,9 @@ import retrofit2.Response;
 
 public class TasksFragment extends Fragment {
 
+    private List<String> tasks = new ArrayList<>();
+
+    private LinearLayout noTasksContainer;
     private RecyclerView recyclerView;
     private TasksAdapter tasksAdapter;
     private SessionManager sessionManager;
@@ -62,9 +66,11 @@ public class TasksFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerViewTasks);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         tasksAdapter = new TasksAdapter(new ArrayList<>());
+        noTasksContainer = view.findViewById(R.id.no_notes_container);
         recyclerView.setAdapter(tasksAdapter);
 
         loadUserTasks();
+        updateNoTasksView();
     }
 
     private void loadUserTasks() {
@@ -89,6 +95,16 @@ public class TasksFragment extends Fragment {
                     Log.e("TasksFragment", "Error en la solicitud: " + t.getMessage());
                 }
             });
+        }
+    }
+
+    private void updateNoTasksView() {
+        if (tasks.isEmpty()) {
+            recyclerView.setVisibility(View.GONE);
+            noTasksContainer.setVisibility(View.VISIBLE);
+        } else {
+            recyclerView.setVisibility(View.VISIBLE);
+            noTasksContainer.setVisibility(View.GONE);
         }
     }
 }
