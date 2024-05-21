@@ -7,8 +7,7 @@
     tools:context=".ui.events.AddEventosFragment"
     android:background="@color/fondoApp"
     android:orientation="vertical"
-    android:id="@+id/addCalendarFragment"
-    >
+    android:id="@+id/addCalendarFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +33,6 @@
             android:textColor="@color/white"
             android:textSize="20dp"
             android:layout_marginEnd="30dp"/>
-
     </LinearLayout>
 
     <View
@@ -115,6 +113,4 @@
         app:cornerRadius="20dp"
         app:strokeColor="@color/white"
         app:strokeWidth="1dp" />
-
-
 </LinearLayout>
