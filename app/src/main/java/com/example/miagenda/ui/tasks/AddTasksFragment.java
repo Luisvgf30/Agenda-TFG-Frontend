@@ -66,7 +66,7 @@ public class AddTasksFragment extends Fragment {
         addFechaLimite = view.findViewById(R.id.addFechaLimiteTarea);
         addEstado = view.findViewById(R.id.addEstadoTarea);
         addPrioridad = view.findViewById(R.id.addPrioridadTarea);
-        addDocumento = view.findViewById(R.id.addDocumentoTarea);
+
     }
 
     private void createTask() {

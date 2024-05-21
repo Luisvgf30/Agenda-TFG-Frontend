@@ -31,7 +31,7 @@
             android:gravity="center"
             android:text="Mi Evento"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_marginEnd="30dp"/>
 
     </LinearLayout>
@@ -50,9 +50,11 @@
         <TextView
             android:layout_width="160dp"
             android:layout_height="35dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="65dp"
             android:layout_marginTop="59dp"
             android:text="Nombre evento:"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -63,6 +65,7 @@
             android:layout_marginTop="59dp"
             android:layout_marginEnd="40dp"
             android:text="rubeen_06_"
+            android:textSize="20sp"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"/>
     </LinearLayout>
@@ -73,9 +76,11 @@
         <TextView
             android:layout_width="160dp"
             android:layout_height="35dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="65dp"
             android:layout_marginTop="32dp"
             android:text="Descripción:"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:textColor="@color/white" />
         <TextView
             android:id="@+id/descripcionMiEventoTextView"
@@ -84,6 +89,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
             android:text="ruben@gmail.com"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
 
 
@@ -98,9 +104,11 @@
         <TextView
             android:layout_width="160dp"
             android:layout_height="35dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="65dp"
             android:layout_marginTop="32dp"
             android:text="Fecha:"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:textColor="@color/white"/>
         <TextView
             android:id="@+id/fechaMiEventoTextView"
@@ -109,36 +117,17 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
             android:text="*******"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="160dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:text="Aviso anterior al evento:"
-            android:textColor="@color/white"/>
-        <TextView
-            android:id="@+id/avisoMiEventoTextView"
-            android:layout_width="193dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="40dp"
-            android:text="*******"
-            android:textColor="@color/white"/>
 
-    </LinearLayout>
     <Button
         android:id="@+id/miEventoButton"
         android:gravity="center"
         android:layout_width="325dp"
         android:layout_height="57dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="200dp"
         android:layout_marginStart="43dp"
         android:layout_marginEnd="43dp"
         android:layout_marginBottom="76dp"

@@ -54,7 +54,7 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="100dp"/>
     <EditText
         android:id="@+id/editDescripcionEvento"
         android:layout_width="match_parent"
@@ -85,20 +85,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="40dp"/>
 
-    <EditText
-        android:id="@+id/editAvisoEvento"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:hint="Aviso anterior al evento"
-        android:background="@drawable/redondear"
-        android:backgroundTint="@color/white"
-        android:maxLines="1"
-        android:inputType="textEmailAddress"
-        android:textSize="16sp"
-        android:paddingStart="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"/>
+
 
     <Button
         android:id="@+id/editarEventoButton"
@@ -107,7 +94,7 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="170dp"
         android:layout_gravity="center"
         android:text="Guardar Cambios"
         app:backgroundTint="#00AAAAAA"

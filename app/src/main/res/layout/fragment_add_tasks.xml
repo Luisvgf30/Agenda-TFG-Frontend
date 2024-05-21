@@ -128,20 +128,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"/>
-    <EditText
-        android:id="@+id/addDocumentoTarea"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:hint="Documento (Opcional)"
-        android:background="@drawable/redondear"
-        android:backgroundTint="@color/white"
-        android:maxLines="1"
-        android:inputType="text"
-        android:textSize="16sp"
-        android:paddingStart="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"/>
+
 
     <Button
         android:id="@+id/addTareaButton"
@@ -150,7 +137,7 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:layout_gravity="center"
         android:text="Añadir Tarea"
         app:backgroundTint="#00AAAAAA"

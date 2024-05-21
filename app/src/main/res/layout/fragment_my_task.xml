@@ -46,12 +46,14 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="160dp"
+            android:layout_width="140dp"
             android:layout_height="35dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="76dp"
             android:layout_marginTop="59dp"
-            android:text="Nombre tarea:"
+            android:text="Nombre:"
             android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -62,6 +64,7 @@
             android:layout_marginEnd="40dp"
             android:text="rubeen_06_"
             android:textColor="@color/white"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"/>
     </LinearLayout>
     <LinearLayout
@@ -69,11 +72,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="160dp"
+            android:layout_width="140dp"
             android:layout_height="35dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="76dp"
             android:layout_marginTop="32dp"
             android:text="Descripción:"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:textColor="@color/white" />
         <TextView
             android:id="@+id/descripcionTarea"
@@ -82,6 +87,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
             android:text="ruben@gmail.com"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
 
 
@@ -94,11 +100,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="160dp"
+            android:layout_width="140dp"
             android:layout_height="35dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="76dp"
             android:layout_marginTop="32dp"
             android:text="Fecha Inicial:"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
         <TextView
             android:id="@+id/fechaInicialTarea"
@@ -107,6 +115,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
             android:text="*******"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
 
     </LinearLayout>
@@ -115,11 +124,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="160dp"
+            android:layout_width="140dp"
             android:layout_height="35dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="76dp"
             android:layout_marginTop="32dp"
             android:text="Fecha Límite:"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
         <TextView
             android:id="@+id/fechaLimiteTarea"
@@ -128,6 +139,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
             android:text="*******"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
 
     </LinearLayout>
@@ -136,11 +148,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="160dp"
+            android:layout_width="140dp"
             android:layout_height="35dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="76dp"
             android:layout_marginTop="32dp"
             android:text="Estado:"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
         <TextView
             android:id="@+id/estadoTarea"
@@ -149,6 +163,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
             android:text="*******"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
 
     </LinearLayout>
@@ -157,11 +172,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="160dp"
+            android:layout_width="140dp"
             android:layout_height="35dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="76dp"
             android:layout_marginTop="32dp"
             android:text="Prioridad:"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
         <TextView
             android:id="@+id/prioridadTarea"
@@ -170,6 +187,8 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
             android:text="*******"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:textColor="@color/white"/>
 
     </LinearLayout>
