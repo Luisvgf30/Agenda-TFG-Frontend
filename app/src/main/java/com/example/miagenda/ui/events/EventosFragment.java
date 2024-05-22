@@ -66,7 +66,7 @@ public class EventosFragment extends Fragment {
         });
 
         loadEvents();
-        updateNoEventsView();
+       // updateNoEventsView();
 
         return view;
     }
@@ -147,7 +147,7 @@ public class EventosFragment extends Fragment {
             });
         }
     }
-    private void updateNoEventsView() {
+    /*private void updateNoEventsView() {
         if (events.isEmpty()) {
             recyclerView.setVisibility(View.GONE);
             noEventsContainer.setVisibility(View.VISIBLE);
@@ -155,5 +155,5 @@ public class EventosFragment extends Fragment {
             recyclerView.setVisibility(View.VISIBLE);
             noEventsContainer.setVisibility(View.GONE);
         }
-    }
+    }*/
 }
