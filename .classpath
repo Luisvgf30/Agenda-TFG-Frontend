@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path=".gradle/8.4/dependencies-accessors/9445586c2b7ed6de8dc7ae9a17db9edb1ef1c5f7/sources"/>
+	<classpathentry kind="src" path="app/build/generated/data_binding_base_class_source_out/debug/out"/>
+	<classpathentry kind="src" path="app/src/androidTest/java"/>
+	<classpathentry kind="src" path="app/src/main/java"/>
+	<classpathentry kind="src" path="app/src/test/java"/>
+	<classpathentry kind="lib" path="app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/processDebugResources/R.jar"/>
+	<classpathentry kind="lib" path="app/build/intermediates/merged_java_res/debug/mergeDebugJavaResource/base.jar"/>
+	<classpathentry kind="lib" path="app/build/intermediates/project_dex_archive/debug/dexBuilderDebug/out/fd946b5387465dca87a9b8d6b841f46c7f3b01565aa8e635d4731e43cabee905_0.jar"/>
+	<classpathentry kind="lib" path="app/build/intermediates/project_dex_archive/debug/dexBuilderDebug/out/fd946b5387465dca87a9b8d6b841f46c7f3b01565aa8e635d4731e43cabee905_1.jar"/>
+	<classpathentry kind="lib" path="gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="output" path=".gradle/8.4/dependencies-accessors/9445586c2b7ed6de8dc7ae9a17db9edb1ef1c5f7/classes"/>
+</classpath>

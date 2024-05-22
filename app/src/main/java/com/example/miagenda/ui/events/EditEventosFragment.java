@@ -21,6 +21,7 @@ import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,9 +61,7 @@ public class EditEventosFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_edit_eventos, container, false);
     }
 
@@ -77,13 +76,7 @@ public class EditEventosFragment extends Fragment {
         editarEventoButton = view.findViewById(R.id.editarEventoButton);
 
         ImageButton botonAtras = view.findViewById(R.id.boton_atras);
-        botonAtras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Vuelve al Fragment anterior
-                getParentFragmentManager().popBackStack();
-            }
-        });
+        botonAtras.setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
         if (getArguments() != null) {
             oldEventName = getArguments().getString("oldEventName");
@@ -93,50 +86,58 @@ public class EditEventosFragment extends Fragment {
             editAvisoEvento.setText(getArguments().getString("avisoEvento"));
         }
 
-        editarEventoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editEvent();
-            }
-        });
+        editarEventoButton.setOnClickListener(v -> editEvent());
     }
 
     private void editEvent() {
         String newEventName = editNombreEvento.getText().toString();
         String newEventDesc = editDescripcionEvento.getText().toString();
-        String newEventDate = editFechaEvento.getText().toString();
+        String newEventDateStr = editFechaEvento.getText().toString();
         String avisoEvento = editAvisoEvento.getText().toString();
 
-        // Obtener el usuario de la sesión
+        // Verificar si oldEventName sigue siendo el valor obtenido en onCreate o se actualizó
+        if (oldEventName == null || oldEventName.isEmpty()) {
+            oldEventName = getArguments().getString("oldEventName"); // Obtener oldEventName de los argumentos
+        }
+
+        // Parse the date string to LocalDate
+        LocalDate newEventDate = null;
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            newEventDate = LocalDate.parse(newEventDateStr, formatter);
+        } catch (Exception e) {
+            Toast.makeText(getContext(), "Formato de fecha incorrecto", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         SessionManager sessionManager = new SessionManager(getContext());
         String username = sessionManager.getUsername();
 
         if (username != null) {
-            // Crear la solicitud para editar el evento
             PerfilAPI apiService = RetrofitCliente.getInstance().create(PerfilAPI.class);
-            Call<Void> call = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                call = apiService.editEvent(username, oldEventName, newEventName, newEventDesc, LocalDate.parse(newEventDate));
-            }
+            Call<Void> call = apiService.editEvent(username, oldEventName, newEventName, newEventDesc, newEventDate);
 
-            call.enqueue(new Callback<Void>() {
-                @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
-                    if (response.isSuccessful()) {
-                        Toast.makeText(getContext(), "Evento editado correctamente", Toast.LENGTH_SHORT).show();
-                        // Navegar de vuelta a EventosFragment
-                        NavController navController = Navigation.findNavController(getView());
-                        navController.navigate(R.id.navigation_calendar);
-                    } else {
-                        Toast.makeText(getContext(), "Error al editar el evento", Toast.LENGTH_SHORT).show();
+            if (call != null) {
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        if (response.isSuccessful()) {
+                            Toast.makeText(getContext(), "Evento editado correctamente", Toast.LENGTH_SHORT).show();
+                            NavController navController = Navigation.findNavController(getView());
+                            navController.navigate(R.id.navigation_calendar);
+                        } else {
+                            Toast.makeText(getContext(), "Error al editar el evento", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
 
-                @Override
-                public void onFailure(Call<Void> call, Throwable t) {
-                    Toast.makeText(getContext(), "Error de red: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Toast.makeText(getContext(), "Error de red: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                Toast.makeText(getContext(), "Error al crear la llamada a la API", Toast.LENGTH_SHORT).show();
+            }
         } else {
             Toast.makeText(getContext(), "Usuario no encontrado", Toast.LENGTH_SHORT).show();
         }
