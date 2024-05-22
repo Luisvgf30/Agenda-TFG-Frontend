@@ -21,16 +21,16 @@ public class MyEventFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static MyEventFragment newInstance(String param1, String param2) {
+    public static MyEventFragment newInstance(Evento evento) {
         MyEventFragment fragment = new MyEventFragment();
         Bundle args = new Bundle();
+        args.putSerializable("evento", evento);
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_my_event, container, false);
 
         Bundle bundle = getArguments();
@@ -49,21 +49,18 @@ public class MyEventFragment extends Fragment {
         }
 
         Button editarEvento = view.findViewById(R.id.miEventoButton);
-        editarEvento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.editEvent);
-            }
+        editarEvento.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            Bundle args = new Bundle();
+            args.putString("oldEventName", ((TextView) view.findViewById(R.id.nombreMiEventoTextView)).getText().toString());
+            args.putString("eventDesc", ((TextView) view.findViewById(R.id.descripcionMiEventoTextView)).getText().toString());
+            args.putString("eventDate", ((TextView) view.findViewById(R.id.fechaMiEventoTextView)).getText().toString());
+            args.putString("avisoEvento", ((TextView) view.findViewById(R.id.avisoMiEventoTextView)).getText().toString());
+            navController.navigate(R.id.editEvent, args);
         });
 
         ImageButton botonAtras = view.findViewById(R.id.boton_atras);
-        botonAtras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getParentFragmentManager().popBackStack();
-            }
-        });
+        botonAtras.setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
         return view;
     }

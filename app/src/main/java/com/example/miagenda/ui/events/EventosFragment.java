@@ -111,12 +111,9 @@ public class EventosFragment extends Fragment {
 
             cardView.setOnClickListener(v -> {
                 NavController navController = Navigation.findNavController(v);
-                // Crear un Bundle para pasar los datos del evento seleccionado a MyEventFragment
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("evento", evento);
 
-
-                // Navegar a MyEventFragment y pasar el Bundle como argumento
                 navController.navigate(R.id.myEvent, bundle);
             });
 
@@ -131,18 +128,13 @@ public class EventosFragment extends Fragment {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()) {
-                        // La eliminación fue exitosa
-                        Log.d("DeleteEvent", "Evento eliminado correctamente");
-                    } else {
-                        // La eliminación falló
-                        Log.e("DeleteEvent", "Error al eliminar el evento");
+                        Log.d("DeleteEvent", "Evento eliminado correctamente.");
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Void> call, Throwable t) {
-                    // Handle failure
-                    Log.e("DeleteEvent", "Error de red: " + t.getMessage());
+                    Log.d("DeleteEvent", "Error al eliminar el evento: " + t.getMessage());
                 }
             });
         }
