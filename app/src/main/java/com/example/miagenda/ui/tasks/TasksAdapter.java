@@ -46,8 +46,8 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
             bundle.putString("taskDesc", tarea.getTaskDesc());
             bundle.putString("startDate", tarea.getDateInitial());
             bundle.putString("dueDate", tarea.getDateLimit());
-            bundle.putString("status", tarea.getState());
-            bundle.putString("priority", tarea.getDocument());
+            bundle.putString("status", tarea.getEstado());
+            bundle.putString("priority", tarea.getTask_level());
             Navigation.findNavController(v).navigate(R.id.myTask, bundle);
         });
     }

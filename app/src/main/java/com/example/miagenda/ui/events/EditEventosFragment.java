@@ -1,5 +1,6 @@
 package com.example.miagenda.ui.events;
 
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +20,7 @@ import com.example.miagenda.R;
 import com.example.miagenda.SessionManager;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
+import com.google.android.material.datepicker.MaterialDatePicker;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -32,22 +34,21 @@ public class EditEventosFragment extends Fragment {
     private EditText editNombreEvento;
     private EditText editDescripcionEvento;
     private EditText editFechaEvento;
-    private EditText editAvisoEvento;
     private Button editarEventoButton;
 
     private String oldEventName;
+
 
     public EditEventosFragment() {
         // Required empty public constructor
     }
 
-    public static EditEventosFragment newInstance(String oldEventName, String eventDesc, String eventDate, String avisoEvento) {
+    public static EditEventosFragment newInstance(String oldEventName, String eventDesc, String eventDate) {
         EditEventosFragment fragment = new EditEventosFragment();
         Bundle args = new Bundle();
         args.putString("oldEventName", oldEventName);
         args.putString("eventDesc", eventDesc);
         args.putString("eventDate", eventDate);
-        args.putString("avisoEvento", avisoEvento);
         fragment.setArguments(args);
         return fragment;
     }
@@ -72,7 +73,6 @@ public class EditEventosFragment extends Fragment {
         editNombreEvento = view.findViewById(R.id.editNombreEvento);
         editDescripcionEvento = view.findViewById(R.id.editDescripcionEvento);
         editFechaEvento = view.findViewById(R.id.editFechaEvento);
-        editAvisoEvento = view.findViewById(R.id.editAvisoEvento);
         editarEventoButton = view.findViewById(R.id.editarEventoButton);
 
         ImageButton botonAtras = view.findViewById(R.id.boton_atras);
@@ -83,17 +83,46 @@ public class EditEventosFragment extends Fragment {
             editNombreEvento.setText(oldEventName);
             editDescripcionEvento.setText(getArguments().getString("eventDesc"));
             editFechaEvento.setText(getArguments().getString("eventDate"));
-            editAvisoEvento.setText(getArguments().getString("avisoEvento"));
         }
 
+        // Listener para seleccionar la fecha
+        editFechaEvento.setOnClickListener(v -> showDatePicker());
+
         editarEventoButton.setOnClickListener(v -> editEvent());
+    }
+
+    private void showDatePicker() {
+        // Configurar el selector de fecha
+        MaterialDatePicker<Long> datePicker =
+                MaterialDatePicker.Builder.datePicker()
+                        .setTitleText("Seleccionar Fecha")
+                        .build();
+
+        // Manejar la selección de fecha
+        datePicker.addOnPositiveButtonClickListener(selection -> {
+            // Convertir la fecha seleccionada a LocalDate
+            LocalDate selectedDate = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                selectedDate = LocalDate.ofEpochDay(selection / (1000 * 60 * 60 * 24));
+            }
+            // Formatear la fecha y establecerla en el EditText
+            DateTimeFormatter formatter = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                editFechaEvento.setText(selectedDate.format(formatter));
+            }
+        });
+
+        // Mostrar el selector de fecha
+        datePicker.show(getParentFragmentManager(), datePicker.toString());
     }
 
     private void editEvent() {
         String newEventName = editNombreEvento.getText().toString();
         String newEventDesc = editDescripcionEvento.getText().toString();
         String newEventDateStr = editFechaEvento.getText().toString();
-        String avisoEvento = editAvisoEvento.getText().toString();
 
         // Verificar si oldEventName sigue siendo el valor obtenido en onCreate o se actualizó
         if (oldEventName == null || oldEventName.isEmpty()) {
@@ -103,8 +132,13 @@ public class EditEventosFragment extends Fragment {
         // Parse the date string to LocalDate
         LocalDate newEventDate = null;
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            newEventDate = LocalDate.parse(newEventDateStr, formatter);
+            DateTimeFormatter formatter = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                newEventDate = LocalDate.parse(newEventDateStr, formatter);
+            }
         } catch (Exception e) {
             Toast.makeText(getContext(), "Formato de fecha incorrecto", Toast.LENGTH_SHORT).show();
             return;

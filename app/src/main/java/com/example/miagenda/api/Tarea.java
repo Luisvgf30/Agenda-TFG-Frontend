@@ -8,13 +8,13 @@ public class Tarea {
     private String taskName;
     @SerializedName("task_desc")
     private String taskDesc;
-    @SerializedName("state")
-    private String state;
-    @SerializedName("document")
-    private String document;
-    @SerializedName("date_limit")
+    @SerializedName("estado")
+    private String estado;
+    @SerializedName("task_level")
+    private String task_level;
+    @SerializedName("limit_date")
     private String dateLimit;
-    @SerializedName("date_initial")
+    @SerializedName("initial_date")
     private String dateInitial;
     @SerializedName("username")
     private String username;
@@ -27,6 +27,8 @@ public class Tarea {
     }
 
     // Getters y Setters
+
+
     public String getTaskName() {
         return taskName;
     }
@@ -43,20 +45,20 @@ public class Tarea {
         this.taskDesc = taskDesc;
     }
 
-    public String getState() {
-        return state;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public String getDocument() {
-        return document;
+    public String getTask_level() {
+        return task_level;
     }
 
-    public void setDocument(String document) {
-        this.document = document;
+    public void setTask_level(String task_level) {
+        this.task_level = task_level;
     }
 
     public String getDateLimit() {
@@ -81,19 +83,5 @@ public class Tarea {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    // toString() para representación de cadena
-    @Override
-    public String toString() {
-        return "Tarea{" +
-                "taskName='" + taskName + '\'' +
-                ", taskDesc='" + taskDesc + '\'' +
-                ", state='" + state + '\'' +
-                ", document='" + document + '\'' +
-                ", dateLimit=" + dateLimit +
-                ", dateInitial=" + dateInitial +
-                ", username='" + username + '\'' +
-                '}';
     }
 }

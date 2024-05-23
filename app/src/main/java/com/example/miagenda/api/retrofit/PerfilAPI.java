@@ -87,7 +87,7 @@ public interface PerfilAPI {
             @Field("old_task_name") String oldTaskName,
             @Field("new_task_name") String newTaskName,
             @Field("new_task_desc") String newTaskDesc,
-            @Field("new_limit_date") String newLimitDate,
+            @Field("new_limit_date") LocalDate newLimitDate,
             @Field("new_estado") String newEstado,
             @Field("new_task_level") String newTaskLevel
     );

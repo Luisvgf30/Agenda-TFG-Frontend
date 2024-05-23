@@ -59,5 +59,7 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
     //gsno
     implementation ("com.google.code.gson:gson:2.8.8")
+    implementation ("com.google.android.material:material:1.6.0") // Verifica que esta sea la última versión disponible
+
 
 }
