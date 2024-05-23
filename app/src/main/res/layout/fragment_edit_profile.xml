@@ -73,41 +73,77 @@
         android:layout_marginTop="32dp"
         android:text="Password:"
         android:textColor="@color/white" />
-    <EditText
-        android:id="@+id/passwordUsuario"
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:hint="Password"
-        android:background="@drawable/redondear"
-        android:backgroundTint="@color/white"
-        android:maxLines="1"
-        android:inputType="text"
-        android:textSize="16sp"
-        android:paddingStart="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp" />
+        android:layout_marginEnd="20dp"
+        >
 
+        <EditText
+            android:id="@+id/passwordUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="20dp"
+
+            android:background="@drawable/redondear"
+            android:backgroundTint="@color/white"
+            android:hint="Password"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/password_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="7dp"
+            android:adjustViewBounds="true"
+            android:padding="10dp"
+            android:src="@drawable/outline_hide_eye_24" />
+    </RelativeLayout>
     <TextView
-        android:id="@+id/Verifypassword"
+        android:id="@+id/VerifypasswordTV"
         android:layout_width="143dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
         android:text="Verify Password:"
         android:textColor="@color/white"/>
-    <EditText
-        android:id="@+id/passwordVerify"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:hint="Verify Password"
-        android:background="@drawable/redondear"
-        android:backgroundTint="@color/white"
-        android:maxLines="1"
-        android:inputType="text"
-        android:textSize="16sp"
-        android:paddingStart="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp" />
+        android:layout_marginEnd="20dp"
+        >
+
+        <EditText
+            android:id="@+id/verifyPasswordUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/redondear"
+            android:backgroundTint="@color/white"
+            android:hint="Verify Password"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/verifypassword_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="7dp"
+            android:adjustViewBounds="true"
+            android:padding="10dp"
+            android:src="@drawable/outline_hide_eye_24" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/editarPerfilButton"
