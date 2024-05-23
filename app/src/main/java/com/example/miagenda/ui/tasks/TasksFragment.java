@@ -66,7 +66,7 @@ public class TasksFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerViewTasks);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         tasksAdapter = new TasksAdapter(new ArrayList<>());
-        noTasksContainer = view.findViewById(R.id.no_notes_container);
+        noTasksContainer = view.findViewById(R.id.no_tasks_container);
         recyclerView.setAdapter(tasksAdapter);
 
         loadUserTasks();

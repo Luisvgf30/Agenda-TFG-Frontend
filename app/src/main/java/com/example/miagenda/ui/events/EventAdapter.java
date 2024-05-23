@@ -20,6 +20,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
     private List<Evento> events = new ArrayList<>();
 
+    EventAdapter(List<Evento> events) {
+        this.events = events;
+    }
+
     public void setEvents(List<Evento> events) {
         this.events = events;
         notifyDataSetChanged();

@@ -30,7 +30,7 @@ public class NotesFragment extends Fragment {
     private List<String> messages = new ArrayList<>();
     private RecyclerView recyclerView;
     private LinearLayout noNotesContainer;
-    private MyAdapter adapter;
+    private NotesAdapter adapter;
 
     public NotesFragment() {
         // Constructor público requerido
@@ -41,6 +41,7 @@ public class NotesFragment extends Fragment {
         // Inflar el diseño para este fragmento
         return inflater.inflate(R.layout.fragment_notes, container, false);
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -61,7 +62,7 @@ public class NotesFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view);
         noNotesContainer = view.findViewById(R.id.no_notes_container);
 
-        adapter = new MyAdapter(messages);
+        adapter = new NotesAdapter(messages);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
