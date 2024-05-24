@@ -33,16 +33,14 @@ import retrofit2.Response;
 
 public class TasksFragment extends Fragment {
 
-    private List<String> tasks = new ArrayList<>();
-
+    private List<Tarea> tasks = new ArrayList<>();
     private LinearLayout noTasksContainer;
     private RecyclerView recyclerView;
     private TasksAdapter tasksAdapter;
     private SessionManager sessionManager;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
 
         FloatingActionButton fabAgregarTarea = view.findViewById(R.id.fabAgregarTarea);
@@ -66,11 +64,10 @@ public class TasksFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerViewTasks);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         tasksAdapter = new TasksAdapter(new ArrayList<>());
-        noTasksContainer = view.findViewById(R.id.no_tasks_container);
         recyclerView.setAdapter(tasksAdapter);
+        noTasksContainer = view.findViewById(R.id.no_tasks_container);
 
         loadUserTasks();
-        updateNoTasksView();
     }
 
     private void loadUserTasks() {
@@ -83,8 +80,10 @@ public class TasksFragment extends Fragment {
                 @Override
                 public void onResponse(Call<List<Tarea>> call, Response<List<Tarea>> response) {
                     if (response.isSuccessful() && response.body() != null) {
-                        List<Tarea> tareas = response.body();
-                        tasksAdapter.setTareas(tareas); // Actualizar el adaptador con las nuevas tareas
+                        tasks.clear();
+                        tasks.addAll(response.body());
+                        tasksAdapter.setTareas(tasks); // Actualizar el adaptador con las nuevas tareas
+                        updateNoTasksView(); // Llamada para actualizar la vista aquí
                     } else {
                         Log.e("TasksFragment", "Error en la respuesta: " + response.message());
                     }

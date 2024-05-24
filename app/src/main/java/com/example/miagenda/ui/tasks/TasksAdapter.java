@@ -1,4 +1,3 @@
-// TasksAdapter.java
 package com.example.miagenda.ui.tasks;
 
 import android.os.Bundle;
@@ -37,19 +36,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         Tarea tarea = tareas.get(position);
-        holder.tareaTitulo.setText(tarea.getTaskName());
-        holder.tareaDescripcion.setText(tarea.getTaskDesc());
-
-        holder.estadoTarea.setOnClickListener(v -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("taskName", tarea.getTaskName());
-            bundle.putString("taskDesc", tarea.getTaskDesc());
-            bundle.putString("startDate", tarea.getDateInitial());
-            bundle.putString("dueDate", tarea.getDateLimit());
-            bundle.putString("status", tarea.getEstado());
-            bundle.putString("priority", tarea.getTask_level());
-            Navigation.findNavController(v).navigate(R.id.myTask, bundle);
-        });
+        holder.bind(tarea);
     }
 
     @Override
@@ -57,7 +44,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
         return tareas.size();
     }
 
-    static class TaskViewHolder extends RecyclerView.ViewHolder {
+    class TaskViewHolder extends RecyclerView.ViewHolder {
         TextView tareaTitulo;
         TextView tareaDescripcion;
         Button estadoTarea;
@@ -67,6 +54,22 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
             tareaTitulo = itemView.findViewById(R.id.tvTaskName);
             tareaDescripcion = itemView.findViewById(R.id.tvTaskNameLabel);
             estadoTarea = itemView.findViewById(R.id.estadoTask);
+        }
+
+        void bind(Tarea tarea) {
+            tareaTitulo.setText(tarea.getTaskName());
+            tareaDescripcion.setText(tarea.getTaskDesc());
+
+            estadoTarea.setOnClickListener(v -> {
+                Bundle bundle = new Bundle();
+                bundle.putString("taskName", tarea.getTaskName());
+                bundle.putString("taskDesc", tarea.getTaskDesc());
+                bundle.putString("startDate", tarea.getDateInitial());
+                bundle.putString("dueDate", tarea.getDateLimit());
+                bundle.putString("status", tarea.getEstado());
+                bundle.putString("priority", tarea.getTask_level());
+                Navigation.findNavController(v).navigate(R.id.myTask, bundle);
+            });
         }
     }
 }
