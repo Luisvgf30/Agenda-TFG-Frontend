@@ -84,6 +84,7 @@ public class EventosFragment extends Fragment {
                         events.addAll(response.body());
                         adapter.notifyDataSetChanged();
                         updateNoEventsView();
+                        displayEvents(response.body());
                     }
                 }
 
