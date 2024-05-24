@@ -2,6 +2,12 @@
 package com.example.miagenda.ui.tasks;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -9,11 +15,14 @@ import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import com.example.miagenda.R;
+import com.example.miagenda.SessionManager;
+import com.example.miagenda.api.retrofit.PerfilAPI;
+import com.example.miagenda.api.retrofit.RetrofitCliente;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MyTaskFragment extends Fragment {
 
@@ -23,6 +32,7 @@ public class MyTaskFragment extends Fragment {
     private String dueDate;
     private String status;
     private String priority;
+    private SessionManager sessionManager;
 
     public MyTaskFragment() {
         // Required empty public constructor
@@ -50,6 +60,8 @@ public class MyTaskFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        sessionManager = new SessionManager(getContext()); // Inicializar sessionManager
 
         TextView nombreTarea = view.findViewById(R.id.nombreTarea);
         TextView descripcionTarea = view.findViewById(R.id.descripcionTarea);
@@ -79,6 +91,38 @@ public class MyTaskFragment extends Fragment {
             bundle.putString("username", "yourUsername");
             bundle.putString("taskName", taskName);
             Navigation.findNavController(v).navigate(R.id.action_myTaskFragment_to_editTasksFragment, bundle);
+        });
+
+        view.findViewById(R.id.deleteTaskButton).setOnClickListener(v -> deleteTask());
+    }
+
+    private void deleteTask() {
+        // Realizar la llamada a la API para eliminar la tarea
+        String username = sessionManager.getUsername();
+
+        PerfilAPI apiService = RetrofitCliente.getInstance().create(PerfilAPI.class);
+        Call<Void> call = apiService.deleteTask(username, taskName);
+
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(getContext(), "Tarea eliminada correctamente", Toast.LENGTH_SHORT).show();
+                    // Navegar de vuelta a la lista de tareas
+                    NavOptions navOptions = new NavOptions.Builder()
+                            .setPopUpTo(R.id.myTask, true) // Limpia la pila de retroceso hasta este fragmento
+                            .build();
+                    NavHostFragment.findNavController(MyTaskFragment.this)
+                            .navigate(R.id.navigation_tasks, null, navOptions);
+                } else {
+                    Toast.makeText(getContext(), "Error al eliminar la tarea", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(getContext(), "Error de red: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

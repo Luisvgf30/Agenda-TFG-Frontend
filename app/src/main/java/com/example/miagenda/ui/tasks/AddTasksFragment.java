@@ -6,12 +6,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import com.google.android.material.datepicker.MaterialDatePicker;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.miagenda.R;
 import com.example.miagenda.SessionManager;
@@ -19,7 +22,6 @@ import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,8 +30,10 @@ import retrofit2.Response;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class AddTasksFragment extends Fragment {
 
-    private EditText editTaskName, editTaskDesc, fechaLimite, taskLevel;
+    private EditText editTaskName, editTaskDesc, editFechaLimite;
+    private Spinner addEstadoTarea;
     private SessionManager sessionManager;
+    private LocalDate selectedDate;
 
     public AddTasksFragment() {
         // Required empty public constructor
@@ -53,10 +57,32 @@ public class AddTasksFragment extends Fragment {
 
         sessionManager = new SessionManager(requireContext());
 
-        fechaLimite = view.findViewById(R.id.addFechaLimiteTarea);
         editTaskName = view.findViewById(R.id.addNombreTarea);
         editTaskDesc = view.findViewById(R.id.addDescripcionTarea);
-        taskLevel = view.findViewById(R.id.addEstadoTarea);
+        addEstadoTarea = view.findViewById(R.id.addEstadoTarea);
+        editFechaLimite = view.findViewById(R.id.addFechaLimiteTarea);
+
+        // Configurar el Spinner
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(),
+                R.array.task_states, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        addEstadoTarea.setAdapter(adapter);
+
+        editFechaLimite.setOnClickListener(v -> showDatePicker());
+    }
+
+    private void showDatePicker() {
+        MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
+        builder.setTitleText("Selecciona una fecha");
+        MaterialDatePicker<Long> datePicker = builder.build();
+
+        datePicker.addOnPositiveButtonClickListener(selection -> {
+            selectedDate = LocalDate.ofEpochDay(selection / (24 * 60 * 60 * 1000));
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault());
+            editFechaLimite.setText(selectedDate.format(formatter));
+        });
+
+        datePicker.show(getParentFragmentManager(), "DATE_PICKER");
     }
 
     private void createTask() {
@@ -68,18 +94,15 @@ public class AddTasksFragment extends Fragment {
 
         String taskName = editTaskName.getText().toString();
         String taskDesc = editTaskDesc.getText().toString();
-        String limitDateStr = fechaLimite.getText().toString();
-        String LevelTask = taskLevel.getText().toString();
+        String estadoTarea = addEstadoTarea.getSelectedItem().toString();
 
-        if (taskName.isEmpty() || taskDesc.isEmpty() || limitDateStr.isEmpty() || LevelTask.isEmpty()) {
+        if (taskName.isEmpty() || taskDesc.isEmpty() || estadoTarea.isEmpty() || selectedDate == null) {
             Toast.makeText(requireContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        LocalDate limitDate = parseDate(limitDateStr);
-
         PerfilAPI apiService = RetrofitCliente.getInstance().create(PerfilAPI.class);
-        Call<Void> call = apiService.createTask(taskName, taskDesc, limitDate, LevelTask, username);
+        Call<Void> call = apiService.createTask(taskName, taskDesc, selectedDate, estadoTarea, username);
 
         call.enqueue(new Callback<Void>() {
             @Override
@@ -97,16 +120,5 @@ public class AddTasksFragment extends Fragment {
                 Toast.makeText(requireContext(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private LocalDate parseDate(String dateString) {
-        try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.getDefault());
-            return LocalDate.parse(dateString, formatter);
-        } catch (DateTimeParseException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }

@@ -77,27 +77,15 @@
         android:background="@drawable/redondear"
         android:backgroundTint="@color/white"
         android:maxLines="1"
-        android:inputType="datetime"
+        android:inputType="none"
+        android:focusable="false"
+        android:clickable="true"
         android:textSize="16sp"
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="40dp"/>
 
-    <EditText
-        android:id="@+id/addAvisoEvento"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:hint="Aviso anterior al evento"
-        android:background="@drawable/redondear"
-        android:backgroundTint="@color/white"
-        android:maxLines="1"
-        android:inputType="textEmailAddress"
-        android:textSize="16sp"
-        android:paddingStart="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"/>
 
     <Button
         android:id="@+id/addEventoButton"

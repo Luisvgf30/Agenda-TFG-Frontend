@@ -27,10 +27,10 @@ import retrofit2.Response;
 public class NotesFragment extends Fragment {
 
     private SessionManager sessionManager;
-    private List<String> messages = new ArrayList<>();
+    private List<Nota> notas = new ArrayList<>();
     private RecyclerView recyclerView;
     private LinearLayout noNotesContainer;
-    private NotesAdapter adapter;
+    private MyAdapter adapter;
 
     public NotesFragment() {
         // Constructor público requerido
@@ -41,7 +41,6 @@ public class NotesFragment extends Fragment {
         // Inflar el diseño para este fragmento
         return inflater.inflate(R.layout.fragment_notes, container, false);
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -62,7 +61,7 @@ public class NotesFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view);
         noNotesContainer = view.findViewById(R.id.no_notes_container);
 
-        adapter = new NotesAdapter(messages);
+        adapter = new MyAdapter(notas);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
@@ -109,12 +108,10 @@ public class NotesFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Nota>> call, Response<List<Nota>> response) {
                 if (response.isSuccessful()) {
-                    List<Nota> notas = response.body();
-                    messages.clear();
-                    if (notas != null) {
-                        for (Nota nota : notas) {
-                            messages.add(nota.getNoteDesc()); // Usar getNoteDesc() en lugar de getMessage()
-                        }
+                    List<Nota> notasResponse = response.body();
+                    notas.clear();
+                    if (notasResponse != null) {
+                        notas.addAll(notasResponse);
                     }
                     adapter.notifyDataSetChanged();
                     updateNoNotesView();
@@ -133,7 +130,7 @@ public class NotesFragment extends Fragment {
     }
 
     private void updateNoNotesView() {
-        if (messages.isEmpty()) {
+        if (notas.isEmpty()) {
             recyclerView.setVisibility(View.GONE);
             noNotesContainer.setVisibility(View.VISIBLE);
         } else {

@@ -1,12 +1,18 @@
 package com.example.miagenda.api;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class Nota {
 
+    @SerializedName("_id")
     private String id;
+    @SerializedName("username")
     private String username;
+    @SerializedName("note_desc")
     private String note_desc;
+    @SerializedName("note_date")
     private Date note_date;
 
     // Métodos getter y setter

@@ -62,7 +62,7 @@
             android:layout_height="35dp"
             android:layout_marginTop="59dp"
             android:layout_marginEnd="40dp"
-            android:text="rubeen_06_"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -86,8 +86,7 @@
             android:layout_height="35dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
-            android:text="ruben@gmail.com"
-            android:textSize="20sp"
+            android:text=""
             android:textColor="@color/white"/>
 
 
@@ -114,8 +113,7 @@
             android:layout_height="35dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
-            android:text="*******"
-            android:textSize="20sp"
+            android:text=""
             android:textColor="@color/white"/>
 
     </LinearLayout>
@@ -138,8 +136,7 @@
             android:layout_height="35dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
-            android:text="*******"
-            android:textSize="20sp"
+            android:text=""
             android:textColor="@color/white"/>
 
     </LinearLayout>
@@ -162,8 +159,7 @@
             android:layout_height="35dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
-            android:text="*******"
-            android:textSize="20sp"
+            android:text=""
             android:textColor="@color/white"/>
 
     </LinearLayout>
@@ -186,18 +182,28 @@
             android:layout_height="35dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="40dp"
-            android:text="*******"
-            android:textStyle="bold"
-            android:textSize="20sp"
+            android:text=""
             android:textColor="@color/white"/>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/deleteTaskButton"
+        android:layout_gravity="center"
+        android:text="Eliminar Tarea"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="43dp"
+        app:backgroundTint="#FF0000"
+        android:textColor="@android:color/white"/>
+
     <Button
         android:id="@+id/miTareaButton"
         android:gravity="center"
         android:layout_width="325dp"
         android:layout_height="57dp"
-        android:layout_marginTop="70dp"
         android:layout_marginStart="43dp"
         android:layout_marginEnd="43dp"
         android:layout_marginBottom="76dp"

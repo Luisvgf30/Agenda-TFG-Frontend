@@ -26,7 +26,7 @@ import com.example.miagenda.api.retrofit.UsuarioApiCliente;
 
 public class ProfileFragment extends Fragment {
 
-    private TextView nombreUsuarioTextView, emailTextView;
+    private TextView nombreUsuarioTextView, emailTextView, passwordTextView;
     private SessionManager sessionManager;
     private UsuarioApiCliente usuarioApiClient;
 
@@ -44,6 +44,7 @@ public class ProfileFragment extends Fragment {
 
         nombreUsuarioTextView = view.findViewById(R.id.nombreUsuarioPerfilTextView);
         emailTextView = view.findViewById(R.id.emailUsuarioTextView);
+        passwordTextView = view.findViewById(R.id.passwordUsuarioTextView);
 
         Button editarPerfilButton = view.findViewById(R.id.editarPerfilButton);
         editarPerfilButton.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +63,8 @@ public class ProfileFragment extends Fragment {
                 if (user != null) {
                     nombreUsuarioTextView.setText(user.getUsername());
                     emailTextView.setText(user.getEmail());
+                    // Mostrar la contraseña como asteriscos (*****)
+                    passwordTextView.setText(getPasswordMask(user.getPassword()));
                 } else {
                     // Manejar el caso donde el usuario no es encontrado
                     Toast.makeText(getContext(), "Usuario no encontrado", Toast.LENGTH_SHORT).show();
@@ -75,6 +78,15 @@ public class ProfileFragment extends Fragment {
         });
 
         return view;
+    }
+
+    // Método para enmascarar la contraseña
+    private String getPasswordMask(String password) {
+        StringBuilder maskedPassword = new StringBuilder();
+        for (int i = 0; i < password.length(); i++) {
+            maskedPassword.append("*");
+        }
+        return maskedPassword.toString();
     }
 
     @Override

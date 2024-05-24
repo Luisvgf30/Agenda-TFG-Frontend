@@ -1,5 +1,6 @@
 package com.example.miagenda.ui.events;
 
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,8 +19,12 @@ import com.example.miagenda.R;
 import com.example.miagenda.SessionManager;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
+import com.google.android.material.datepicker.MaterialDatePicker;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,7 +35,6 @@ public class AddEventosFragment extends Fragment {
     private EditText addNombreEvento;
     private EditText addDescripcionEvento;
     private EditText addFechaEvento;
-    private EditText addAvisoEvento;
     private Button addEventoButton;
 
     public AddEventosFragment() {
@@ -64,23 +68,47 @@ public class AddEventosFragment extends Fragment {
         addNombreEvento = view.findViewById(R.id.addNombreEvento);
         addDescripcionEvento = view.findViewById(R.id.addDescripcionEvento);
         addFechaEvento = view.findViewById(R.id.addFechaEvento);
-        addAvisoEvento = view.findViewById(R.id.addAvisoEvento);
         addEventoButton = view.findViewById(R.id.addEventoButton);
 
         ImageButton botonAtras = view.findViewById(R.id.boton_atras);
         botonAtras.setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
+        addFechaEvento.setOnClickListener(v -> showDatePicker());
+
         addEventoButton.setOnClickListener(v -> createEvent());
+    }
+
+    private void showDatePicker() {
+        MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
+        builder.setTitleText("Selecciona una fecha");
+        MaterialDatePicker<Long> datePicker = builder.build();
+
+        datePicker.addOnPositiveButtonClickListener(selection -> {
+            // Convertir el valor de selección a LocalDate
+            LocalDate selectedDate = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                selectedDate = LocalDate.ofEpochDay(selection / (24 * 60 * 60 * 1000));
+            }
+            DateTimeFormatter formatter = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault());
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                addFechaEvento.setText(selectedDate.format(formatter));
+            }
+        });
+
+        datePicker.show(getParentFragmentManager(), "DATE_PICKER");
     }
 
     private void createEvent() {
         String eventName = addNombreEvento.getText().toString();
         String eventDesc = addDescripcionEvento.getText().toString();
-        LocalDate eventDate = null; // Assuming eventDate is a String. Convert as needed.
+        LocalDate eventDate = null;
+        // Assuming eventDate is a String. Convert as needed.
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            eventDate = LocalDate.parse(addFechaEvento.getText().toString());
+            eventDate = LocalDate.parse(addFechaEvento.getText().toString(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         }
-        String avisoEvento = addAvisoEvento.getText().toString(); // Same assumption as eventDate.
 
         // Obtener el usuario de la sesión
         SessionManager sessionManager = new SessionManager(getContext());
