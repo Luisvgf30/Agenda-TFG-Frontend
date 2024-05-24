@@ -120,4 +120,54 @@ public class EventosFragment extends Fragment {
             containerEventos.setVisibility(View.VISIBLE);
         }
     }
+    private void displayEvents(List<Evento> eventos) {
+        for (Evento evento : eventos) {
+            Log.d("Evento", "Nombre: " + evento.getName_event() + ", Fecha: " + evento.getEvent_date());
+
+            View eventView = getLayoutInflater().inflate(R.layout.event_card, containerEventos, false);
+
+            TextView nombreEvento = eventView.findViewById(R.id.nombreEvento);
+            TextView fechaYhoraEvento = eventView.findViewById(R.id.fechaYhoraEvento);
+            CardView cardView = eventView.findViewById(R.id.eventoCV);
+            Button deleteButton = eventView.findViewById(R.id.deleteEvento);
+
+            nombreEvento.setText(evento.getName_event());
+            fechaYhoraEvento.setText(evento.getEvent_date());  // Formatear la fecha si es necesario
+
+            deleteButton.setOnClickListener(v -> {
+                deleteEvent(evento.getName_event()); // Llama al método para eliminar el evento
+                containerEventos.removeView(eventView); // Elimina la vista de la carta del contenedor
+            });
+
+            cardView.setOnClickListener(v -> {
+                NavController navController = Navigation.findNavController(v);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("evento", evento);
+
+                navController.navigate(R.id.myEvent, bundle);
+            });
+
+            containerEventos.addView(eventView);
+        }
+    }
+
+    private void deleteEvent(String eventName) {
+        String username = sessionManager.getUsername();
+        if (username != null) {
+            RetrofitCliente.getInstance().create(PerfilAPI.class).deleteEvent(username, eventName).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        Log.d("DeleteEvent", "Evento eliminado correctamente.");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    Log.d("DeleteEvent", "Error al eliminar el evento: " + t.getMessage());
+                }
+            });
+        }
+    }
+
 }
