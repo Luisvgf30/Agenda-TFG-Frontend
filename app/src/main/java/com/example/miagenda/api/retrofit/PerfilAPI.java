@@ -24,8 +24,9 @@ import retrofit2.http.Query;
 
 public interface PerfilAPI {
 
-    @FormUrlEncoded
-    @POST("/singUpUsu") // dentro de las comillas la ruta en la api"registrase"
+
+	@FormUrlEncoded
+	@POST("/singUpUsu") // dentro de las comillas la ruta en la api"registrase"
     Call<Usuario> registrarUsuario(
             @Field("email") String email,
             @Field("username") String username,
@@ -34,44 +35,50 @@ public interface PerfilAPI {
 
 
 
-    @GET("/login")
+	@GET("/login")
     Call<Usuario> logearUsuario(
             @Query("username") String usuario,
             @Query("password") String password
     );
 
-    @PUT("/editUsu")
+
+	@PUT("/editUsu")
     Call<Void> updateUser(
             @Query("username") String username,
             @Body UsuarioActualizarRequest request
     );
 
-    @GET("/buscarUsu")
+
+	@GET("/buscarUsu")
     Call<Usuario> buscarUser(
             @Query("username") String usuario
     );
 
-    @FormUrlEncoded
-    @POST("") // dentro de las comillas la ruta en la api"logout"
+
+	@FormUrlEncoded
+	@POST("") // dentro de las comillas la ruta en la api"logout"
     Call<Usuario> Logout(
             @Field("token") String token
     );
 
 
 
-    @DELETE("/deleteTask")
+
+	@DELETE("/deleteTask")
     Call<Void> deleteTask(
             @Query("username") String username,
             @Query("task_name") String taskName
     );
 
-    @GET("/buscarTasks")
+
+	@GET("/buscarTasks")
     Call<List<Tarea>> buscarTasks(
             @Query("username") String username
     );
 
-    @FormUrlEncoded
-    @POST("/createTask")
+
+	@FormUrlEncoded
+	@POST("/createTask")
     Call<Void> createTask(
             @Field("task_name")String task_name,
             @Field("task_desc")String task_desc,
@@ -80,8 +87,9 @@ public interface PerfilAPI {
             @Field("username")String username
     );
 
-    @FormUrlEncoded
-    @PUT("/editTask")
+
+	@FormUrlEncoded
+	@PUT("/editTask")
     Call<Void> editTask(
             @Field("username") String username,
             @Field("old_task_name") String oldTaskName,
@@ -92,23 +100,26 @@ public interface PerfilAPI {
             @Field("new_task_level") String newTaskLevel
     );
 
-    @DELETE("/deleteNote")
+	@DELETE("/deleteNote")
     Call<Void> deleteNote(
             @Query("username") String username,
             @Query("id") String id
     );
 
-    @GET("/buscarNotes")
+
+	@GET("/buscarNotes")
     Call<List<Nota>> buscarNotes(@Query("username") String username);
 
-    @FormUrlEncoded
-    @POST("/createNote")
+
+	@FormUrlEncoded
+	@POST("/createNote")
     Call<Void> createNote(
             @Field("note_desc") String note_desc,
             @Field("username") String username);
 
-    @FormUrlEncoded
-    @POST("/createEvent")
+
+	@FormUrlEncoded
+	@POST("/createEvent")
     Call<Void> createEvent(
             @Field("username") String username,
             @Field("event_name") String eventName,
@@ -116,19 +127,22 @@ public interface PerfilAPI {
             @Field("event_date") LocalDate eventDate
     );
 
-    @DELETE("/deleteEvent")
+
+	@DELETE("/deleteEvent")
     Call<Void> deleteEvent(
             @Query("username") String username,
             @Query("event_name") String eventName
     );
 
-    @GET("/buscarEvents")
+
+	@GET("/buscarEvents")
     Call<List<Evento>> buscarEvents(
             @Query("username") String username
     );
 
-    @FormUrlEncoded
-    @PUT("/editEvent")
+
+	@FormUrlEncoded
+	@PUT("/editEvent")
     Call<Void> editEvent(
             @Field("username") String username,
             @Field("old_event_name") String oldEventName,
