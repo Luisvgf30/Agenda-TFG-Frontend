@@ -6,27 +6,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.miagenda.R;
 import com.example.miagenda.api.Evento;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
-    private List<Evento> events = new ArrayList<>();
+    private List<Evento> events;
+    private EventosFragment eventosFragment;
 
-    EventAdapter(List<Evento> events) {
+    public EventAdapter(List<Evento> events, EventosFragment eventosFragment) {
         this.events = events;
-    }
-
-    public void setEvents(List<Evento> events) {
-        this.events = events;
-        notifyDataSetChanged();
+        this.eventosFragment = eventosFragment;
     }
 
     @NonNull
@@ -60,23 +59,30 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
             fechaYhoraEvento = itemView.findViewById(R.id.fechaYhoraEvento);
             cardView = itemView.findViewById(R.id.eventoCV);
             deleteButton = itemView.findViewById(R.id.deleteEvento);
+
+            deleteButton.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    Evento event = events.get(position);
+                    eventosFragment.deleteEvent(event.getName_event(), position);
+                }
+            });
+
+            cardView.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    Evento event = events.get(position);
+                    NavController navController = Navigation.findNavController(v);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("evento", event);
+                    navController.navigate(R.id.myEvent, bundle);
+                }
+            });
         }
 
         void bind(Evento event) {
             nombreEvento.setText(event.getName_event());
             fechaYhoraEvento.setText(event.getEvent_date()); // Formatear la fecha si es necesario
-
-            deleteButton.setOnClickListener(v -> {
-                // Lógica para eliminar el evento
-                // removeItem(getAdapterPosition()); // Este método debe ser implementado
-            });
-
-            cardView.setOnClickListener(v -> {
-                NavController navController = Navigation.findNavController(v);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("evento", event);
-                navController.navigate(R.id.myEvent, bundle);
-            });
         }
     }
 }
