@@ -31,7 +31,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewEventos"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="600dp"
             android:padding="16dp" />
     </LinearLayout>
 
@@ -54,7 +54,7 @@
             android:id="@+id/no_notes_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NO HAY TAREAS"
+            android:text="NO HAY EVENTOS"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"

@@ -28,10 +28,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="520dp"
             android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
+            app:cardElevation="60dp"
             app:cardBackgroundColor="#03514A"
             app:strokeColor="@color/white"
             app:strokeWidth="2dp"/>
@@ -78,6 +78,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="13dp"
             android:layout_marginBottom="94dp"
+            app:cardElevation="3dp"
             android:background="@drawable/redondear"
             android:backgroundTint="@color/white"
             android:hint="Añadir nota..."

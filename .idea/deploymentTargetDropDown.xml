@@ -5,20 +5,8 @@
       <entry key="Login">
         <State />
       </entry>
-      <entry key="app">
-        <State>
-          <targetsSelectedWithDialog>
-            <Target>
-              <type value="QUICK_BOOT_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\luisv\.android\avd\Pixel_6_Pro_API_34.avd" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </targetsSelectedWithDialog>
-        </State>
+      <entry key="MainActivity">
+        <State />
       </entry>
     </value>
   </component>
