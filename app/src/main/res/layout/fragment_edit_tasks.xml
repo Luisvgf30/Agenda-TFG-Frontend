@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.tasks.EditTasksFragment"
-    android:background="@drawable/fondo_app"
+    android:background="@color/fondoApp"
     android:orientation="vertical"
     android:id="@+id/editTasks">
 
@@ -58,14 +58,25 @@
     <EditText
         android:id="@+id/editDescripcionTarea"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="130dp"
         android:hint="Descripción"
-        android:background="@drawable/redondear"
+        android:background="@color/aqua"
         android:backgroundTint="@color/white"
-        android:maxLines="1"
-        android:inputType="text"
+        android:maxLines="4"
+        android:inputType="textMultiLine"
         android:textSize="16sp"
         android:paddingStart="20dp"
+        android:gravity="top|start"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha Límite"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="30dp"/>
@@ -85,15 +96,17 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="10dp"/>
 
-    <Spinner
-        android:id="@+id/editEstadoTarea"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Prioridad"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Spinner
         android:id="@+id/editPrioridadTarea"
@@ -101,7 +114,29 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="10dp"
+        android:background="@drawable/redondear"
+        android:backgroundTint="@color/white"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estado"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <Spinner
+        android:id="@+id/editEstadoTarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/redondear"
+        android:backgroundTint="@color/white"/>
 
     <Button
         android:id="@+id/editarTareaButton"
@@ -110,7 +145,7 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="45dp"
         android:layout_gravity="center"
         android:text="Guardar Cambios"
         app:backgroundTint="#00AAAAAA"

@@ -10,10 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.example.miagenda.R;
 import com.example.miagenda.api.Evento;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MyEventFragment extends Fragment {
 
@@ -39,12 +44,22 @@ public class MyEventFragment extends Fragment {
             if (evento != null) {
                 TextView nombreEventoTextView = view.findViewById(R.id.nombreMiEventoTextView);
                 TextView descripcionEventoTextView = view.findViewById(R.id.descripcionMiEventoTextView);
-                TextView fechaEventoTextView = view.findViewById(R.id.fechaMiEventoTextView);
-                TextView avisoEventoTextView = view.findViewById(R.id.avisoMiEventoTextView);
+                CalendarView fechaEventoCalendarView = view.findViewById(R.id.fechaMiEventoTextView);
 
                 nombreEventoTextView.setText(evento.getName_event());
                 descripcionEventoTextView.setText(evento.getEvent_desc());
-                fechaEventoTextView.setText(evento.getEvent_date());
+
+                // Convertir la fecha de texto a milisegundos
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date date = sdf.parse(evento.getEvent_date());
+                    if (date != null) {
+                        long millis = date.getTime();
+                        fechaEventoCalendarView.setDate(millis);
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -54,8 +69,6 @@ public class MyEventFragment extends Fragment {
             Bundle args = new Bundle();
             args.putString("oldEventName", ((TextView) view.findViewById(R.id.nombreMiEventoTextView)).getText().toString());
             args.putString("eventDesc", ((TextView) view.findViewById(R.id.descripcionMiEventoTextView)).getText().toString());
-            args.putString("eventDate", ((TextView) view.findViewById(R.id.fechaMiEventoTextView)).getText().toString());
-            args.putString("avisoEvento", ((TextView) view.findViewById(R.id.avisoMiEventoTextView)).getText().toString());
             navController.navigate(R.id.editEvent, args);
         });
 

@@ -20,8 +20,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_arrow_back_24"
             android:background="#00AAAAAA"
-            android:layout_marginStart="10dp"
-            />
+            android:layout_marginStart="10dp" />
 
         <TextView
             android:layout_width="0dp"
@@ -31,7 +30,7 @@
             android:text="Añadir Tarea"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:layout_marginEnd="30dp"/>
+            android:layout_marginEnd="30dp" />
 
     </LinearLayout>
 
@@ -40,16 +39,36 @@
         android:layout_height="1dp"
         android:background="@color/white" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre:"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"/>
+
     <EditText
         android:id="@+id/addNombreTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:hint="Nombre"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/redondear"
-        android:maxLines="1"
+        android:hint="Nombre"
         android:inputType="text"
-        android:textSize="16sp"
+        android:maxLines="1"
         android:paddingStart="20dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción:"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="30dp"/>
@@ -57,24 +76,33 @@
     <EditText
         android:id="@+id/addDescripcionTarea"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/redondear"
+        android:layout_height="130dp"
         android:hint="Descripción"
-        android:inputType="text"
-        android:maxLines="1"
+        android:background="@color/aqua"
+        android:backgroundTint="@color/white"
+        android:maxLines="4"
+        android:inputType="textMultiLine"
+        android:textSize="16sp"
         android:paddingStart="20dp"
-        android:textSize="16sp" />
+        android:gravity="top|start"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha Límite"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:id="@+id/addFechaLimiteTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
         android:hint="Fecha Límite"
         android:background="@drawable/redondear"
         android:backgroundTint="@color/white"
@@ -82,26 +110,44 @@
         android:focusable="false"
         android:clickable="true"
         android:paddingStart="20dp"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estado"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp" />
 
     <Spinner
         android:id="@+id/addEstadoTarea"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/redondear"/>
+        android:layout_marginTop="10dp"
+        android:background="@drawable/redondear"
+        android:backgroundTint="@color/white" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <Button
         android:id="@+id/addTareaButton"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_gravity="center"
+        android:layout_marginBottom="70dp"
+        android:paddingStart="20dp"
         android:text="Añadir Tarea"
         app:backgroundTint="#00AAAAAA"
         app:cornerRadius="20dp"

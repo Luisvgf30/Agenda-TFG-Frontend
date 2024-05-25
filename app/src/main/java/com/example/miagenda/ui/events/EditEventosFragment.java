@@ -82,7 +82,7 @@ public class EditEventosFragment extends Fragment {
             oldEventName = getArguments().getString("oldEventName");
             editNombreEvento.setText(oldEventName);
             editDescripcionEvento.setText(getArguments().getString("eventDesc"));
-            editFechaEvento.setText(getArguments().getString("eventDate"));
+            //editFechaEvento.setText(getArguments().getString("eventDate"));
         }
 
         // Listener para seleccionar la fecha

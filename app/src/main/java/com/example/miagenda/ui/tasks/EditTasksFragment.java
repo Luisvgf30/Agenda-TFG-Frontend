@@ -1,10 +1,11 @@
+// EditTasksFragment.java
 package com.example.miagenda.ui.tasks;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
@@ -42,6 +43,8 @@ public class EditTasksFragment extends Fragment {
     private Spinner editPrioridadTarea;
     private String oldTaskName;
     private LocalDate selectedDate;
+    private Context context;
+    private String oldStartDate; // Variable para almacenar la fecha inicial
 
     public EditTasksFragment() {
         // Required empty public constructor
@@ -52,6 +55,7 @@ public class EditTasksFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             oldTaskName = getArguments().getString("taskName");
+            oldStartDate = getArguments().getString("startDate"); // Obtener la fecha inicial
         }
     }
 
@@ -64,6 +68,10 @@ public class EditTasksFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        context = getContext();
+        if (context == null) {
+            return;
+        }
 
         editNombreTarea = view.findViewById(R.id.editNombreTarea);
         editDescripcionTarea = view.findViewById(R.id.editDescripcionTarea);
@@ -78,13 +86,13 @@ public class EditTasksFragment extends Fragment {
         editarTareaButton.setOnClickListener(v -> editarTarea());
 
         // Configurar el Spinner de Estado
-        ArrayAdapter<CharSequence> estadoAdapter = ArrayAdapter.createFromResource(requireContext(),
+        ArrayAdapter<CharSequence> estadoAdapter = ArrayAdapter.createFromResource(context,
                 R.array.task_states, android.R.layout.simple_spinner_item);
         estadoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         editEstadoTarea.setAdapter(estadoAdapter);
 
         // Configurar el Spinner de Prioridad
-        ArrayAdapter<CharSequence> prioridadAdapter = ArrayAdapter.createFromResource(requireContext(),
+        ArrayAdapter<CharSequence> prioridadAdapter = ArrayAdapter.createFromResource(context,
                 R.array.task_priority, android.R.layout.simple_spinner_item);
         prioridadAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         editPrioridadTarea.setAdapter(prioridadAdapter);
@@ -121,44 +129,43 @@ public class EditTasksFragment extends Fragment {
         String newTaskLevel = editPrioridadTarea.getSelectedItem().toString();
 
         if (newTaskName.isEmpty() || newTaskDesc.isEmpty() || newLimitDateStr.isEmpty() || newEstado.isEmpty() || newTaskLevel.isEmpty()) {
-            Toast.makeText(getContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Convertir la fecha límite de string a LocalDate
         DateTimeFormatter formatter = null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault());
         }
         LocalDate newLimitDate = null;
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                newLimitDate = LocalDate.parse(newLimitDateStr, formatter);
-            }
-        } catch (Exception e) {
-            Toast.makeText(getContext(), "Formato de fecha incorrecto", Toast.LENGTH_SHORT).show();
-            return;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            newLimitDate = LocalDate.parse(newLimitDateStr, formatter);
         }
 
         // Convertir LocalDate a string en formato "yyyy-MM-dd"
-        LocalDate newLimitDateFormatted = null;
+        String newLimitDateFormatted = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            newLimitDateFormatted = LocalDate.parse(newLimitDate.toString());
+            newLimitDateFormatted = newLimitDate.toString();
         }
 
         PerfilAPI perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
-        SessionManager sessionManager = new SessionManager(requireContext());
+        SessionManager sessionManager = new SessionManager(context);
         String username = sessionManager.getUser().getUsername();
 
-        Call<Void> call = perfilAPI.editTask(
-                username,
-                oldTaskName,
-                newTaskName,
-                newTaskDesc,
-                newLimitDateFormatted, // Utiliza el formato correcto de fecha
-                newEstado,
-                newTaskLevel
-        );
+        Call<Void> call = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            call = perfilAPI.editTask(
+                            username,
+                            oldTaskName,
+                            newTaskName,
+                            newTaskDesc,
+                    LocalDate.parse(newLimitDateFormatted), // Utiliza el formato correcto de fecha
+                            newEstado,
+                            newTaskLevel
+                    );
+        }
+        String finalNewLimitDateFormatted = newLimitDateFormatted;
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
@@ -166,7 +173,8 @@ public class EditTasksFragment extends Fragment {
                     Bundle bundle = new Bundle();
                     bundle.putString("taskName", newTaskName);
                     bundle.putString("taskDesc", newTaskDesc);
-                    bundle.putString("dueDate", newLimitDateStr); // Utiliza el formato original de fecha
+                    bundle.putString("dueDate", finalNewLimitDateFormatted); // Utiliza el formato correcto de fecha
+                    bundle.putString("startDate", oldStartDate); // Agrega la fecha inicial aquí
                     bundle.putString("status", newEstado);
                     bundle.putString("priority", newTaskLevel);
 
@@ -175,17 +183,16 @@ public class EditTasksFragment extends Fragment {
                             .build();
 
                     NavHostFragment.findNavController(EditTasksFragment.this)
-                            .navigate(R.id.action_editTasksFragment_to_myTaskFragment, bundle, navOptions);
+                            .navigate(R.id.navigation_tasks, bundle, navOptions);
                 } else {
-                    Toast.makeText(getContext(), "Error al actualizar la tarea", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Error al actualizar la tarea", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(getContext(), "Fallo de red", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Fallo de red", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 }
