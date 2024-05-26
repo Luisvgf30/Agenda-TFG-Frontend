@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -41,12 +42,10 @@ public class EditProfileFragment extends Fragment {
         passwordIcon = view.findViewById(R.id.password_icon);
 
         Button updateButton = view.findViewById(R.id.editarPerfilButton);
-        updateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateUserProfile(v);
-            }
-        });
+        ImageButton backButton = view.findViewById(R.id.boton_atras);
+
+        updateButton.setOnClickListener(v -> updateUserProfile(v));
+        backButton.setOnClickListener(v -> requireActivity().onBackPressed());
 
         sessionManager = new SessionManager(requireContext());
         usuarioApiClient = new UsuarioApiCliente(); // Initialize your API client here
@@ -58,12 +57,7 @@ public class EditProfileFragment extends Fragment {
             emailEditText.setText(email);
         }
 
-        passwordIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                togglePasswordVisibility();
-            }
-        });
+        passwordIcon.setOnClickListener(v -> togglePasswordVisibility());
 
         return view;
     }

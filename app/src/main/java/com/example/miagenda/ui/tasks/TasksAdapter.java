@@ -1,29 +1,76 @@
 package com.example.miagenda.ui.tasks;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.miagenda.R;
+import com.example.miagenda.SessionManager;
 import com.example.miagenda.api.Tarea;
+import com.example.miagenda.api.retrofit.PerfilAPI;
+import com.example.miagenda.api.retrofit.RetrofitCliente;
+
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHolder> {
 
     private List<Tarea> tareas;
+    private PerfilAPI perfilAPI;
+    private SessionManager sessionManager;
 
-    public TasksAdapter(List<Tarea> tareas) {
+    public TasksAdapter(List<Tarea> tareas, SessionManager sessionManager) {
         this.tareas = tareas;
+        this.sessionManager = sessionManager;
+        this.perfilAPI = RetrofitCliente.getInstance().create(PerfilAPI.class);
     }
 
     public void setTareas(List<Tarea> tareas) {
         this.tareas = tareas;
         notifyDataSetChanged();
+    }
+
+    public void deleteTask(String username, String taskName, int position) {
+        Call<Void> call = perfilAPI.deleteTask(username, taskName);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    tareas.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position, tareas.size());
+
+                    Context context = sessionManager.getContext();
+                    if (context != null) {
+                        Toast.makeText(context, "Tarea eliminada correctamente", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Context context = sessionManager.getContext();
+                    if (context != null) {
+                        Toast.makeText(context, "Error al eliminar la tarea", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Context context = sessionManager.getContext();
+                if (context != null) {
+                    Toast.makeText(context, "Error de red: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @NonNull
@@ -48,12 +95,14 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
         TextView tareaTitulo;
         TextView tareaDescripcion;
         Button estadoTarea;
+        Button deleteTaskButton;
 
         TaskViewHolder(@NonNull View itemView) {
             super(itemView);
             tareaTitulo = itemView.findViewById(R.id.tvTaskName);
             tareaDescripcion = itemView.findViewById(R.id.tvTaskNameLabel);
             estadoTarea = itemView.findViewById(R.id.estadoTask);
+            deleteTaskButton = itemView.findViewById(R.id.deleteTask);
         }
 
         void bind(Tarea tarea) {
@@ -69,6 +118,19 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
                 bundle.putString("status", tarea.getEstado());
                 bundle.putString("priority", tarea.getTask_level());
                 Navigation.findNavController(v).navigate(R.id.myTask, bundle);
+            });
+
+            deleteTaskButton.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                String username = sessionManager.getUsername();
+                if (username != null) {
+                    deleteTask(username, tarea.getTaskName(), position);
+                } else {
+                    Context context = sessionManager.getContext();
+                    if (context != null) {
+                        Toast.makeText(context, "No se pudo obtener el usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }
             });
         }
     }

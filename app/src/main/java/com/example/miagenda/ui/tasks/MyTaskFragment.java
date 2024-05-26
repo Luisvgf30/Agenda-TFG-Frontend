@@ -7,19 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
-
 import com.example.miagenda.R;
 import com.example.miagenda.SessionManager;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -88,8 +85,12 @@ public class MyTaskFragment extends Fragment {
 
         view.findViewById(R.id.miTareaButton).setOnClickListener(v -> {
             Bundle bundle = new Bundle();
-            bundle.putString("username", "yourUsername");
             bundle.putString("taskName", taskName);
+            bundle.putString("taskDesc", taskDesc);
+            bundle.putString("startDate", startDate);
+            bundle.putString("dueDate", dueDate);
+            bundle.putString("status", status);
+            bundle.putString("priority", priority);
             Navigation.findNavController(v).navigate(R.id.action_myTaskFragment_to_editTasksFragment, bundle);
         });
 

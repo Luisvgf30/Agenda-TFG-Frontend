@@ -44,12 +44,9 @@ public class TasksFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
 
         FloatingActionButton fabAgregarTarea = view.findViewById(R.id.fabAgregarTarea);
-        fabAgregarTarea.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.addTasks);
-            }
+        fabAgregarTarea.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            navController.navigate(R.id.addTasks);
         });
 
         return view;
@@ -59,11 +56,11 @@ public class TasksFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        sessionManager = new SessionManager(requireContext());
+        sessionManager = new SessionManager(requireContext()); // Inicializa el sessionManager con requireContext()
 
         recyclerView = view.findViewById(R.id.recyclerViewTasks);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        tasksAdapter = new TasksAdapter(new ArrayList<>());
+        tasksAdapter = new TasksAdapter(new ArrayList<>(), sessionManager);
         recyclerView.setAdapter(tasksAdapter);
         noTasksContainer = view.findViewById(R.id.no_tasks_container);
 

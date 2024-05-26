@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +18,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.example.miagenda.R;
 import com.example.miagenda.SessionManager;
 import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
 import com.google.android.material.datepicker.MaterialDatePicker;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -97,6 +93,27 @@ public class EditTasksFragment extends Fragment {
         prioridadAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         editPrioridadTarea.setAdapter(prioridadAdapter);
 
+        // Llenar los campos con los datos pasados
+        if (getArguments() != null) {
+            String taskName = getArguments().getString("taskName");
+            String taskDesc = getArguments().getString("taskDesc");
+            String taskStatus = getArguments().getString("status");
+            String taskPriority = getArguments().getString("priority");
+
+            editNombreTarea.setText(taskName);
+            editDescripcionTarea.setText(taskDesc);
+
+            if (taskStatus != null) {
+                int statusPosition = estadoAdapter.getPosition(taskStatus);
+                editEstadoTarea.setSelection(statusPosition);
+            }
+
+            if (taskPriority != null) {
+                int priorityPosition = prioridadAdapter.getPosition(taskPriority);
+                editPrioridadTarea.setSelection(priorityPosition);
+            }
+        }
+
         editFechaLimiteTarea.setOnClickListener(v -> showDatePicker());
     }
 
@@ -156,14 +173,14 @@ public class EditTasksFragment extends Fragment {
         Call<Void> call = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             call = perfilAPI.editTask(
-                            username,
-                            oldTaskName,
-                            newTaskName,
-                            newTaskDesc,
+                    username,
+                    oldTaskName,
+                    newTaskName,
+                    newTaskDesc,
                     LocalDate.parse(newLimitDateFormatted), // Utiliza el formato correcto de fecha
-                            newEstado,
-                            newTaskLevel
-                    );
+                    newEstado,
+                    newTaskLevel
+            );
         }
         String finalNewLimitDateFormatted = newLimitDateFormatted;
         call.enqueue(new Callback<Void>() {

@@ -13,6 +13,7 @@ public class SessionManager {
 
     private SharedPreferences sharedPreferences;
     private Gson gson;
+    private Context context;
 
     public SessionManager(Context context) {
         sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
@@ -36,6 +37,10 @@ public class SessionManager {
             return gson.fromJson(userJson, Usuario.class);
         }
         return null;
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     public String getUsername() {
