@@ -2,6 +2,9 @@
 
 package com.example.miagenda.ui.profile;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.example.miagenda.Login;
 import com.example.miagenda.R;
 import com.example.miagenda.SessionManager;
 import com.example.miagenda.api.Usuario;
@@ -94,4 +98,31 @@ public class ProfileFragment extends Fragment {
         }
         return maskedPassword.toString();
     }
+    Button cerrarSesion;
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        cerrarSesion = view.findViewById(R.id.cerrarSesionButton);
+
+        cerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("Cerrar sesión")
+                        .setMessage("¿Estás seguro de que quieres cerrar sesión?")
+                        .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(getActivity(), Login.class);
+                                startActivity(intent);
+                                getActivity().finish();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            }
+        });
+    }
+
 }
