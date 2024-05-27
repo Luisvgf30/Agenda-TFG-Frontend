@@ -17,7 +17,7 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/tvTaskNameLabel"
+                android:id="@+id/tvTaskName"
                 android:layout_width="158dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
@@ -26,10 +26,10 @@
                 android:textColor="@color/white" /> <!-- Margen a la derecha -->
 
             <TextView
-                android:id="@+id/tvTaskName"
+                android:id="@+id/LevelCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvTaskNameLabel"
+                android:layout_below="@id/tvTaskName"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="8dp"
                 android:text=""
@@ -37,12 +37,12 @@
                 android:textColor="@color/white" /> <!-- Margen a la derecha -->
 
             <TextView
-                android:id="@+id/tvTimeRemainingLabel"
+                android:id="@+id/EstadoCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="4dp"
-                android:text="Tiempo restante"
+                android:text="Estado"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/white" />
 
@@ -50,7 +50,7 @@
                 android:id="@+id/tvTimeRemaining"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvTimeRemainingLabel"
+                android:layout_below="@id/EstadoCard"
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="8dp"
                 android:text=""

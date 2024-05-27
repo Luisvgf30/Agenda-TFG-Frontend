@@ -89,7 +89,7 @@ public class EditTasksFragment extends Fragment {
 
         // Configurar el Spinner de Prioridad
         ArrayAdapter<CharSequence> prioridadAdapter = ArrayAdapter.createFromResource(context,
-                R.array.task_priority, android.R.layout.simple_spinner_item);
+                R.array.task_level, android.R.layout.simple_spinner_item);
         prioridadAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         editPrioridadTarea.setAdapter(prioridadAdapter);
 

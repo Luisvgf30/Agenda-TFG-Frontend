@@ -1,7 +1,7 @@
-// MyTaskFragment.java
 package com.example.miagenda.ui.tasks;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +28,7 @@ public class MyTaskFragment extends Fragment {
     private String startDate;
     private String dueDate;
     private String status;
-    private String priority;
+    private String level;
     private SessionManager sessionManager;
 
     public MyTaskFragment() {
@@ -44,7 +44,7 @@ public class MyTaskFragment extends Fragment {
             startDate = getArguments().getString("startDate");
             dueDate = getArguments().getString("dueDate");
             status = getArguments().getString("status");
-            priority = getArguments().getString("priority");
+            level = getArguments().getString("level");
         }
     }
 
@@ -65,14 +65,15 @@ public class MyTaskFragment extends Fragment {
         TextView fechaInicialTarea = view.findViewById(R.id.fechaInicialTarea);
         TextView fechaLimiteTarea = view.findViewById(R.id.fechaLimiteTarea);
         TextView estadoTarea = view.findViewById(R.id.estadoTarea);
-        TextView prioridadTarea = view.findViewById(R.id.prioridadTarea);
+        TextView levelTarea = view.findViewById(R.id.levelTarea);
 
         nombreTarea.setText(taskName);
         descripcionTarea.setText(taskDesc);
         fechaInicialTarea.setText(startDate);
         fechaLimiteTarea.setText(dueDate);
         estadoTarea.setText(status);
-        prioridadTarea.setText(priority);
+        levelTarea.setText(level);  // Asignar el nivel a la vista
+        Log.d("MyTaskFragment", "Level in onViewCreated: " + level); // Registro para depuración
 
         view.findViewById(R.id.boton_atras).setOnClickListener(v -> {
             NavOptions navOptions = new NavOptions.Builder()
@@ -90,7 +91,7 @@ public class MyTaskFragment extends Fragment {
             bundle.putString("startDate", startDate);
             bundle.putString("dueDate", dueDate);
             bundle.putString("status", status);
-            bundle.putString("priority", priority);
+            bundle.putString("level", level);
             Navigation.findNavController(v).navigate(R.id.action_myTaskFragment_to_editTasksFragment, bundle);
         });
 
@@ -110,7 +111,8 @@ public class MyTaskFragment extends Fragment {
                 if (response.isSuccessful()) {
                     Toast.makeText(getContext(), "Tarea eliminada correctamente", Toast.LENGTH_SHORT).show();
                     // Navegar de vuelta a la lista de tareas
-                    NavOptions navOptions = new NavOptions.Builder()
+                    NavOptions navOptions
+                            = new NavOptions.Builder()
                             .setPopUpTo(R.id.myTask, true) // Limpia la pila de retroceso hasta este fragmento
                             .build();
                     NavHostFragment.findNavController(MyTaskFragment.this)

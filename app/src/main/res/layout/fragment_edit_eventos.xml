@@ -41,6 +41,17 @@
         android:layout_height="1dp"
         android:background="@color/white" />
 
+    <TextView
+        android:id="@+id/nombreMiEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre del evento:"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp" />
+
     <EditText
         android:id="@+id/editNombreEvento"
         android:layout_width="match_parent"
@@ -54,22 +65,49 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción:"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"/>
 
     <EditText
         android:id="@+id/editDescripcionEvento"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="130dp"
         android:hint="Descripción"
-        android:background="@drawable/redondear"
+        android:background="@color/aqua"
         android:backgroundTint="@color/white"
-        android:maxLines="1"
-        android:inputType="text"
+        android:maxLines="4"
+        android:inputType="textMultiLine"
         android:textSize="16sp"
         android:paddingStart="20dp"
+        android:gravity="top|start"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp" />
+
+
+    <TextView
+        android:id="@+id/fechaMiEv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha:"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp" />
+
+
 
     <EditText
         android:id="@+id/editFechaEvento"
@@ -80,13 +118,14 @@
         android:backgroundTint="@color/white"
         android:maxLines="1"
         android:inputType="none"
-        android:textSize="16sp"
         android:focusable="false"
         android:clickable="true"
+        android:textSize="16sp"
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginBottom="16dp" />
+
 
     <Button
         android:id="@+id/editarEventoButton"
@@ -95,8 +134,8 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="50dp"
         android:text="Guardar Cambios"
         app:backgroundTint="#00AAAAAA"
         app:cornerRadius="20dp"

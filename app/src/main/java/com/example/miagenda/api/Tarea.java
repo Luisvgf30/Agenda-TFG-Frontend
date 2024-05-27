@@ -1,9 +1,10 @@
 package com.example.miagenda.api;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import com.google.gson.annotations.SerializedName;
 
-public class Tarea {
+public class Tarea implements Serializable {
     @SerializedName("task_name")
     private String taskName;
     @SerializedName("task_desc")
@@ -19,12 +20,14 @@ public class Tarea {
     @SerializedName("username")
     private String username;
 
-    public Tarea(String taskName, String taskDesc, String dateLimit, String username) {
+/*    public Tarea(String taskName, String taskDesc, String estado, String task_level, String dateLimit, String username) {
         this.taskName = taskName;
         this.taskDesc = taskDesc;
+        this.estado = estado;
+        this.task_level = task_level;
         this.dateLimit = dateLimit;
         this.username = username;
-    }
+    }*/
 
     // Getters y Setters
 

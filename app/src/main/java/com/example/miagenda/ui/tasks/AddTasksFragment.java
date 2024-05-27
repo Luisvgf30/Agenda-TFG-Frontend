@@ -64,7 +64,7 @@ public class AddTasksFragment extends Fragment {
 
         // Configurar el Spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(),
-                R.array.task_states, android.R.layout.simple_spinner_item);
+                R.array.task_level, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         addEstadoTarea.setAdapter(adapter);
 
@@ -94,15 +94,15 @@ public class AddTasksFragment extends Fragment {
 
         String taskName = editTaskName.getText().toString();
         String taskDesc = editTaskDesc.getText().toString();
-        String estadoTarea = addEstadoTarea.getSelectedItem().toString();
+        String level = addEstadoTarea.getSelectedItem().toString();
 
-        if (taskName.isEmpty() || taskDesc.isEmpty() || estadoTarea.isEmpty() || selectedDate == null) {
+        if (taskName.isEmpty() || taskDesc.isEmpty() || level.isEmpty() || selectedDate == null) {
             Toast.makeText(requireContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
             return;
         }
 
         PerfilAPI apiService = RetrofitCliente.getInstance().create(PerfilAPI.class);
-        Call<Void> call = apiService.createTask(taskName, taskDesc, selectedDate, estadoTarea, username);
+        Call<Void> call = apiService.createTask(taskName, taskDesc, selectedDate, level, username);
 
         call.enqueue(new Callback<Void>() {
             @Override

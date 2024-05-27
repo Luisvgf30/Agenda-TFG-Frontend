@@ -118,7 +118,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Estado"
+        android:text="Level"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:layout_marginStart="20dp"

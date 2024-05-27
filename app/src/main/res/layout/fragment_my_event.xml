@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
         android:paddingHorizontal="16dp">
 
         <!-- Nombre del evento -->
@@ -59,8 +59,7 @@
             android:layout_height="wrap_content"
             android:text="Nombre del evento:"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/nombreMiEventoTextView"
@@ -68,12 +67,13 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="25sp"
             android:padding="10dp"
             android:drawablePadding="8dp"
             android:drawableTint="@color/white"
             android:hint="Nombre del evento"
             android:focusable="false"
+            android:textStyle="bold"
             android:focusableInTouchMode="false" />
 
         <!-- Descripción del evento -->
@@ -97,9 +97,11 @@
             android:hint="Descripción del evento"
             android:padding="10dp"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="26sp"
+            android:textStyle="bold"
             android:focusable="false"
             android:focusableInTouchMode="false" />
+
 
         <!-- Selector de fecha -->
         <TextView
@@ -119,20 +121,20 @@
             <CalendarView
                 android:id="@+id/fechaMiEventoTextView"
                 android:layout_width="match_parent"
-                android:layout_height="262dp"
+                android:layout_height="320dp"
                 android:backgroundTint="@color/white"
-                android:firstDayOfWeek="2"
                 android:clickable="false"
+                android:firstDayOfWeek="2"
                 android:focusable="false"
                 android:focusableInTouchMode="false" />
 
             <!-- Layout transparente que intercepta los clics -->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="262dp"
+                android:layout_height="322dp"
+                android:background="@android:color/transparent"
                 android:clickable="true"
-                android:focusable="true"
-                android:background="@android:color/transparent" />
+                android:focusable="true" />
 
         </FrameLayout>
 
@@ -146,7 +148,7 @@
         android:paddingStart="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:text="Editar Evento"
         app:backgroundTint="#00AAAAAA"

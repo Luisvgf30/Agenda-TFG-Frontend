@@ -2,6 +2,7 @@ package com.example.miagenda.ui.tasks;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,21 +94,25 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
 
     class TaskViewHolder extends RecyclerView.ViewHolder {
         TextView tareaTitulo;
-        TextView tareaDescripcion;
+        TextView tareaEstado;
+        TextView tareaLevel;
         Button estadoTarea;
         Button deleteTaskButton;
 
         TaskViewHolder(@NonNull View itemView) {
             super(itemView);
             tareaTitulo = itemView.findViewById(R.id.tvTaskName);
-            tareaDescripcion = itemView.findViewById(R.id.tvTaskNameLabel);
+            tareaEstado = itemView.findViewById(R.id.tvTimeRemaining);
+            tareaLevel = itemView.findViewById(R.id.LevelCard);
             estadoTarea = itemView.findViewById(R.id.estadoTask);
             deleteTaskButton = itemView.findViewById(R.id.deleteTask);
         }
 
         void bind(Tarea tarea) {
             tareaTitulo.setText(tarea.getTaskName());
-            tareaDescripcion.setText(tarea.getTaskDesc());
+            tareaEstado.setText(tarea.getEstado());
+            tareaLevel.setText(tarea.getTask_level());
+
 
             estadoTarea.setOnClickListener(v -> {
                 Bundle bundle = new Bundle();
@@ -116,7 +121,9 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
                 bundle.putString("startDate", tarea.getDateInitial());
                 bundle.putString("dueDate", tarea.getDateLimit());
                 bundle.putString("status", tarea.getEstado());
-                bundle.putString("priority", tarea.getTask_level());
+                bundle.putString("level", tarea.getTask_level());
+                Log.d("TasksAdapter", "Level: " + tarea.getTask_level());
+
                 Navigation.findNavController(v).navigate(R.id.myTask, bundle);
             });
 

@@ -207,7 +207,7 @@
             android:textAllCaps="true" />>
 
         <TextView
-            android:id="@+id/prioridadTarea"
+            android:id="@+id/levelTarea"
             android:layout_width="193dp"
             android:layout_height="35dp"
             android:layout_marginTop="32dp"
