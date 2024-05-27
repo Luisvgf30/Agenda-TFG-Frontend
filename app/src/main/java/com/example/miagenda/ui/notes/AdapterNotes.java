@@ -24,10 +24,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class AdapterNotes extends RecyclerView.Adapter<AdapterNotes.MyViewHolder> {
     private final List<Nota> notas;
 
-    MyAdapter(List<Nota> notas) {
+    AdapterNotes(List<Nota> notas) {
         this.notas = notas;
     }
 

@@ -30,7 +30,7 @@ public class NotesFragment extends Fragment {
     private List<Nota> notas = new ArrayList<>();
     private RecyclerView recyclerView;
     private LinearLayout noNotesContainer;
-    private MyAdapter adapter;
+    private AdapterNotes adapter;
 
     public NotesFragment() {
         // Constructor público requerido
@@ -61,7 +61,7 @@ public class NotesFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view);
         noNotesContainer = view.findViewById(R.id.no_notes_container);
 
-        adapter = new MyAdapter(notas);
+        adapter = new AdapterNotes(notas);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
