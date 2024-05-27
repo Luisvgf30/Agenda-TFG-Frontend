@@ -7,25 +7,34 @@
     android:layout_height="match_parent"
     android:background="@color/fondoApp"
     android:orientation="vertical"
-    android:padding="16dp"
+
     tools:context=".ui.profile.ProfileFragment">
 
-    <TextView
-        android:id="@+id/titleTextView"
+    <!-- Barra superior -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Mi Perfil"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:padding="16dp" />
+        android:layout_height="66dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Mi Perfil"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"/>
+
+    </LinearLayout>
+
+    <!-- Línea divisoria -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/white"
-        android:layout_marginVertical="16dp" />
+        android:background="@color/white" />
 
     <TextView
         android:layout_width="match_parent"
@@ -35,6 +44,8 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="8dp" />
 
     <TextView
@@ -44,13 +55,17 @@
         android:text=""
         android:textSize="18sp"
         android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/white"
-        android:layout_marginVertical="8dp" />
+        android:layout_marginVertical="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -59,6 +74,8 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="8dp" />
 
     <TextView
@@ -68,13 +85,18 @@
         android:text=""
         android:textSize="18sp"
         android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/white"
-        android:layout_marginVertical="8dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginVertical="10dp"
+         />
 
     <TextView
         android:layout_width="match_parent"
@@ -83,6 +105,8 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="8dp" />
 
     <TextView
@@ -92,7 +116,9 @@
         android:text=""
         android:textSize="18sp"
         android:textColor="@color/white"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="45dp" />
 
     <Button
         android:id="@+id/editarPerfilButton"
@@ -105,7 +131,11 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:padding="16dp"
-        app:cornerRadius="20dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:cornerRadius="20dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/white"/>
 
     <Button
         android:id="@+id/cerrarSesionButton"
@@ -117,6 +147,8 @@
         android:backgroundTint="@color/rojo"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:padding="16dp"
         app:cornerRadius="20dp" />
 
