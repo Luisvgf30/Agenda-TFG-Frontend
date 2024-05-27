@@ -21,7 +21,6 @@ import com.example.miagenda.api.retrofit.PerfilAPI;
 import com.example.miagenda.api.retrofit.RetrofitCliente;
 import com.google.android.material.datepicker.MaterialDatePicker;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -84,7 +83,6 @@ public class AddEventosFragment extends Fragment {
         MaterialDatePicker<Long> datePicker = builder.build();
 
         datePicker.addOnPositiveButtonClickListener(selection -> {
-            // Convertir el valor de selección a LocalDate
             LocalDate selectedDate = null;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 selectedDate = LocalDate.ofEpochDay(selection / (24 * 60 * 60 * 1000));
@@ -102,20 +100,31 @@ public class AddEventosFragment extends Fragment {
     }
 
     private void createEvent() {
-        String eventName = addNombreEvento.getText().toString();
-        String eventDesc = addDescripcionEvento.getText().toString();
-        LocalDate eventDate = null;
-        // Assuming eventDate is a String. Convert as needed.
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            eventDate = LocalDate.parse(addFechaEvento.getText().toString(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        String eventName = addNombreEvento.getText().toString().trim();
+        String eventDesc = addDescripcionEvento.getText().toString().trim();
+        String eventDateStr = addFechaEvento.getText().toString().trim();
+
+        // Verificar si todos los campos están llenos
+        if (eventName.isEmpty() || eventDesc.isEmpty() || eventDateStr.isEmpty()) {
+            Toast.makeText(getContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        // Obtener el usuario de la sesión
+        LocalDate eventDate = null;
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                eventDate = LocalDate.parse(eventDateStr, formatter);
+            }
+        } catch (Exception e) {
+            Toast.makeText(getContext(), "Formato de fecha incorrecto", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         SessionManager sessionManager = new SessionManager(getContext());
-        String username = sessionManager.getUsername(); // Obtener el nombre de usuario desde la sesión
+        String username = sessionManager.getUsername();
 
         if (username != null) {
-            // Crear la solicitud para añadir el evento
             PerfilAPI apiService = RetrofitCliente.getInstance().create(PerfilAPI.class);
             Call<Void> call = apiService.createEvent(username, eventName, eventDesc, eventDate);
 
@@ -124,11 +133,10 @@ public class AddEventosFragment extends Fragment {
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()) {
                         Toast.makeText(getContext(), "Evento añadido correctamente", Toast.LENGTH_SHORT).show();
-                        // Navegar de vuelta a EventosFragment
                         NavController navController = Navigation.findNavController(getView());
                         navController.navigate(R.id.navigation_calendar);
                     } else {
-                        Toast.makeText(getContext(), "Error al añadir el evento", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Error al añadir el evento: " + response.code(), Toast.LENGTH_SHORT).show();
                     }
                 }
 

@@ -38,7 +38,6 @@ public class EditEventosFragment extends Fragment {
 
     private String oldEventName;
 
-
     public EditEventosFragment() {
         // Required empty public constructor
     }
@@ -82,7 +81,7 @@ public class EditEventosFragment extends Fragment {
             oldEventName = getArguments().getString("oldEventName");
             editNombreEvento.setText(oldEventName);
             editDescripcionEvento.setText(getArguments().getString("eventDesc"));
-            //editFechaEvento.setText(getArguments().getString("eventDate"));
+            editFechaEvento.setText(getArguments().getString("eventDate"));
         }
 
         // Listener para seleccionar la fecha
@@ -120,9 +119,15 @@ public class EditEventosFragment extends Fragment {
     }
 
     private void editEvent() {
-        String newEventName = editNombreEvento.getText().toString();
-        String newEventDesc = editDescripcionEvento.getText().toString();
-        String newEventDateStr = editFechaEvento.getText().toString();
+        String newEventName = editNombreEvento.getText().toString().trim();
+        String newEventDesc = editDescripcionEvento.getText().toString().trim();
+        String newEventDateStr = editFechaEvento.getText().toString().trim();
+
+        // Verificar si todos los campos están llenos
+        if (newEventName.isEmpty() || newEventDesc.isEmpty() || newEventDateStr.isEmpty()) {
+            Toast.makeText(getContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Verificar si oldEventName sigue siendo el valor obtenido en onCreate o se actualizó
         if (oldEventName == null || oldEventName.isEmpty()) {
@@ -135,8 +140,6 @@ public class EditEventosFragment extends Fragment {
             DateTimeFormatter formatter = null;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 newEventDate = LocalDate.parse(newEventDateStr, formatter);
             }
         } catch (Exception e) {
@@ -160,7 +163,7 @@ public class EditEventosFragment extends Fragment {
                             NavController navController = Navigation.findNavController(getView());
                             navController.navigate(R.id.navigation_calendar);
                         } else {
-                            Toast.makeText(getContext(), "Error al editar el evento", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Error al editar el evento: " + response.code(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
