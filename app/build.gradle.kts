@@ -16,6 +16,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -61,5 +62,6 @@ dependencies {
     implementation ("com.google.code.gson:gson:2.8.8")
     implementation ("com.google.android.material:material:1.6.0") // Verifica que esta sea la última versión disponible
 
+    implementation ("androidx.multidex:multidex:2.0.1")
 
 }

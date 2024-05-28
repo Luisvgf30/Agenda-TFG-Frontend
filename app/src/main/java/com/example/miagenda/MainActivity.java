@@ -1,14 +1,14 @@
 package com.example.miagenda;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.multidex.MultiDex;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.miagenda.databinding.ActivityMainBinding;
@@ -18,11 +18,17 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       setUpNavigation();
+        setUpNavigation();
     }
 
     private void setUpNavigation() {
@@ -52,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                     navController.navigate(R.id.navigation_tasks);
                 }
             } else if (id == R.id.navigation_profile) {
-                // Si el destino actual no es el perfil, navega al perfil
                 if (navController.getCurrentDestination().getId() != R.id.navigation_profile) {
                     navController.navigate(R.id.navigation_profile);
                 }
@@ -60,9 +65,4 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
     }
-
-
-
-
-
 }

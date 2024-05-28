@@ -1,5 +1,6 @@
 package com.example.miagenda;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.multidex.MultiDex;
 
 import com.example.miagenda.api.Usuario;
 import com.example.miagenda.api.retrofit.PerfilAPI;
@@ -27,6 +29,12 @@ public class Login extends AppCompatActivity {
     private boolean passwordShowing = false;
     private PerfilAPI perfilAPI;
     private SessionManager sessionManager;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +94,6 @@ public class Login extends AppCompatActivity {
         // Crear la llamada para realizar la solicitud de inicio de sesión
         Call<Usuario> call = perfilAPI.logearUsuario(username, password);
 
-
         // Enqueue para realizar la llamada asíncrona
         call.enqueue(new Callback<Usuario>() {
             @Override
@@ -96,7 +103,6 @@ public class Login extends AppCompatActivity {
                     sessionManager.saveUser(response.body());
                     startActivity(new Intent(Login.this, MainActivity.class));
                     finish();
-
                 } else {
                     // Error en el inicio de sesión
                     if (response.code() == 201) {
@@ -129,5 +135,4 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
 }
