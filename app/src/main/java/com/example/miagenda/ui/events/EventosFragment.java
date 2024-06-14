@@ -88,7 +88,6 @@ public class EventosFragment extends Fragment {
                         updateNoEventsView();
                     }
                 }
-
                 @Override
                 public void onFailure(Call<List<Evento>> call, Throwable t) {
                     Log.d("LoadEvents", "Error al cargar eventos: " + t.getMessage());

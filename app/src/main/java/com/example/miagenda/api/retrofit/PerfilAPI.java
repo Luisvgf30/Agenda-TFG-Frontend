@@ -55,11 +55,11 @@ public interface PerfilAPI {
     );
 
 
-	@FormUrlEncoded
+	/*@FormUrlEncoded
 	@POST("") // dentro de las comillas la ruta en la api"logout"
     Call<Usuario> Logout(
             @Field("token") String token
-    );
+    );*/
 
 
 

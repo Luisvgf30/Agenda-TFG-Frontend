@@ -73,11 +73,11 @@ public class MyTaskFragment extends Fragment {
         fechaLimiteTarea.setText(dueDate);
         estadoTarea.setText(status);
         levelTarea.setText(level);  // Asignar el nivel a la vista
-        Log.d("MyTaskFragment", "Level in onViewCreated: " + level); // Registro para depuración
+        Log.d("MyTaskFragment", "Level in onViewCreated: " + level);
 
         view.findViewById(R.id.boton_atras).setOnClickListener(v -> {
             NavOptions navOptions = new NavOptions.Builder()
-                    .setPopUpTo(R.id.myTask, true)  // Limpia la pila de retroceso hasta este fragmento
+                    .setPopUpTo(R.id.myTask, true)
                     .build();
 
             NavHostFragment.findNavController(MyTaskFragment.this)

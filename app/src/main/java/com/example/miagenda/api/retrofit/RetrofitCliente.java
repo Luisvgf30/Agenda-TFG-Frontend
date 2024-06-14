@@ -8,7 +8,7 @@ public class RetrofitCliente {
     // ip ibra: 192.168.18.15
     //ip ruben: 192.168.1.233
     //192.168.1.138
-    private static final String BASE_URL = "http://192.168.1.138:3000";
+    private static final String BASE_URL = "http://192.168.18.15:3000";
 
     public static Retrofit getInstance() {
         if (retrofit == null) {

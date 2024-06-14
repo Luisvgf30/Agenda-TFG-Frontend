@@ -51,12 +51,12 @@ public class SessionManager {
         return null;
     }
 
-    public void clearSession() {
+    /*public void clearSession() {
         sharedPreferences.edit().remove(KEY_USER).apply();
     }
 
     public boolean isLoggedIn() {
         return sharedPreferences.contains(KEY_USER);
-    }
+    }*/
 }
 
